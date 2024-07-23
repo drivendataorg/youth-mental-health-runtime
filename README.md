@@ -1,256 +1,228 @@
-### If you haven't already done so, start by reading the [Code Submission Format](https://www.drivendata.org/competitions/261/spacecraft-pose-estimation/page/836/) page on the competition website.
+# SNOMED CT Entity Linking Runtime
 
+![Python 3.10](https://img.shields.io/badge/Python-3.10-blue) [![Youth Mental Health: Automated Abstraction](https://img.shields.io/badge/DrivenData-Youth%20Mental%20Health%20Automated%20Abstraction-white?logo=data:image/png;base64,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)](https://www.drivendata.org/competitions/258/competition-snomed-ct/)
 
-# Pose Bowl: Code execution runtime
+Welcome to the data and runtime repository the [Snomed CT Entity Linking Challenge](https://www.drivendata.org/competitions/258/competition-snomed-ct/page/816/) on DrivenData! This repository contains a few things:
 
-Welcome to the runtime repository for the **Pose Estimation Track** of the [Pose Bowl: Spacecraft Detection and Pose Estimation Challenge](https://www.drivendata.org/competitions/261/spacecraft-pose-estimation/)!
+1. **Submission template** ([`examples/template/`](./examples/template/main.py)) — a template with the function signatures that you should implement in your submission.
+2. **Example submission** ([`examples/submission/`](./examples/submission/main.py/)) — a submission with a simple demonstration solution. It will run successfully in the code execution runtime and outputs a valid submission.
+3. **Runtime environment specification** ([`runtime/`](./runtime/)) — the definition of the environment where your code will run.
 
-This repository contains the definition of the environment where your code submissions will run. It specifies both the operating system and the software packages that will be available to your solution.
+You can use this repository to:
 
-This repository has three primary uses for competitors:
+💡 **Get started**: The example submission provides a demonstration solution that loads notes and uses them to generate valid span classification labels. Since it labels all of the text in the provided notes as `4596009 |Laryngeal structure (body structure)|`, it won't win you the competition, but you can use it as a guide for bringing in your own work and generating a real submission.
 
-💡 **Working example solutions** to help you get started with the challenge: 
-- **[Quickstart example](https://github.com/drivendataorg/spacecraft-pose-pose-estimation-runtime/tree/main/example_src):** A minimal example that runs succesfully in the runtime environment and outputs a properly formatted submission CSV. This will generate arbitrary predictions, so unfortunately you won't win the competition with this example, but you can use it as a guide for bringing in your own work and generating a real submission.
-- **[Benchmark example](https://github.com/drivendataorg/spacecraft-pose-pose-estimation-runtime/tree/main/benchmark):**  A modestly more advanced example that uses a YOLO pretrained model to generate bounding box predictions. You won't win the competition with this example either, but it's a step in the right direction.
+🔧 **Test your submission**: Test your submission using a locally running version of the competition runtime to discover errors before submitting to the competition website.
 
-🔧 **Test your submission**: Test your submission with a locally running version of the container to discover errors before submitting to the competition site. Generally, this should save you time and help you iterate faster.
+📦 **Request new packages in the official runtime**: Since your submission will not have general access to the internet, all dependencies must be pre-installed. If you want to use a package that is not in the runtime environment, make a pull request to this repository. Make sure to test out adding the new package to both official environments, CPU and GPU.
 
+Changes to the repository are documented in [CHANGELOG.md](./CHANGELOG.md).
 
-📦 **Request new packages in the official runtime**: All packages required by your submission must be pre-installed, and your submission will not have internet access. If you want to use a package that is not in the runtime environment, make a pull request to this repository.
+---
 
+#### [1. Quickstart](#quickstart)
 
- ----
+- [Prerequisites](#prerequisites)
+- [Setting up the data directory](#setting-up-the-data-directory)
+- [Running `make` commands](#running-make-commands)
+- [Evaluating your annotations](#evaluating-your-annotations)
 
-### [Quickstart](#quickstart)
- - [Prerequisites](#prerequisites)
- - [Download the data](#download-the-data)
- - [The quickstart example](#the-quickstart-example)
- - [Testing the submission](#testing-the-submission)
- - [Evaluating locally](#evaluating-locally)
-### [Developing your own submission](#developing-your-own-submission)
- - [Steps](#steps)
- - [Logging](#logging)
-### [Additional information](#additional-information)
- - [Runtime network access](#runtime-network-access)
- - [Downloading pre-trained weights](#downloading-pre-trained-weights)
- - [Updating runtime packages](#updating-runtime-packages)
+#### [2. Testing a submission locally](#testing-a-submission-locally)
+- [Code submission format](#code-submission-format)
+- [Running your submission locally](#running-your-submission-locally)
+- [Logging and smoke tests](#logging-and-smoke-tests)
+- [Runtime network access](#runtime-network-access)
 
+#### [3. Updating runtime packages](#updating-runtime-packages)
 
-----
+#### [4. Makefile commands](#makefile-commands)
+
+---
 
 ## Quickstart
 
-This section guides you through the steps to test a simple but valid submission for the competition.
+This quickstart guide will show you how to get the provided example solution running end-to-end on data and annotations from the training set. Once you get there, it's off to the races!
 
 ### Prerequisites
 
-First, make sure you have the prerequisites installed.
+When you make a submission on the DrivenData competition site, we run your submission inside a Docker container, a virtual operating system that allows for a consistent software environment across machines. **The best way to make sure your submission to the site will run is to first run it successfully in the container on your local machine**. For that, you'll need:
 
- - A clone or fork of this repository
- - Enough free space on your machine for the spacecraft images dataset (at least 10 GB) and Docker container images (5 GB)
- - [Docker](https://docs.docker.com/get-docker/)
- - [GNU make](https://www.gnu.org/software/make/) (optional, but useful for running commands in the Makefile)
+- A clone of this repository
+- [Docker](https://docs.docker.com/get-docker/)
+- At least 5 GB of free space for the CPU version of the Docker image or at least 13 GB of free space for the GPU version
+- [GNU make](https://www.gnu.org/software/make/) (optional, but useful for running the commands in the Makefile)
 
-### Download the data
+Additional requirements to run with GPU:
 
-First, go to the challenge [download page](https://www.drivendata.org/competitions/261/spacecraft-pose-estimation/data/) to start downloading the challenge data. Save the `submission_format.csv` and `training_labels.csv` in this project's `/data` directory.
+- [NVIDIA drivers](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#package-manager-installation) with CUDA 11
+- [NVIDIA container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html)
 
-The images dataset is broken up into individual tar files of approximately 10 GB in size. Download at least one of these tar files to get started, and then extract it to the `data/images` directory.
 
-Once everything is downloaded and in the right location, it should look something like this:
+### Setting up the data directory
 
-```
-data/                         # Runtime data directory
-├── images/                   # Directory containing image files
-│      │
-│      ├── a0a0d73d0e9a4b16a23bc210a264fd3f.png
-│      ├── a0a6efb87e1fcd0c158ba35ced823250.png
-│      ├── a0a0d73d0e9a4b16a23bc210a264fd3f.png
-│      ├── a0a6efb87e1fcd0c158ba35ced823250.png
-│      └── ...
-│
-├── submission_format.csv     # CSV file showing how submission should be formatted
-└── train_labels.csv          # CSV file with ground truth data
-```
+In the official code execution platform, `code_execution/data` will contain data provided for the test set of clinical notes from MIMIC-IV-Note. The data format is a csv file (`test_notes.csv`) with two columns: "note_id", which contains the ID of the note, and "text", which contains the text of the note. Your code should read this file to obtain the text of each note and run model inference to generate non-overlapping annotated spans.
 
-Later in this guide, when we launch a Docker container from your computer (or the "host" machine), the `data` directory on your host machine will be mounted as a read-only directory in the container as `/code_execution/data`. In the runtime, your code will then be able to access all the competition data at `/code_execution/data`, which will by default look to your script like `./data` since your script will be invoked with `/code_execution` as the working directory.
+For local execution, you should simply copy over the set of train notes that you [accessed](https://www.drivendata.org/competitions/258/competition-snomed-ct/page/821/) from the challenge PhysioNet page into the `data/` directory and name them `test_notes.csv`. 
 
-### The quickstart example
+### Running `make` commands
 
-A working example submission is provided in this project's [`example_src/`](https://github.com/drivendataorg/spacecraft-pose-pose-estimation-runtime/tree/main/example_src) to help you get started. 
+To test out the full execution pipeline, make sure Docker is running and then run the following commands in the terminal:
 
-In that directory, you'll see the [`main.sh`](https://github.com/drivendataorg/spacecraft-pose-pose-estimation-runtime/blob/main/example_src/main.sh) file that you're required to include in your submission. Below are the full contents of that file -- for this simple example, this script simply sets a couple path variables and runs a python script called `main.py`. You are welcome to make the `main.sh` behavior more complex as you develop your submission and there's no requirement that you use it to call a python script (we just think this will be a fairly common use pattern).
+1. **`make pull`** pulls the latest official Docker image from the container registry ([Azure](https://azure.microsoft.com/en-us/services/container-registry/)). You'll need an internet connection for this.
+1. **`make pack-example`** packages a code submission with the `main.py` contained in `examples/submission/` that labels all text in the notes as "Larynx" and saves it as `submission/submission.zip`. 
+1. **`make test-submission`** will do a test run of your submission, simulating what happens during actual code execution. This command runs the Docker container with the requisite host directories mounted, and executes `main.py` to produce a `submission.csv` file containing your predicted annotations.
 
 ```bash
-#!/usr/bin/env bash
-
-DATA_DIR=/code_execution/data
-SUBMISSION_PATH=/code_execution/submission/submission.csv
-
-# call our script (main.py in this case) and tell it where the data and submission live
-python main.py $DATA_DIR $SUBMISSION_PATH
-```
-
-The [`main.py`](https://github.com/drivendataorg/spacecraft-pose-pose-estimation-runtime/blob/main/example_src/main.py) script is fairly straightforward as well. For this quickstart example, the script doesn't even try to generate reasonable predictions. It just returns an arbitrary bounding box for each image in the dataset. That won't generate a very good score, but it will still be a valid submission, which is what we're interested in for starters.
-
-### Testing the submission
-
-The primary purpose of this runtime repository is to allow you to easily test your submission before making a submission to the DrivenData platform. 
-
-Your submission is going to run inside a Docker container on our code execution platform. This repository contains the definition for that (Docker container)[https://github.com/drivendataorg/spacecraft-pose-pose-estimation-runtime/tree/main/runtime], as well as a few commands you can run to easily download the Docker image and test your submission. Below we walk through those commands.
-
-First, make sure Docker is running and then run the following commands in your terminal:
-
-1. **`make pull`** downloads the latest official Docker image from the container registry ([Azure](https://azure.microsoft.com/en-us/services/container-registry/)). You'll need an internet connection for this.
-2. **`make pack-example`** zips the contents of the `example_src` directory and saves it as `submission/submission.zip`. This is the file that you will upload to the DrivenData competition site for code execution. But first we'll test that everything looks good locally in step #3. 
-   * Note: When running this again in the future, you may need to first run `make clean` before you re-pack the example for submission, both because it won't rerun by default if the submission file already exists, and also because sometimes running with Docker before may have created files in the mounted submission directory with different permissions.
-3. **`make test-submission`** will do a test run of your submission, simulating what happens during actual code execution. This command runs the Docker container with the requisite host directories mounted, and executes `main.sh` to produce a CSV file with your image rankings at `submission/submission.csv`.
-
-```sh
 make pull
-make clean && make pack-example
+make pack-example
 make test-submission
 ```
 
-🎉 **Congratulations!** You've just tested a submission for the Pose Bowl challenge. If everything worked as expected, you should see a new file has been generated at `submission/submission.csv`.
+🎉 **Congratulations!** You've just completed your first test run for the SNOMED CT Entity Linking Challenge. If everything worked as expected, you should see a new file `submission/submission.csv` has been generated.
 
-If you were ready to make a real submission to the competition, you would upload the `submission.zip` file from step 2 above to the competition [Submissions page](https://www.drivendata.org/competitions/261/spacecraft-pose-estimation/submissions/). Once submitted, our code execution platform would then run your submission, and generate a new `submission.csv` on the unseen test set that will get **scored** automatically using the [competition scoring metric](https://www.drivendata.org/competitions/261/spacecraft-pose-estimation/page/834/#performance-metric) to determine your rank on the leaderboard.
+If you were ready to make a real submission to the competition, you would upload the `submission.zip` file from step 2 above to the competition [Submissions page](https://www.drivendata.org/competitions/258/competition-snomed-ct/submissions/).
 
-### Evaluating locally
+### Evaluating your annotations
 
-In your local model development and cross validation, you may wish to use the same scoring
-metric that will be employed when your real submissions are scored. We have included a script
-that implements the same logic at `scripts/score.py`.
-
-The usage is:
+We also provide a script for you to evaluate your generated annotations. This script takes paths to the predicted annotations file and the corresponding ground truth annotations file and evaluates the [macro-averaged character-level IoU metric](https://www.drivendata.org/competitions/258/competition-snomed-ct/page/817/#performance-metric).
 
 ```
-❯ python scripts/score.py --help
-usage: score.py [-h] predicted_path actual_path
-
-Calculates the pose error score for the Pose Bowl: Spacecraft Detection and Pose Estimation Challenge. Args: predicted_path (str | Path): Path to
-predictions CSV file matching submission format actual_path (str | Path): Path to ground truth CSV file Returns: dict[int, Dict[str, float]]:
-Dictionary of scores for each trajectory
-
-positional arguments:
-  predicted_path  Path to predictions CSV.
-  actual_path     Path to ground truth CSV.
-
-options:
-  -h, --help      show this help message and exit
+python scripts/scoring.py submission/submission.csv data/train_annotations.csv
+#> macro-averaged character IoU metric: 0.0000
 ```
 
-For example, using the `submission_format.py` as the predictions with our training labels as the
-ground truth, we can verify that we achieve a (bad!) score:
+It's probably not going to win the competition, but at least it's only up from here!
 
-```
-❯ python scripts/score.py data/submission_format.csv data/train_labels.csv
-{
-  "mean_translation_error": 1.0,
-  "mean_rotation_error": 1.0,
-  "score": 2.0
-}
-```
 
-----
+## Testing your submission locally
 
-## Developing your own submission
+As you develop your own submission, you'll need to know a little bit more about how your submission will be unpacked for running inference. This section contains more complete documentation for developing and testing your own submission.
 
-Now that you've gone through the quickstart example, let's talk about how to develop your own solution for the competition.
+### Code submission format
 
-### Steps
+Your final submission should be a zip archive named with the extension `.zip` (for example, `submission.zip`). The root level of the `submission.zip` file must contain a `main.py` which generates a file called `submission.csv` that contains your predicted annotations for the notes. Your `submission.csv` file should have the same structure as the submission format.
 
-This section provides instructions on how to develop and run your code submission locally using the Docker container. To make things simpler, key processes are already defined in the `Makefile`. Commands from the `Makefile` are then run with `make {command_name}`. The basic steps are:
+A template for `main.py` is included at [`examples/template/main.py`](./examples/template/main.py). For more detail, see the "what to submit" section of the [code submission page](https://www.drivendata.org/competitions/258/competition-snomed-ct/page/818/).
 
-```
+### Running your submission locally
+
+This section provides instructions on how to run the your submission in the code execution container from your local machine. To simplify the steps, key processes have been defined in the `Makefile`. Commands from the `Makefile` are then run with `make {command_name}`. The basic steps are:
+
+```sh
 make pull
 make pack-submission
 make test-submission
 ```
 
-Let's walk through what you'll need to do, step-by-step. The overall process here is very similar to what we've already covered in the [Quickstart](#quickstart), but we'll go into more depth this time around.
+Run `make help` for more information about the available commands as well as information on the official and built images that are available locally.
 
-1. **[Set up the prerequisites](#prerequisites)**
+Here's the process in a bit more detail:
 
-2. **[Download the data](#download-the-data)**
+1. First, make sure you have set up the [prerequisites](#prerequisites).
+1. Download the official competition Docker image:
 
-3. **Download the official competition Docker image:**
-
-    ```bash
-    $ make pull
+    ```sh
+    make pull
     ```
 
-4. ⚙️ **Save all of your submission files, including the required `main.sh` script, in the `submission_src` folder of the runtime repository.** This is where the real work happens.
-   * You are free to modify the `main.sh` scripts we've provided as examples. Just make sure that you adhere to the competition rules and you still produce a `submission.csv` in the correct format.
-   * Also keep in mind that the runtime already contains a number of packages that might be useful for you (see: [environment.yml](https://github.com/drivendataorg/spacecraft-pose-pose-estimation-runtime/blob/main/runtime/environment.yml)). If there are other packages you'd like added, see the section below on [updating runtime packages](#updating-runtime-packages).
-   * Finally, make sure any model weights or other files you need are also saved in `submission_src`.
+> [!NOTE]
+> If you have built a local version of the runtime image with `make build`, that image will take precedence over the pulled image when using any make commands that run a container. You can explicitly use the pulled image by setting the `SUBMISSION_IMAGE` shell/environment variable to the pulled image or by deleting all locally built images.
 
-5. **Create a `submission/submission.zip` file containing your code and model assets in `submission_src`:**
+1. Save all of your submission files, including the required `main.py` script, in the `submission_src` folder of the runtime repository. Make sure any needed model weights and other assets are saved in `submission_src` as well.
 
-    ```bash
-    $ make pack-submission
+1. Create a `submission/submission.zip` file containing your code and model assets:
+
+    ```sh
+    make pack-submission
+    #> mkdir -p submission/
+    #> cd submission_src; zip -r ../submission/submission.zip ./*
+    #>   adding: main.py (deflated 73%)
     ```
 
-6. **Test your submission.** The command below will launch an instance of the competition Docker image, replicating the same inference process that takes place in the official code execution runtime. This will mount the requisite host directories on the Docker container, unzip `submission/submission.zip` into the root directory of the container, and then execute `main.sh` to produce a CSV file with your predictions at `submission/submission.csv`.
+1. Launch an instance of the competition Docker image, and run the same inference process that will take place in the official runtime:
 
-   ```
-   $ make test-submission
-   ```
+    ```sh
+    make test-submission
+    ```
 
+This runs the container [entrypoint](./runtime/entrypoint.sh) script. First, it unzips `submission/submission.zip` into `/code_execution/src/` in the container. Then, it runs your submitted `main.py`. In the local testing setting, the final submission is saved out to `submission/submission.csv` on your local machine.
 
-> ⚠️ **Remember** that for local testing purposes, the `/code_execution/data` directory is just a mounted version of what you have saved locally in this project's `data` directory. So you will just be using the publicly available training files for local testing. In the official code execution environment, `/code_execution/data` will contain the _actual test data_, which no participants have access to, and this is what will be used to compute your score for the leaderboard.
+> [!NOTE]
+> Remember that `code_execution/data` is just a mounted version of what you have saved locally in `data` so you will just be using the training files for local testing. In the official code execution platform, `code_execution/data` will contain the actual test data.
 
+When you run `make test-submission` the logs will be printed to the terminal and written out to `submission/log.txt`. If you run into errors, use the `log.txt` to determine what changes you need to make for your code to execute successfully.
 
-### Logging
+### Logging and smoke tests
 
-When you run `make test-submission` the logs will be printed to the terminal and written out to `submission/log.txt`. If you run into errors, use the `log.txt` to determine what changes you need to make for your code to execute successfully. This same log will be kept when you make a submission on the platform, which you can access through the user interface. Note: try to be judicious about what you keep in the log - if the log is overly chatty it may get truncated when you view it on the platform.
+In order to prevent leakage of the IDs of notes in the test set, **all logging is prohibited when running inference on the test set notes**. When submitting on the platform, you will have the ability to submit "smoke tests". Smoke tests run with logging enabled on a reduced version of the training set notes in order to run more quickly. They will not be considered for prize evaluation and are intended to let you test your code for correctness. In this competition, smoke tests will be the only place you can view logs or output from your code and to debug. **You should test your code locally as thorougly as possible before submitting your code for smoke tests or for full evaluation.**
 
+The set of notes in the smoke test environment is a subset of the training set notes. We've made it easy to replicate the smoke test note environment locally - all you have to do is:
 
----
-## Additional information
+1. Copy the set of training notes into `data/train_notes.csv`
+1. Copy the set of training annotations into `data/train_annotations.csv`
+1. Run `make smoke-test-data`
 
-### Runtime network access
+You'll now have the smoke test notes in `data/test_notes.csv` and the corresponding annotations in `data/smoke_test_annotations.csv`. You can run your submission and then score your generated annotations by running
 
-All internet access is blocked in the runtime environment. This means that you will need to package any required resources into your `submission.zip`. 
+```sh
+python scripts/scoring.py submission/submission.csv data/smoke_test_annotations.csv
+```
 
-For example, it is common for models to download pre-trained weights. Since submissions do not have internet access, you will need to include all weights along with your `submission.zip` and make sure that your code loads them from disk and rather than the internet.
+If you've followed the above instructions, this score should match the one you receive from the smoke test environment on the platform.
 
+## Updating runtime packages
 
-### Downloading pre-trained weights
+If you want to use a package that is not in the environment, you are welcome to make a pull request to this repository. If you're new to the GitHub contribution workflow, check out [this guide by GitHub](https://docs.github.com/en/get-started/quickstart/contributing-to-projects).
 
-It is common for models to download pre-trained weights from the internet. Since submissions do not have open access to the internet, you will need to include all weights along with your `submission.zip` and make sure that your code loads them from disk and rather than the internet.
-
-
-### Updating runtime packages
-
-If you want to use a package that is not in the environment, you are welcome to make a pull request to this repository. If you're new to the GitHub contribution workflow, check out [this guide by GitHub](https://docs.github.com/en/get-started/quickstart/contributing-to-projects). The runtime manages dependencies using [conda](https://docs.conda.io/en/latest/) environments. [Here is a good general guide](https://towardsdatascience.com/a-guide-to-conda-environments-bc6180fc533) to conda environments. The official runtime uses **Python 3.10** environment.
+The runtime manages dependencies using [conda](https://docs.conda.io/en/latest/) environments and [conda-lock](https://github.com/conda/conda-lock). [Here is a good general guide](https://towardsdatascience.com/a-guide-to-conda-environments-bc6180fc533) to conda environments. The official runtime uses **Python 3.10.13** environments.
 
 To submit a pull request for a new package:
 
 1. Fork this repository.
 
-2. Edit the [conda](https://docs.conda.io/en/latest/) environment YAML files, `runtime/environment-cpu.yml` and `runtime/environment-gpu.yml`. There are two ways to add a requirement:
-    - Add an entry to the `dependencies` section. This installs from a conda channel using `conda install`. Conda performs robust dependency resolution with other packages in the `dependencies` section, so we can avoid package version conflicts.
-    - Add an entry to the `pip` section. This installs from PyPI using `pip`, and is an option for packages that are not available in a conda channel.
+2. Install conda-lock. See [here](https://github.com/conda/conda-lock#installation) for installation options.
 
-    For both methods be sure to include a version, e.g., `numpy==1.20.3`. This ensures that all environments will be the same.
+3. Edit the [conda](https://docs.conda.io/en/latest/) environment YAML files, `runtime/environment-cpu.yml` and `runtime/environment-gpu.yml`. There are two ways to add a requirement:
 
-3. Locally test that the Docker image builds successfully for CPU and GPU images:
+    - Conda package manager **(preferred)**: Add an entry to the `dependencies` section. This installs from the [conda-forge](https://anaconda.org/conda-forge/) channel using `conda install`. Conda performs robust dependency resolution with other packages in the `dependencies` section, so we can avoid package version conflicts.
+    - Pip package manager: Add an entry to the `pip` section. This installs from PyPI using `pip`, and is an option for packages that are not available in a conda channel.
+
+4. Run `make update-lockfiles`. This will read `environment-cpu.yml` and `environment-gpu.yml`, resolve exact package versions, and save the pinned environments to `conda-lock-cpu.yml` and `conda-lock-gpu.yml`.
+
+5. Locally test that the Docker image builds successfully for CPU and GPU images:
 
     ```sh
-    make build
+    CPU_OR_GPU=cpu make build
+    CPU_OR_GPU=gpu make build
     ```
 
-4. Commit the changes to your forked repository.
+6. Commit the changes to your forked repository. Ensure that your branch includes updated versions of _all_ of the following:
 
-5. Open a pull request from your branch to the `main` branch of this repository. Navigate to the [Pull requests](https://github.com/drivendataorg/spacecraft-pose-pose-estimation-runtime/pulls) tab in this repository, and click the "New pull request" button. For more detailed instructions, check out [GitHub's help page](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork).
+    - `runtime/conda-lock-cpu.yml`
+    - `runtime/conda-lock-gpu.yml`
+    - `runtime/environment-cpu.yml`
+    - `runtime/environment-gpu.yml`
 
-6. Once you open the pull request, Github Actions will automatically try building a new Docker image with your changes and running the tests in `runtime/tests`. These tests can take up to 30 minutes, and may take longer if your build is queued behind others. You will see a section on the pull request page that shows the status of the tests and links to the logs.
+7. Open a pull request from your branch to the `main` branch of this repository. Navigate to the [Pull requests](https://github.com/drivendataorg/water-supply-forecast-rodeo-runtime/pulls) tab in this repository, and click the "New pull request" button. For more detailed instructions, check out [GitHub's help page](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork).
 
-7. You may be asked to submit revisions to your pull request if the tests fail or if a DrivenData team member has feedback. Pull requests won't be merged until all tests pass and the team has reviewed and approved the changes.
+8. Once you open the pull request, we will use Github Actions to build the Docker images with your changes and run the tests in `runtime/tests`. For security reasons, administrators may need to approve the workflow run before it happens. Once it starts, the process can take up to 30 minutes, and may take longer if your build is queued behind others. You will see a section on the pull request page that shows the status of the tests and links to the logs.
 
----
+9. You may be asked to submit revisions to your pull request if the tests fail or if a DrivenData staff member has feedback. Pull requests won't be merged until all tests pass and the team has reviewed and approved the changes.
 
-## Good luck! And have fun!
+## Make commands
 
-Thanks for reading! Enjoy the competition, and [hit up the forums](tktk) if you have any questions!
+A Makefile with several helpful shell recipes is included in the repository. The runtime documentation above uses it extensively. Running `make` by itself in your shell will list relevant Docker images and provide you the following list of available commands:
+
+```
+Available commands:
+
+build               Builds the container locally
+clean               Delete temporary Python cache and bytecode files
+interact-container  Open an interactive bash shell within the running container (with network access)
+pack-example        Creates a submission/submission.zip file from the source code in examples_src
+pack-submission     Creates a submission/submission.zip file from the source code in submission_src
+pull                Pulls the official container from Azure Container Registry
+test-container      Ensures that your locally built image can import all the Python packages successfully when it runs
+test-submission     Runs container using code from `submission/submission.zip` and data from WSFR_DATA_ROOT (default `data/`)
+update-lockfiles    Updates runtime environment lockfiles
+```
