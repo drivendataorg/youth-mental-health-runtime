@@ -4,4 +4,3 @@ tzdata
 wget
 zip
 parallel
-python3-opencv
