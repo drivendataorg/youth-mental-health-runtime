@@ -3,14 +3,10 @@ import importlib
 import pytest
 
 packages = [
-    "keras",
     "numpy",
     "pandas",
     "scipy",
     "sklearn",
-    "tensorflow",
-    "torch",
-    "cv2",
 ]
 
 
