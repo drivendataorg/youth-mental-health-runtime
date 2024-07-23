@@ -15,7 +15,7 @@ You can use this repository to:
 
 📦 **Request new packages in the official runtime**: Since your submission will not have general access to the internet, all dependencies must be pre-installed. If you want to use a package that is not in the runtime environment, make a pull request to this repository. Make sure to test out adding the new package to both official environments, CPU and GPU.
 
-Changes to the repository are documented in [CHANGELOG.md](./CHANGELOG.md).
+Any changes to the repository will be documented in `CHANGELOG.md`.
 
 ---
 
