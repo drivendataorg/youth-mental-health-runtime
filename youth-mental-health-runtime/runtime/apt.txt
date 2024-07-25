@@ -3,4 +3,3 @@ libxml2
 tzdata
 wget
 zip
-parallel

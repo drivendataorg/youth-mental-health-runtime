@@ -1,0 +1,5 @@
+black
+conda-lock
+pip-tools
+ruff
+typer

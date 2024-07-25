@@ -1,6 +1,8 @@
-FROM mambaorg/micromamba:bookworm-slim
+FROM --platform=linux/amd64 mambaorg/micromamba:1.5.3-bookworm-slim
 
 USER root
+
+ARG CPU_OR_GPU=gpu
 
 ENV DEBIAN_FRONTEND=noninteractive \
     LANG=C.UTF-8  \
@@ -15,17 +17,17 @@ RUN apt-get update --fix-missing \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /apt.txt
 
-COPY --chown=$MAMBA_USER:$MAMBA_USER environment.yml /tmp/env.yml
-RUN micromamba install --name base --yes --file /tmp/env.yml && \
+COPY --chown=$MAMBA_USER:$MAMBA_USER conda-lock-${CPU_OR_GPU}.yml /tmp/conda-lock.yml
+RUN micromamba install --name base --yes --file /tmp/conda-lock.yml && \
     micromamba clean --all --force-pkgs-dirs --yes
 
-RUN mkdir -p /code_execution/submission
+RUN mkdir /code_execution
 RUN chown -R ${MAMBA_USER}:${MAMBA_USER} /code_execution
 
+COPY tests /code_execution/tests
 COPY entrypoint.sh /entrypoint.sh
 
 WORKDIR /code_execution
 USER ${MAMBA_USER}
-COPY tests /code_execution/tests
 
 CMD ["bash", "/entrypoint.sh"]

@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ code_job_uuid }}"
+  namespace: default
+  labels:
+    app: "{{ code_job_uuid }}"
+    role: drivendata_submission
+spec:
+  restartPolicy: Never
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 57439
+  activeDeadlineSeconds: 3600  # 1 hour
+  containers:
+  - name: entryrunner
+    image: "cdcnarratives.azurecr.io/cdc-narratives-competition:gpu-latest"
+    env:
+    - name: LOGURU_LEVEL
+      value: "INFO"
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop: [ALL]
+    imagePullPolicy: Always
+    terminationMessagePath: "/tmp/log"
+    resources:
+      
+      limits:
+        nvidia.com/gpu: 1
+      requests:
+        nvidia.com/gpu: 1
+      
+    volumeMounts:
+    - name: competitorstorage
+      mountPath: /code_execution/submission
+    - name: drivendataartifacts
+      mountPath: /code_execution/data
+      readOnly: true
+    - name: dshm
+      mountPath: /dev/shm
+    - name: nvidia
+      mountPath: /usr/local/nvidia
+  volumes:
+  - name: competitorstorage
+    csi:
+      driver: blob.csi.azure.com
+      readOnly: false
+      volumeAttributes:
+        containerName: "{{ container_name }}"
+        secretName: azure-secret
+        mountOptions: "--file-cache-timeout-in-seconds=120 -o allow_other"
+  - name: drivendataartifacts
+    csi:
+      driver: blob.csi.azure.com
+      readOnly: false
+      volumeAttributes:
+        containerName: data
+        secretName: azure-secret
+        mountOptions: "--file-cache-timeout-in-seconds=120 -o allow_other"
+  - name: dshm
+    emptyDir:
+      medium: Memory
+  - name: nvidia
+    hostPath:
+      path: /usr/local/nvidia
+  imagePullSecrets:
+  - name: container-registry-secrets
