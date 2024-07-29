@@ -249,7 +249,6 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/tensorboard-data-server-0.7.0-py310h75e40e8_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/tensorflow-2.13.1-cpu_py310hd1aba9c_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/tensorflow-base-2.13.1-cpu_py310h3c6a6a6_1.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-64/tensorflow-cpu-2.13.1-cpu_py310h718b53a_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/tensorflow-estimator-2.13.1-cpu_py310haacee6a_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/termcolor-2.4.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/thinc-8.2.5-py310h9fd543b_0.conda
@@ -609,7 +608,9 @@ environments:
       - conda: https://conda.anaconda.org/nvidia/linux-64/cuda-nvrtc-11.8.89-0.tar.bz2
       - conda: https://conda.anaconda.org/nvidia/linux-64/cuda-nvtx-11.8.86-0.tar.bz2
       - conda: https://conda.anaconda.org/nvidia/linux-64/cuda-runtime-11.8.0-0.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/noarch/cuda-version-11.8-h70ddcb2_3.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/cudatoolkit-11.8.0-h4ba93d1_13.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/cudnn-8.9.7.29-hbc23b4c_3.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/cupy-12.0.0-py310h9216885_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/cymem-2.0.8-py310hc6cd4ac_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/cython-blis-0.7.10-py310h1f7b6fc_2.conda
@@ -730,6 +731,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/multidict-6.0.5-py310h2372a71_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/multiprocess-0.70.15-py310h2372a71_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/murmurhash-1.0.10-py310hc6cd4ac_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/nccl-2.22.3.1-hee583db_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/ncurses-6.5-h59595ed_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/networkx-3.3-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/nodejs-20.12.2-hb753e55_0.conda
@@ -815,9 +817,9 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/tbb-2021.12.0-h434a139_3.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tensorboard-2.13.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/tensorboard-data-server-0.7.0-py310h75e40e8_1.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-64/tensorflow-2.13.1-cpu_py310hd1aba9c_1.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-64/tensorflow-base-2.13.1-cpu_py310h3c6a6a6_1.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-64/tensorflow-estimator-2.13.1-cpu_py310haacee6a_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/tensorflow-2.13.1-cuda118py310h189a05f_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/tensorflow-base-2.13.1-cuda118py310h0627607_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/tensorflow-estimator-2.13.1-cuda118py310h0a60075_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/termcolor-2.4.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/thinc-8.2.5-py310h9fd543b_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/threadpoolctl-3.5.0-pyhc1e730c_0.conda
@@ -840,7 +842,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/weasel-0.3.4-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/werkzeug-3.0.3-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/wheel-0.43.0-pyhd8ed1ab_1.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-64/wrapt-1.16.0-py310h2372a71_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/wrapt-1.14.1-py310h5764c6d_1.tar.bz2
       - conda: https://conda.anaconda.org/xformers/linux-64/xformers-0.0.23-py310_cu11.8.0_pyt2.1.1.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/linux-64/xxhash-0.8.2-hd590300_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/xz-5.2.6-h166bdaf_0.tar.bz2
@@ -2031,6 +2033,22 @@ packages:
   timestamp: 1709167844463
 - kind: conda
   name: cuda-version
+  version: '11.8'
+  build: h70ddcb2_3
+  build_number: 3
+  subdir: noarch
+  noarch: generic
+  url: https://conda.anaconda.org/conda-forge/noarch/cuda-version-11.8-h70ddcb2_3.conda
+  sha256: 53e0ffc14ea2f2b8c12320fd2aa38b01112763eba851336ff5953b436ae61259
+  md5: 670f0e1593b8c1d84f57ad5fe5256799
+  constrains:
+  - cudatoolkit 11.8|11.8.*
+  - __cuda >=11
+  license: LicenseRef-NVIDIA-End-User-License-Agreement
+  size: 21043
+  timestamp: 1709765911943
+- kind: conda
+  name: cuda-version
   version: '12.5'
   build: '3'
   build_number: 3
@@ -2063,6 +2081,26 @@ packages:
   license: LicenseRef-NVIDIA-End-User-License-Agreement
   size: 715605660
   timestamp: 1706881738892
+- kind: conda
+  name: cudnn
+  version: 8.9.7.29
+  build: hbc23b4c_3
+  build_number: 3
+  subdir: linux-64
+  url: https://conda.anaconda.org/conda-forge/linux-64/cudnn-8.9.7.29-hbc23b4c_3.conda
+  sha256: c553234d447d9938556f067aba7a4686c8e5427e03e740e67199da3782cc420c
+  md5: 4a2d5fab2871d95544de4e1752948d0f
+  depends:
+  - __glibc >=2.17
+  - __glibc >=2.17,<3.0.a0
+  - cuda-version >=11.0,<12.0a0
+  - cudatoolkit 11.*
+  - libgcc-ng >=12
+  - libstdcxx-ng >=12
+  - libzlib >=1.2.13,<2.0.0a0
+  license: LicenseRef-cuDNN-Software-License-Agreement
+  size: 465458543
+  timestamp: 1710307873021
 - kind: conda
   name: cupy
   version: 12.0.0
@@ -4448,6 +4486,24 @@ packages:
   size: 34923
   timestamp: 1695449960305
 - kind: conda
+  name: nccl
+  version: 2.22.3.1
+  build: hee583db_1
+  build_number: 1
+  subdir: linux-64
+  url: https://conda.anaconda.org/conda-forge/linux-64/nccl-2.22.3.1-hee583db_1.conda
+  sha256: 839965dc4a05b6eef548aa8bb6c76e9dadfd06046bd5ee006d9028a72547ac9c
+  md5: f6ec6886214a80beace66f0b9fdf7e4b
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - cuda-version >=11.0,<12.0a0
+  - libgcc-ng >=12
+  - libstdcxx-ng >=12
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 131011211
+  timestamp: 1722291009246
+- kind: conda
   name: ncurses
   version: '6.5'
   build: h59595ed_0
@@ -6316,6 +6372,25 @@ packages:
   size: 35209
   timestamp: 1697880154196
 - kind: conda
+  name: tensorflow
+  version: 2.13.1
+  build: cuda118py310h189a05f_1
+  build_number: 1
+  subdir: linux-64
+  url: https://conda.anaconda.org/conda-forge/linux-64/tensorflow-2.13.1-cuda118py310h189a05f_1.conda
+  sha256: 72d5b879fb6dbe2bbabefa6d09dd069776b25d0b826ab37054b6d4c0da3369d4
+  md5: dde76021551304a16139198fdcd815f9
+  depends:
+  - __cuda
+  - python >=3.10,<3.11.0a0
+  - python_abi 3.10.* *_cp310
+  - tensorflow-base 2.13.1 cuda118py310h0627607_1
+  - tensorflow-estimator 2.13.1 cuda118py310h0a60075_1
+  license: Apache-2.0
+  license_family: Apache
+  size: 35244
+  timestamp: 1697899836571
+- kind: conda
   name: tensorflow-base
   version: 2.13.1
   build: cpu_py310h3c6a6a6_1
@@ -6368,20 +6443,60 @@ packages:
   size: 129082341
   timestamp: 1697879814763
 - kind: conda
-  name: tensorflow-cpu
+  name: tensorflow-base
   version: 2.13.1
-  build: cpu_py310h718b53a_1
+  build: cuda118py310h0627607_1
   build_number: 1
   subdir: linux-64
-  url: https://conda.anaconda.org/conda-forge/linux-64/tensorflow-cpu-2.13.1-cpu_py310h718b53a_1.conda
-  sha256: 08ea6068e1b30b6580cde56cddf192f1914aea37732c2dd6cf18f9b60a92fb92
-  md5: 4bb02113554df2ecea83e55d9b5f675e
+  url: https://conda.anaconda.org/conda-forge/linux-64/tensorflow-base-2.13.1-cuda118py310h0627607_1.conda
+  sha256: 1e09a4de7e3d18fc645214c11d4797500508772432348bbcf9eba5ecfb1f0fc8
+  md5: d7c8eb77d940d95df3ea5ffd3fab269e
   depends:
-  - tensorflow 2.13.1 cpu_py310hd1aba9c_1
+  - __cuda
+  - __glibc >=2.17
+  - absl-py >=1.0.0
+  - astunparse >=1.6.0
+  - cudatoolkit >=11.8,<12
+  - cudnn >=8.8.0.121,<9.0a0
+  - flatbuffers >=23.5.26,<23.5.27.0a0
+  - gast >=0.2.1,!=0.5.0,!=0.5.1,!=0.5.2
+  - giflib >=5.2.1,<5.3.0a0
+  - google-pasta >=0.1.1
+  - grpcio 1.54.*
+  - h5py >=2.9.0
+  - icu >=73.2,<74.0a0
+  - keras >=2.13,<2.14
+  - libabseil * cxx17*
+  - libabseil >=20230125.3,<20230126.0a0
+  - libcurl >=8.4.0,<9.0a0
+  - libgcc-ng >=12
+  - libgrpc >=1.54.3,<1.55.0a0
+  - libjpeg-turbo >=3.0.0,<4.0a0
+  - libpng >=1.6.39,<1.7.0a0
+  - libprotobuf >=3.21.12,<3.22.0a0
+  - libsqlite >=3.43.2,<4.0a0
+  - libstdcxx-ng >=12
+  - libzlib >=1.2.13,<2.0.0a0
+  - nccl >=2.19.3.1,<3.0a0
+  - numpy >=1.22,<2.0a0
+  - numpy >=1.22.4,<2.0a0
+  - openssl >=3.1.3,<4.0a0
+  - opt_einsum >=2.3.2
+  - packaging
+  - protobuf >=3.20.3,<5,!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5
+  - python >=3.10,<3.11.0a0
+  - python-flatbuffers >=2
+  - python_abi 3.10.* *_cp310
+  - six >=1.12
+  - snappy >=1.1.10,<1.2.0a0
+  - tensorboard >=2.13,<2.14
+  - termcolor >=1.1.0
+  - typing_extensions >=3.6.6,<4.6.0
+  - wrapt >=1.11.0
   license: Apache-2.0
   license_family: Apache
-  size: 34859
-  timestamp: 1697880161643
+  size: 483192958
+  timestamp: 1697899251682
 - kind: conda
   name: tensorflow-estimator
   version: 2.13.1
@@ -6402,6 +6517,28 @@ packages:
   license_family: Apache
   size: 544014
   timestamp: 1697880142418
+- kind: conda
+  name: tensorflow-estimator
+  version: 2.13.1
+  build: cuda118py310h0a60075_1
+  build_number: 1
+  subdir: linux-64
+  url: https://conda.anaconda.org/conda-forge/linux-64/tensorflow-estimator-2.13.1-cuda118py310h0a60075_1.conda
+  sha256: 15dc4d88b5124304294b2e2bcf9414e467519be920545b995c3bea00308369be
+  md5: e6f6b6111cf8445328ccda26a5fee729
+  depends:
+  - __glibc >=2.17
+  - cudatoolkit >=11.8,<12
+  - libgcc-ng >=12
+  - libstdcxx-ng >=12
+  - openssl >=3.1.3,<4.0a0
+  - python >=3.10,<3.11.0a0
+  - python_abi 3.10.* *_cp310
+  - tensorflow-base 2.13.1 cuda118py310h0627607_1
+  license: Apache-2.0
+  license_family: Apache
+  size: 547131
+  timestamp: 1697899822896
 - kind: conda
   name: termcolor
   version: 2.4.0
@@ -6867,6 +7004,23 @@ packages:
   license_family: MIT
   size: 57963
   timestamp: 1711546009410
+- kind: conda
+  name: wrapt
+  version: 1.14.1
+  build: py310h5764c6d_1
+  build_number: 1
+  subdir: linux-64
+  url: https://conda.anaconda.org/conda-forge/linux-64/wrapt-1.14.1-py310h5764c6d_1.tar.bz2
+  sha256: a24e644d8a07fad83045f35bf0e0088f813257a45b429cbc43e59394e07d2f62
+  md5: 49c8664940fe2f6124193ba3cc32ca20
+  depends:
+  - libgcc-ng >=12
+  - python >=3.10,<3.11.0a0
+  - python_abi 3.10.* *_cp310
+  license: BSD-2-Clause
+  license_family: BSD
+  size: 52246
+  timestamp: 1666806140429
 - kind: conda
   name: wrapt
   version: 1.16.0
