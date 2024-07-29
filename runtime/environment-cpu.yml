@@ -30,4 +30,3 @@ dependencies:
   - tensorflow=2.13.1=cpu*
   - tqdm=4.66
   - transformers=4.35.2
-  - xarray=2023.11.0
