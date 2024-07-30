@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.8.0-base-ubuntu22.04
+FROM ghcr.io/prefix-dev/pixi:0.26.1-bookworm-slim
 
 USER root
 
@@ -19,9 +19,6 @@ RUN apt-get update --fix-missing \
 
 COPY --chown=$MAMBA_USER:$MAMBA_USER pixi.lock /tmp/pixi.lock
 COPY --chown=$MAMBA_USER:$MAMBA_USER pixi.toml /tmp/pixi.toml
-
-RUN curl -fsSL https://pixi.sh/install.sh | bash
-ENV PATH="/root/.pixi/bin:$PATH"
 RUN pixi install --manifest-path /tmp/pixi.toml -e ${CPU_OR_GPU} && \
     pixi clean --manifest-path /tmp/pixi.toml -e ${CPU_OR_GPU}
 
