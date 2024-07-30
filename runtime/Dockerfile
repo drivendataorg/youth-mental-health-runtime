@@ -25,20 +25,6 @@ ENV PATH="/root/.pixi/bin:$PATH"
 RUN pixi install --manifest-path /tmp/pixi.toml -e ${CPU_OR_GPU} && \
     pixi clean --manifest-path /tmp/pixi.toml -e ${CPU_OR_GPU}
 
-# RUN curl -fsSL https://pixi.sh/install.sh | bash
-# RUN echo "source /root/.bashrc" >> /tmp/setup
-# RUN echo "pixi install --manifest-path /tmp/pixi.toml -e ${CPU_OR_GPU}" >> /tmp/setup
-# RUN /bin/bash -C "tmp/setup"
-
-# RUN /bin/bash --login -c "pixi install --manifest-path /tmp/pixi.toml -e gpu"
-
-# RUN ["/bin/bash", "-c", "source /root/.bashrc"]
-# RUN ["/bin/bash", "-c", "pixi install --manifest-path /tmp/pixi.toml -e ${CPU_OR_GPU}"]
-
-# RUN source /root/.bashrc
-# RUN pixi install --manifest-path /tmp/pixi.toml -e ${CPU_OR_GPU} && \
-#     pixi clean --manifest-path /tmp/pixi.toml -e ${CPU_OR_GPU}
-
 RUN mkdir /code_execution
 RUN chown -R ${MAMBA_USER}:${MAMBA_USER} /code_execution
 
