@@ -3,8 +3,11 @@ name = "youth-mental-health-runtime"
 channels = ["nvidia", "conda-forge", "pytorch", "xformers"]
 platforms = ["linux-64"]
 
-# SHARED DEPENDENCIES
 [dependencies]
+
+# BASE DEPENDENCIES
+[feature.base]
+[feature.base.dependencies]
 accelerate = "0.25.0"
 aiofiles = "23.2.1"
 aiohttp = "3.8.5"
@@ -53,5 +56,5 @@ tensorflow = {version = "2.13.1", build="cuda118py310*"}
 xformers = {version = "0.0.23", channel = "xformers"}
 
 [environments]
-cpu = { features = ["cpu"]}
-gpu = { features = ["gpu"]}
+cpu = { features = ["base", "cpu"]}
+gpu = { features = ["base", "gpu"]}
