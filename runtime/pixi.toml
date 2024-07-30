@@ -49,7 +49,7 @@ cudatoolkit = {version = "11.8", channel = "conda-forge"}
 cuda-cudart = {version = "11.8.*", channel = "nvidia"}
 cuda-version = {version = "11.8", channel = "conda-forge"}
 cudnn = {version = "*", channel = "conda-forge"}
-cupy = "*"
+cupy = {version = "12.*"}
 pytorch = {version = "2.1.1", channel = "pytorch"}
 pytorch-cuda = {version = "11.8", channel = "pytorch"} # PyTorch metapackage for cuda version
 tensorflow = {version = "2.13.1", build="cuda118py310*"}
