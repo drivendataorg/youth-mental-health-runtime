@@ -1,4 +1,4 @@
-import json
+from collections import defaultdict
 import sys
 import warnings
 from os import PathLike
@@ -7,39 +7,28 @@ from pathlib import Path
 import yaml
 
 
-def main(lockfile_path: PathLike):
-    with Path(lockfile_path).open("r") as fp:
-        lockfile = yaml.safe_load(fp)
+def main(package_list_path: PathLike):
+    """Check the environment
 
-    conda_deps = {
-        package["name"]: package["version"]
-        for package in lockfile["package"]
-        if package.get("manager") == "conda"
-    }
-    pip_deps = {
-        package["name"]: package["version"]
-        for package in lockfile["package"]
-        if package.get("manager") == "pip"
-    }
+    Args:
+        package_list_path (PathLike): Path to the output of `pixi list --json`
+    """
+    with Path(package_list_path).open("r") as fp:
+        packages = yaml.safe_load(fp)
 
-    duplicated_deps = conda_deps.keys() & pip_deps.keys()
-    version_info = {
-        dep: {"conda": conda_deps[dep], "pip": pip_deps[dep]} for dep in duplicated_deps
-    }
+    package_count = defaultdict(lambda: 0)
+    package_kind_count = defaultdict(lambda: 0)
+    for package in packages:
+        package_count[package["name"]] += 1
+        package_kind_count[package["kind"]] += 1
+    repeated_deps = [
+        package_name for package_name in package_count if package_count[package_name] > 1
+    ]
 
-    if len(duplicated_deps):
-        version_info = {
-            dep: {"conda": conda_deps[dep], "pip": pip_deps[dep]}
-            for dep in duplicated_deps
-        }
-        warnings.warn(
-            f"The lockfile includes conda and pip versions for the following package(s): {', '.join(duplicated_deps)}. "
-            "This will result in the conda version being uninstalled in favor of the pip version. "
-            f"This can usually be fixed by updating {lockfile_path} to pin the package in the dependencies section to the version that pip requests.\n\n"
-            f"""{json.dumps(version_info, indent=2)}"""
-        )
+    if len(repeated_deps):
+        warnings.warn(f"There are duplicate packages in the environment: {repeated_deps}")
     else:
-        print(f"Lockfile {lockfile_path} passed.")
+        print(f"Lockfile {package_list_path} passed. Package kinds: {dict(package_kind_count)}")
 
 
 if __name__ == "__main__":
