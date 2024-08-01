@@ -117,38 +117,20 @@ build:
 		--build-arg CPU_OR_GPU=${CPU_OR_GPU} \
 		--tag ${LOCAL_IMAGE}:${LOCAL_TAG}
 
+runtime/pixi.lock:
+	pixi tree --manifest-path runtime/pixi.toml --platform linux-64
 
-runtime/conda-lock-cpu.yml: runtime/environment-cpu.yml
-	@echo Locking the CPU environment
-	conda-lock \
-		--mamba \
-		-p linux-64 \
-		--without-cuda \
-		-f runtime/environment-cpu.yml \
-		--lockfile runtime/conda-lock-cpu.yml
-	conda-lock render \
-		-p linux-64 \
-		--filename-template runtime/environment-cpu.lock \
-		runtime/conda-lock-cpu.yml
+runtime/pixi-list-cpu.json:
+	pixi list --manifest-path pixi.toml -e cpu --json >> runtime/pixi-list-cpu.json
 
-runtime/conda-lock-gpu.yml: runtime/environment-gpu.yml
-	@echo Locking the GPU environment
-	conda-lock \
-		--mamba \
-		-p linux-64 \
-		--with-cuda 11.8 \
-		-f runtime/environment-gpu.yml \
-		--lockfile runtime/conda-lock-gpu.yml
-	conda-lock render \
-		-p linux-64 \
-		--filename-template runtime/environment-gpu.lock \
-		runtime/conda-lock-gpu.yml
+runtime/pixi-list-gpu.json:
+	pixi list --manifest-path pixi.toml -e gpu --json >> runtime/pixi-list-gpu.json
 
 ## Updates runtime environment lockfiles
-update-lockfiles: runtime/conda-lock-cpu.yml runtime/conda-lock-gpu.yml
-	@python runtime/tests/test_lockfile.py runtime/conda-lock-cpu.yml
-	@python runtime/tests/test_lockfile.py runtime/conda-lock-gpu.yml
-
+## Note this must be run in docker if there are pypi dependencies
+update-lockfiles: runtime/pixi.lock runtime/pixi-list-cpu.json runtime/pixi-list-gpu.json
+	@python runtime/tests/test_lockfile.py runtime/pixi-list-cpu.json
+	@python runtime/tests/test_lockfile.py runtime/pixi-list-gpu.json
 
 ## Ensures that your locally built image can import all the Python packages successfully when it runs
 test-container: _check_image _echo_image _submission_write_perms
