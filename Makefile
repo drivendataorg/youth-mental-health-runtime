@@ -117,20 +117,16 @@ build:
 		--build-arg CPU_OR_GPU=${CPU_OR_GPU} \
 		--tag ${LOCAL_IMAGE}:${LOCAL_TAG}
 
+## Updates runtime environment lockfile using Docker
 runtime/pixi.lock:
-	pixi tree --manifest-path runtime/pixi.toml --platform linux-64
-
-runtime/pixi-list-cpu.json:
-	pixi list --manifest-path pixi.toml -e cpu --json >> runtime/pixi-list-cpu.json
-
-runtime/pixi-list-gpu.json:
-	pixi list --manifest-path pixi.toml -e gpu --json >> runtime/pixi-list-gpu.json
-
-## Updates runtime environment lockfiles
-## Note this must be run in docker if there are pypi dependencies
-update-lockfiles: runtime/pixi.lock runtime/pixi-list-cpu.json runtime/pixi-list-gpu.json
-	@python runtime/tests/test_lockfile.py runtime/pixi-list-cpu.json
-	@python runtime/tests/test_lockfile.py runtime/pixi-list-gpu.json
+	cd runtime && \
+	docker build . \
+		--file Dockerfile-lock \
+		--build-arg CPU_OR_GPU=${CPU_OR_GPU} \
+		--tag pixi-lock:local
+	docker create --name dummy pixi-lock:local
+	docker cp dummy:/tmp/pixi.lock runtime/pixi.lock
+	docker rm -f dummy
 
 ## Ensures that your locally built image can import all the Python packages successfully when it runs
 test-container: _check_image _echo_image _submission_write_perms

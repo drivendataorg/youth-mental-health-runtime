@@ -1,0 +1,16 @@
+FROM ghcr.io/prefix-dev/pixi:0.26.1-bookworm-slim
+
+USER root
+
+ARG CPU_OR_GPU=gpu
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    LANG=C.UTF-8  \
+    LC_ALL=C.UTF-8 \
+    PYTHONUNBUFFERED=1 \
+    SHELL=/bin/bash
+
+COPY --chown=$MAMBA_USER:$MAMBA_USER pixi.lock /tmp/pixi.lock
+COPY --chown=$MAMBA_USER:$MAMBA_USER pixi.toml /tmp/pixi.toml
+RUN pixi tree --manifest-path /tmp/pixi.toml --platform linux-64
+
