@@ -109,7 +109,7 @@ endif
 #################################################################################
 # Commands for building the container if you are changing the requirements      #
 #################################################################################
-.PHONY: build clean interact-container pack-example pack-submission pull test-container test-submission update-lockfiles
+.PHONY: build clean interact-container pack-example pack-submission pull test-container test-submission update-lockfile
 
 ## Builds the container locally
 build:
@@ -118,7 +118,7 @@ build:
 		--tag ${LOCAL_IMAGE}:${LOCAL_TAG}
 
 ## Updates runtime environment lockfile using Docker
-runtime/pixi.lock:
+update-lockfile:
 	cd runtime && \
 	docker build . \
 		--file Dockerfile-lock \
