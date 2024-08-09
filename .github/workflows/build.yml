@@ -71,7 +71,7 @@ jobs:
         run: |
           docker run --network none \
             $LOGIN_SERVER/$IMAGE:$SHA_TAG \
-            /code_execution/.pixi/envs/${{ matrix.proc }}/bin/python python -m pytest tests
+            /code_execution/.pixi/envs/${{ matrix.proc }}/bin/python -m pytest tests
 
       - name: Log into Azure
         if: ${{ fromJson(env.SHOULD_PUBLISH) }}
