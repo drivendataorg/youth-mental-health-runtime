@@ -120,15 +120,14 @@ build:
 ## Updates runtime environment lockfile using Docker
 update-lockfile:
 	@echo Generating the lockfile for CPU and GPU within Docker
-	cd runtime && \
-	docker build . \
-		--file Dockerfile-lock \
-		--build-arg CPU_OR_GPU=${CPU_OR_GPU} \
+	docker build runtime \
+		--file runtime/Dockerfile-lock \
 		--tag pixi-lock:local
-	@echo Copying lockfile to host
-	docker create --name dummy pixi-lock:local
-	docker cp dummy:/tmp/pixi.lock runtime/pixi.lock
-	docker rm -f dummy
+	@echo Running lock container
+	docker run \
+		--mount type=bind,source="$(shell pwd)"/runtime,target=/tmp \
+		--rm \
+		pixi-lock:local
 
 ## Ensures that your locally built image can import all the Python packages successfully when it runs
 test-container: _check_image _echo_image _submission_write_perms
