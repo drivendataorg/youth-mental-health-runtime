@@ -1,4 +1,4 @@
-FROM ghcr.io/prefix-dev/pixi:0.26.1-bookworm-slim
+FROM ghcr.io/prefix-dev/pixi:0.26.1-jammy-cuda-11.8.0
 
 USER root
 
