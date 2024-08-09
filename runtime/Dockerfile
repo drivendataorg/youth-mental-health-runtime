@@ -38,7 +38,8 @@ COPY pixi.lock ./pixi.lock
 COPY pixi.toml ./pixi.toml
 
 RUN pixi install -e ${CPU_OR_GPU} --frozen \
-    && pixi clean cache --yes
+    && pixi clean cache --yes \
+    && pixi info
 
 COPY entrypoint.sh /entrypoint.sh
 COPY --chown=${RUNTIME_USER}:${RUNTIME_USER} tests ./tests
