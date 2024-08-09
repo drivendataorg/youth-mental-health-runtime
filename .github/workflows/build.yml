@@ -41,6 +41,19 @@ jobs:
       LATEST_TAG: ${{ matrix.proc }}-latest
 
     steps:
+      - name: Remove unwanted software
+        run: |
+          echo "Available storage before:"
+          sudo df -h
+          echo
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /opt/ghc
+          sudo rm -rf /opt/hostedtoolcache/CodeQL
+          echo "Available storage after:"
+          sudo df -h
+          echo
+
       - uses: actions/checkout@v4
 
       - name: Build Image
@@ -56,7 +69,9 @@ jobs:
 
       - name: Tests packages in container
         run: |
-          docker run $LOGIN_SERVER/$IMAGE:$SHA_TAG python -m pytest tests
+          docker run --network none \
+            $LOGIN_SERVER/$IMAGE:$SHA_TAG \
+            pixi run -e ${{ matrix.proc }} python -m pytest tests
 
       - name: Log into Azure
         if: ${{ fromJson(env.SHOULD_PUBLISH) }}
@@ -78,4 +93,3 @@ jobs:
         if: ${{ fromJson(env.SHOULD_PUBLISH) }}
         run: |
           docker push $LOGIN_SERVER/$IMAGE --all-tags
-

@@ -8,6 +8,8 @@ else
 CPU_OR_GPU ?= gpu
 endif
 
+BLOCK_INTERNET ?= true
+
 TAG := ${CPU_OR_GPU}-latest
 LOCAL_TAG := ${CPU_OR_GPU}-local
 
@@ -120,30 +122,31 @@ build:
 ## Updates runtime environment lockfile using Docker
 update-lockfile:
 	@echo Generating the lockfile for CPU and GPU within Docker
-	cd runtime && \
-	docker build . \
-		--file Dockerfile-lock \
-		--build-arg CPU_OR_GPU=${CPU_OR_GPU} \
+	docker build runtime \
+		--file runtime/Dockerfile-lock \
 		--tag pixi-lock:local
-	@echo Copying lockfile to host
-	docker create --name dummy pixi-lock:local
-	docker cp dummy:/tmp/pixi.lock runtime/pixi.lock
-	docker rm -f dummy
+	@echo Running lock container
+	docker run \
+		--mount type=bind,source="$(shell pwd)"/runtime,target=/tmp \
+		--rm \
+		pixi-lock:local
 
 ## Ensures that your locally built image can import all the Python packages successfully when it runs
 test-container: _check_image _echo_image _submission_write_perms
 	docker run \
 		${GPU_ARGS} \
+		${NETWORK_ARGS} \
 		${TTY_ARGS} \
-		--mount type=bind,source="$(shell pwd)"/runtime/tests,target=/tests,readonly \
 		--pid host \
 		${SUBMISSION_IMAGE_ID} \
-		python -m pytest -v tests
+		pixi run -e ${CPU_OR_GPU} python -m pytest tests
+
 
 ## Open an interactive bash shell within the running container (with network access)
 interact-container: _check_image _echo_image _submission_write_perms
 	docker run \
 		${GPU_ARGS} \
+		${NETWORK_ARGS} \
 		--mount type=bind,source=${shell pwd}/data,target=/code_execution/data,readonly \
 		--mount type=bind,source="$(shell pwd)/submission",target=/code_execution/submission \
 		--shm-size 8g \
