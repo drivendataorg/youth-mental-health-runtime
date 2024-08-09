@@ -50,7 +50,7 @@ jobs:
           sudo rm -rf /usr/local/lib/android
           sudo rm -rf /opt/ghc
           sudo rm -rf /opt/hostedtoolcache/CodeQL
-          echo "Available storage before:"
+          echo "Available storage after:"
           sudo df -h
           echo
 
