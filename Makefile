@@ -8,6 +8,8 @@ else
 CPU_OR_GPU ?= gpu
 endif
 
+BLOCK_INTERNET ?= true
+
 TAG := ${CPU_OR_GPU}-latest
 LOCAL_TAG := ${CPU_OR_GPU}-local
 
@@ -133,16 +135,18 @@ update-lockfile:
 test-container: _check_image _echo_image _submission_write_perms
 	docker run \
 		${GPU_ARGS} \
+		${NETWORK_ARGS} \
 		${TTY_ARGS} \
-		--mount type=bind,source="$(shell pwd)"/runtime/tests,target=/tests,readonly \
 		--pid host \
 		${SUBMISSION_IMAGE_ID} \
-		python -m pytest -v tests
+		pixi run -e ${CPU_OR_GPU} python -m pytest tests
+
 
 ## Open an interactive bash shell within the running container (with network access)
 interact-container: _check_image _echo_image _submission_write_perms
 	docker run \
 		${GPU_ARGS} \
+		${NETWORK_ARGS} \
 		--mount type=bind,source=${shell pwd}/data,target=/code_execution/data,readonly \
 		--mount type=bind,source="$(shell pwd)/submission",target=/code_execution/submission \
 		--shm-size 8g \

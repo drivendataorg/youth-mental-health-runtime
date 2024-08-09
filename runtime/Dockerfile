@@ -26,18 +26,21 @@ RUN apt-get update --fix-missing \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /apt.txt
 
-COPY --chown=$RUNTIME_USER:$RUNTIME_USER pixi.lock /tmp/pixi.lock
-COPY --chown=$RUNTIME_USER:$RUNTIME_USER pixi.toml /tmp/pixi.toml
-RUN pixi install --manifest-path /tmp/pixi.toml -e ${CPU_OR_GPU} && \
-    pixi clean --manifest-path /tmp/pixi.toml -e ${CPU_OR_GPU}
-
+# Set up code execution working directory
 RUN mkdir /code_execution
 RUN chown -R ${RUNTIME_USER}:${RUNTIME_USER} /code_execution
-
-COPY tests /code_execution/tests
-COPY entrypoint.sh /entrypoint.sh
-
 WORKDIR /code_execution
+
+# Switch to runtime user
 USER ${RUNTIME_USER}
+
+COPY pixi.lock ./pixi.lock
+COPY pixi.toml ./pixi.toml
+
+RUN pixi install -e ${CPU_OR_GPU} --frozen \
+    && rm -rf /home/${RUNTIME_USER}/.cache/
+
+COPY entrypoint.sh /entrypoint.sh
+COPY --chown=${RUNTIME_USER}:${RUNTIME_USER} tests ./tests
 
 CMD ["bash", "/entrypoint.sh"]

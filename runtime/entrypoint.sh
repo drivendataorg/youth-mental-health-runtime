@@ -19,7 +19,7 @@ main () {
     ls -alh
 
     echo "Running submission..."
-    python main.py
+    pixi run -e $CPU_OR_GPU python main.py
 
     echo "Exporting submission.csv result..."
 
