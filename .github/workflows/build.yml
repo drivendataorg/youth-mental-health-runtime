@@ -56,7 +56,9 @@ jobs:
 
       - name: Tests packages in container
         run: |
-          docker run $LOGIN_SERVER/$IMAGE:$SHA_TAG python -m pytest tests
+          docker run $LOGIN_SERVER/$IMAGE:$SHA_TAG \
+            --network none \
+            pixi run -e ${{ matrix.proc }} python -m pytest tests
 
       - name: Log into Azure
         if: ${{ fromJson(env.SHOULD_PUBLISH) }}
@@ -78,4 +80,3 @@ jobs:
         if: ${{ fromJson(env.SHOULD_PUBLISH) }}
         run: |
           docker push $LOGIN_SERVER/$IMAGE --all-tags
-
