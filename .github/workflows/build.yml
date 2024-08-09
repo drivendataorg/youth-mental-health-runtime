@@ -56,8 +56,8 @@ jobs:
 
       - name: Tests packages in container
         run: |
-          docker run $LOGIN_SERVER/$IMAGE:$SHA_TAG \
-            --network none \
+          docker run --network none \
+            $LOGIN_SERVER/$IMAGE:$SHA_TAG \
             pixi run -e ${{ matrix.proc }} python -m pytest tests
 
       - name: Log into Azure
