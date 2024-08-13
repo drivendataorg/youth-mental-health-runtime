@@ -14,6 +14,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 ENV RUNTIME_USER=runtimeuser
 ENV RUNTIME_UID=1000
 ENV RUNTIME_GID=1000
+ENV CPU_OR_GPU=$CPU_OR_GPU
 
 RUN echo "Creating ${RUNTIME_USER} user..." \
     && groupadd --gid ${RUNTIME_GID} ${RUNTIME_USER}  \

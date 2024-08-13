@@ -24,7 +24,7 @@ main () {
     echo "Exporting submission.csv result..."
 
     # Valid scripts must create a "submission.csv" file within the same directory as main
-    if [ -f "submission.csv"]
+    if [ -f "submission.csv" ]
     then
         echo "Script completed its run."
         cp submission.csv ./submission/submission.csv
