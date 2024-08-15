@@ -183,10 +183,10 @@ endif
 
 ## Creates a submission/submission.zip file from the source code in submission_src
 pack-submission:
-# Don't overwrite so no work is lost accidentally
-# ifneq (,$(wildcard ./submission/submission.zip))
-# 	$(error You already have a submission/submission.zip file. Rename or remove that file (e.g., rm submission/submission.zip).)
-# endif
+Don't overwrite so no work is lost accidentally
+ifneq (,$(wildcard ./submission/submission.zip))
+	$(error You already have a submission/submission.zip file. Rename or remove that file (e.g., rm submission/submission.zip).)
+endif
 # Note that the glob wildcard excludes hidden/dot files
 	mkdir -p submission/
 	cd submission_src; zip -r ../submission/submission.zip ./*
@@ -203,7 +203,7 @@ endif
 		${GPU_ARGS} \
 		${NETWORK_ARGS} \
 		-e LOGURU_LEVEL=INFO \
-		-e IS_SMOKE_TEST=false \
+		-e IS_SMOKE_TEST=true \
 		--mount type=bind,source=${shell pwd}/data,target=/code_execution/data,readonly \
 		--mount type=bind,source="$(shell pwd)/submission",target=/code_execution/submission \
 		--shm-size 8g \
