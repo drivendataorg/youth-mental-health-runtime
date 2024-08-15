@@ -126,10 +126,9 @@ update-lockfile:
 		--file runtime/Dockerfile-lock \
 		--tag pixi-lock:local
 	@echo Running lock container
-	docker run \
-		--mount type=bind,source="$(shell pwd)"/runtime,target=/tmp \
-		--rm \
-		pixi-lock:local
+	docker create --name dummy pixi-lock:local
+	docker cp dummy:/tmp/pixi.lock runtime/pixi.lock
+	docker rm -f dummy
 
 ## Ensures that your locally built image can import all the Python packages successfully when it runs
 test-container: _check_image _echo_image _submission_write_perms
