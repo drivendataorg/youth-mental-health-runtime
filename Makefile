@@ -119,16 +119,30 @@ build:
 		--build-arg CPU_OR_GPU=${CPU_OR_GPU} \
 		--tag ${LOCAL_IMAGE}:${LOCAL_TAG}
 
+runtime/pixi.lock:
+ifeq (,$(wildcard ./runtime/pixi.lock))
+	@echo Generating runtime/pixi.lock from scratch
+	@echo "version: 5" > runtime/pixi.lock
+	@echo "environments:" >> runtime/pixi.lock
+	@echo "packages:" >> runtime/pixi.lock
+else
+	@echo Updating existing runtime/pixi.lock
+endif
+
 ## Updates runtime environment lockfile using Docker
-update-lockfile:
-	@echo Generating the lockfile for CPU and GPU within Docker
+update-lockfile: runtime/pixi.lock
+	@echo Building Docker image to generate lockfile
 	docker build runtime \
 		--file runtime/Dockerfile-lock \
 		--tag pixi-lock:local
 	@echo Running lock container
-	docker create --name dummy pixi-lock:local
-	docker cp dummy:/tmp/pixi.lock runtime/pixi.lock
-	docker rm -f dummy
+	docker run \
+		--mount type=bind,source="$(shell pwd)"/runtime/pixi.toml,target=/tmp/pixi.toml \
+		--mount type=bind,source="$(shell pwd)"/runtime/pixi.lock,target=/tmp/pixi.lock \
+		--rm \
+		pixi-lock:local
+
+
 
 ## Ensures that your locally built image can import all the Python packages successfully when it runs
 test-container: _check_image _echo_image _submission_write_perms
@@ -170,9 +184,9 @@ endif
 ## Creates a submission/submission.zip file from the source code in submission_src
 pack-submission:
 # Don't overwrite so no work is lost accidentally
-ifneq (,$(wildcard ./submission/submission.zip))
-	$(error You already have a submission/submission.zip file. Rename or remove that file (e.g., rm submission/submission.zip).)
-endif
+# ifneq (,$(wildcard ./submission/submission.zip))
+# 	$(error You already have a submission/submission.zip file. Rename or remove that file (e.g., rm submission/submission.zip).)
+# endif
 # Note that the glob wildcard excludes hidden/dot files
 	mkdir -p submission/
 	cd submission_src; zip -r ../submission/submission.zip ./*
@@ -189,7 +203,7 @@ endif
 		${GPU_ARGS} \
 		${NETWORK_ARGS} \
 		-e LOGURU_LEVEL=INFO \
-		-e IS_SMOKE_TEST=true \
+		-e IS_SMOKE_TEST=false \
 		--mount type=bind,source=${shell pwd}/data,target=/code_execution/data,readonly \
 		--mount type=bind,source="$(shell pwd)/submission",target=/code_execution/submission \
 		--shm-size 8g \

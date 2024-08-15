@@ -3,7 +3,6 @@ FROM ghcr.io/prefix-dev/pixi:0.26.1-jammy
 USER root
 
 RUN mkdir -p /tmp
-COPY pixi.* /tmp/
-WORKDIR /tmp
+WORKDIR /tmp/
 
-RUN pixi tree --manifest-path pixi.toml --platform linux-64 -v
+ENTRYPOINT ["pixi", "tree", "--manifest-path", "pixi.toml", "--platform", "linux-64", "-v"]
