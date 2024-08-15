@@ -140,7 +140,9 @@ When you make an official submission, you will not be able to see the logs gener
 
 ## Updating runtime packages
 
-If you want to use a package that is not in the environment, you are welcome to make a pull request to this repository. If you're new to the GitHub contribution workflow, check out [this guide by GitHub](https://docs.github.com/en/get-started/quickstart/contributing-to-projects).
+If you want to use a package that is not in the environment, you are welcome to make a pull request to this repository. Remember, your submission will only have access to packages in this runtime repository. If you're new to the GitHub contribution workflow, check out [this guide by GitHub](https://docs.github.com/en/get-started/quickstart/contributing-to-projects).
+
+The runtime manages dependencies using [pixi](https://pixi.sh/latest/). 
 
 The runtime manages dependencies using [conda](https://docs.conda.io/en/latest/) environments and [conda-lock](https://github.com/conda/conda-lock). [Here is a good general guide](https://towardsdatascience.com/a-guide-to-conda-environments-bc6180fc533) to conda environments. The official runtime uses **Python 3.10.13** environments.
 
