@@ -63,10 +63,6 @@ In the official code execution platform, `code_execution/data` will contain feat
 
 To test your submission in a local container, save a file under `data/test_features.csv` that matches the format of the actual test features file. For example, you could use a set of training examples. When you run your submission in a Docker container locally, the file you provide will be included in the container.
 
-### Evaluating your annotations
-
-TKTK
-
 ## Testing your submission
 
 As you develop your own submission, you'll need to know a little bit more about how your submission will be unpacked for running inference. This section contains more complete documentation for developing and testing your own submission.
@@ -176,12 +172,11 @@ The runtime manages dependencies using [Pixi](https://pixi.sh/latest/). Here is 
    
 7. Open a pull request from your branch to the `main` branch of this repository. Navigate to the [Pull requests](https://github.com/drivendataorg/youth-mental-health-runtime/pulls) tab in this repository, and click the "New pull request" button. For more detailed instructions, check out [GitHub's help page](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork).
 
---reviewed to here
+8. Once you open the pull request, we will use Github Actions to build the Docker images with your changes and run the tests in `runtime/tests`. For security reasons, administrators may need to approve the workflow run before it happens. Once it starts, the process can take up to 30 minutes, and may take longer if your build is queued behind others. You will see a section on the pull request page that shows the status of the tests and links to the logs ("Details").
 
+    ![Example appearance of Github Actions](./images/github_actions.png)
 
-1. Once you open the pull request, we will use Github Actions to build the Docker images with your changes and run the tests in `runtime/tests`. For security reasons, administrators may need to approve the workflow run before it happens. Once it starts, the process can take up to 30 minutes, and may take longer if your build is queued behind others. You will see a section on the pull request page that shows the status of the tests and links to the logs.
-
-2. You may be asked to submit revisions to your pull request if the tests fail or if a DrivenData staff member has feedback. Pull requests won't be merged until all tests pass and the team has reviewed and approved the changes.
+9.  You may be asked to submit revisions to your pull request if the tests fail or if a DrivenData staff member has feedback. Pull requests won't be merged until all tests pass and the team has reviewed and approved the changes.
 
 ## Make commands
 
@@ -190,13 +185,15 @@ A Makefile with several helpful shell recipes is included in the repository. The
 ```
 Available commands:
 
-build               Builds the container locally
-clean               Delete temporary Python cache and bytecode files
-interact-container  Open an interactive bash shell within the running container (with network access)
-pack-example        Creates a submission/submission.zip file from the source code in examples_src
-pack-submission     Creates a submission/submission.zip file from the source code in submission_src
-pull                Pulls the official container from Azure Container Registry
-test-container      Ensures that your locally built image can import all the Python packages successfully when it runs
-test-submission     Runs container using code from `submission/submission.zip` and data from WSFR_DATA_ROOT (default `data/`)
-update-lockfiles    Updates runtime environment lockfiles
+build               Builds the container locally 
+clean               Delete temporary Python cache and bytecode files 
+interact-container  Open an interactive bash shell within the running container (with network access) 
+pack-example        Creates a submission/submission.zip file from the source code in examples_src 
+pack-submission     Creates a submission/submission.zip file from the source code in submission_src 
+pull                Pulls the official container from Azure Container Registry 
+test-container      Ensures that your locally built image can import all the Python packages successfully 
+                    when it runs 
+test-submission     Runs container using code from `submission/submission.zip` and data from 
+                    `/code_execution/data/` 
+update-lockfile     Updates runtime environment lockfile using Docker 
 ```

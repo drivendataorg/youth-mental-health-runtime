@@ -191,7 +191,7 @@ endif
 	mkdir -p submission/
 	cd submission_src; zip -r ../submission/submission.zip ./*
 
-## Runs container using code from `submission/submission.zip` and data from `/code_execution/data/`)
+## Runs container using code from `submission/submission.zip` and data from `/code_execution/data/`
 test-submission: _check_image _echo_image _submission_write_perms
 # if submission file does not exist
 ifeq (,$(wildcard ./submission/submission.zip))
