@@ -9,10 +9,11 @@ CATEGORICAL_COLUMNS = ["InjuryLocationType", "WeaponType1"]
 
 
 def main(predictions_path: Path, labels_path: Path):
-    predictions = pd.read_csv(predictions_path)
-    actual = pd.read_csv(labels_path)
-    # columns must match
+    predictions = pd.read_csv(predictions_path, index_col=0)
+    actual = pd.read_csv(labels_path, index_col=0)
+    # columns and indices must match
     assert (predictions.columns == actual.columns).all()
+    assert (predictions.index == actual.index).all()
 
     col_f1_scores = []
     for col in predictions.columns:
