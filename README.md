@@ -143,6 +143,25 @@ When you make an official submission, you will not be able to see the logs gener
 If you want to use a package that is not in the environment, you are welcome to make a pull request to this repository. Remember, your submission will only have access to packages in this runtime repository. If you're new to the GitHub contribution workflow, check out [this guide by GitHub](https://docs.github.com/en/get-started/quickstart/contributing-to-projects).
 
 The runtime manages dependencies using [Pixi](https://pixi.sh/latest/). Here is a good [tutorial](https://pixi.sh/latest/tutorials/python/) to get started with Pixi. The official runtime uses **Python 3.10.13**.
+
+1. Fork this repository.
+
+2. Install pixi. See [here](https://pixi.sh/latest/) for installation options.
+
+3. Edit the `runtime/pixi.toml` file to add your new packages in the [`dependencies`](https://pixi.sh/latest/reference/project_configuration/#the-dependencies-tables) section. You'll need to determine which environment(s) your new package is required for, and whether the package will be installed with conda (preferred) or pip.
+
+    - **CPU, GPU, or base:** The `pixi.toml` file includes different sections for dependencies that apply to both the CPU and GPU environments (`feature.base`), the CPU environment only (`feature.cpu`), and the GPU environment only (`feature.gpu`).
+
+    - **Conda or pip:** Packages installed using conda are specified by the header `dependencies`. These install from the [conda-forge](https://anaconda.org/conda-forge/) channel using `conda install`. Packages installed with pip are specified by the header `pypi-dependencies`. These install from PyPI using `pip`. **Installing packages with conda is strongly preferred.** Packages should only be installed using `pip` if they are not available in a conda channel. Conda dependencies are much [faster](https://pixi.sh/latest/features/environment/#solving-environments) to resolve than PyPI dependencies.
+
+    - For example, to add version 0.0.1 of `package1` to the CPU environment only, add the line `package1 = "0.0.1"` under [`[feature.cpu.dependencies]`](https://github.com/drivendataorg/youth-mental-health-runtime/blob/9824c1f124133b4cc18e39ea01e70c9a6a878684/runtime/pixi.toml#L39):
+        ```
+        [features.cpu.dependencies]
+        package1 = "0.0.1"
+        ```
+
+4. Run `make update-lockfile`
+
 --reviewed to here
 To submit a pull request for a new package:
 
