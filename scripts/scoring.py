@@ -9,6 +9,10 @@ CATEGORICAL_COLUMNS = ["InjuryLocationType", "WeaponType1"]
 
 
 def main(predictions_path: Path, labels_path: Path):
+    """
+    Calculate the average F1 score by calculating the F1 score of each column and
+    taking the average.
+    """
     predictions = pd.read_csv(predictions_path, index_col=0)
     actual = pd.read_csv(labels_path, index_col=0)
     # columns and indices must match
