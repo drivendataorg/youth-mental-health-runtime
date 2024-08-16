@@ -18,13 +18,18 @@ main () {
 
     ls -alh
 
-    echo "Running submission..."
-    python main.py
+    if $IS_SMOKE_TEST; then
+        echo "Running smoke test"
+        pixi run -e $CPU_OR_GPU python main.py
+    else
+        echo "Running submission using $CPU_OR_GPU"
+        pixi run -e $CPU_OR_GPU python main.py &> "/code_execution/submission/private_log.txt"
+    fi
 
     echo "Exporting submission.csv result..."
 
     # Valid scripts must create a "submission.csv" file within the same directory as main
-    if [ -f "submission.csv"]
+    if [ -f "submission.csv" ]
     then
         echo "Script completed its run."
         cp submission.csv ./submission/submission.csv

@@ -1,0 +1,8 @@
+FROM ghcr.io/prefix-dev/pixi:0.26.1-jammy
+
+USER root
+
+RUN mkdir -p /tmp
+WORKDIR /tmp
+
+ENTRYPOINT ["pixi", "tree", "--manifest-path", "pixi.toml", "--platform", "linux-64", "-v"]
