@@ -63,7 +63,7 @@ In the official code execution platform, `code_execution/data` will contain feat
 
 To test your submission in a local container, save a file under `data/test_features.csv` that matches the format of the actual test features file. For example, you could use a set of training examples. When you run your submission in a Docker container locally, the file you provide will be included in the container.
 
-### Evaluatin your annotations
+### Evaluating your annotations
 
 TKTK
 
@@ -154,49 +154,34 @@ The runtime manages dependencies using [Pixi](https://pixi.sh/latest/). Here is 
 
     - **Conda or pip:** Packages installed using conda are specified by the header `dependencies`. These install from the [conda-forge](https://anaconda.org/conda-forge/) channel using `conda install`. Packages installed with pip are specified by the header `pypi-dependencies`. These install from PyPI using `pip`. **Installing packages with conda is strongly preferred.** Packages should only be installed using `pip` if they are not available in a conda channel. Conda dependencies are much [faster](https://pixi.sh/latest/features/environment/#solving-environments) to resolve than PyPI dependencies.
 
-    - For example, to add version 0.0.1 of `package1` to the CPU environment only, add the line `package1 = "0.0.1"` under [`[feature.cpu.dependencies]`](https://github.com/drivendataorg/youth-mental-health-runtime/blob/9824c1f124133b4cc18e39ea01e70c9a6a878684/runtime/pixi.toml#L39):
+    - For example, to add version 0.0.1 of `package1` to both the CPU and GPU environments using conda, you would add the line `package1 = "0.0.1"` under [`[feature.base.dependencies]`](https://github.com/drivendataorg/youth-mental-health-runtime/blob/9824c1f124133b4cc18e39ea01e70c9a6a878684/runtime/pixi.toml#L10). To add version 0.2 of `package2` to the CPU environment only using pip, you would add the line `package2 = { version = "0.2.*" }` under the header `[feature.cpu.pypi-dependencies]`.
         ```
-        [features.cpu.dependencies]
+        [feature.base.dependencies]
         package1 = "0.0.1"
+
+        [feature.cpu.pypi-dependencies]
+        package2 = { version = "0.2.*" }
         ```
 
-4. Run `make update-lockfile`
+4. With Docker open and running, run `make update-lockfile`. This will generate an updated `runtime/pixi.lock` from `runtime/pixi.toml` within a Docker container. 
 
---reviewed to here
-To submit a pull request for a new package:
-
-1. Fork this repository.
-
-2. Install conda-lock. See [here](https://github.com/conda/conda-lock#installation) for installation options.
-
-3. Edit the [conda](https://docs.conda.io/en/latest/) environment YAML files, `runtime/environment-cpu.yml` and `runtime/environment-gpu.yml`. There are two ways to add a requirement:
-
-    - Conda package manager **(preferred)**: Add an entry to the `dependencies` section. This installs from the [conda-forge](https://anaconda.org/conda-forge/) channel using `conda install`. Conda performs robust dependency resolution with other packages in the `dependencies` section, so we can avoid package version conflicts.
-    - Pip package manager: Add an entry to the `pip` section. This installs from PyPI using `pip`, and is an option for packages that are not available in a conda channel.
-
-4. Run `make update-lockfiles`. This will read `environment-cpu.yml` and `environment-gpu.yml`, resolve exact package versions, and save the pinned environments to `conda-lock-cpu.yml` and `conda-lock-gpu.yml`. It will also generate `environment-cpu.lock` and `environment-gpu.lock` legacy lockfiles that are useful for quickly identifying any package version changes that may occur across builds.
-
-5. Locally test that the Docker image builds successfully for CPU and GPU images:
+5. Locally test that the Docker image builds successfully for both the CPU and GPU environment:
 
     ```sh
     CPU_OR_GPU=cpu make build
     CPU_OR_GPU=gpu make build
     ```
 
-6. Commit the changes to your forked repository. Ensure that your branch includes updated versions of _all_ of the following:
+6. Commit the changes to your forked repository. Ensure that your branch includes updated versions of both `runtime/pixi.toml` and `runtime/pixi.lock`.
+   
+7. Open a pull request from your branch to the `main` branch of this repository. Navigate to the [Pull requests](https://github.com/drivendataorg/youth-mental-health-runtime/pulls) tab in this repository, and click the "New pull request" button. For more detailed instructions, check out [GitHub's help page](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork).
 
-    - `runtime/conda-lock-cpu.yml`
-    - `runtime/conda-lock-gpu.yml`
-    - `runtime/environment-cpu.yml`
-    - `runtime/environment-gpu.yml`
-    - `runtime/environment-cpu.lock`
-    - `runtime/environment-gpu.lock`
+--reviewed to here
 
-7. Open a pull request from your branch to the `main` branch of this repository. Navigate to the [Pull requests](https://github.com/drivendataorg/water-supply-forecast-rodeo-runtime/pulls) tab in this repository, and click the "New pull request" button. For more detailed instructions, check out [GitHub's help page](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork).
 
-8. Once you open the pull request, we will use Github Actions to build the Docker images with your changes and run the tests in `runtime/tests`. For security reasons, administrators may need to approve the workflow run before it happens. Once it starts, the process can take up to 30 minutes, and may take longer if your build is queued behind others. You will see a section on the pull request page that shows the status of the tests and links to the logs.
+1. Once you open the pull request, we will use Github Actions to build the Docker images with your changes and run the tests in `runtime/tests`. For security reasons, administrators may need to approve the workflow run before it happens. Once it starts, the process can take up to 30 minutes, and may take longer if your build is queued behind others. You will see a section on the pull request page that shows the status of the tests and links to the logs.
 
-9. You may be asked to submit revisions to your pull request if the tests fail or if a DrivenData staff member has feedback. Pull requests won't be merged until all tests pass and the team has reviewed and approved the changes.
+2. You may be asked to submit revisions to your pull request if the tests fail or if a DrivenData staff member has feedback. Pull requests won't be merged until all tests pass and the team has reviewed and approved the changes.
 
 ## Make commands
 
