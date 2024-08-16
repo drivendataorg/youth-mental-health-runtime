@@ -142,10 +142,8 @@ When you make an official submission, you will not be able to see the logs gener
 
 If you want to use a package that is not in the environment, you are welcome to make a pull request to this repository. Remember, your submission will only have access to packages in this runtime repository. If you're new to the GitHub contribution workflow, check out [this guide by GitHub](https://docs.github.com/en/get-started/quickstart/contributing-to-projects).
 
-The runtime manages dependencies using [pixi](https://pixi.sh/latest/). 
-
-The runtime manages dependencies using [conda](https://docs.conda.io/en/latest/) environments and [conda-lock](https://github.com/conda/conda-lock). [Here is a good general guide](https://towardsdatascience.com/a-guide-to-conda-environments-bc6180fc533) to conda environments. The official runtime uses **Python 3.10.13** environments.
-
+The runtime manages dependencies using [Pixi](https://pixi.sh/latest/). Here is a good [tutorial](https://pixi.sh/latest/tutorials/python/) to get started with Pixi. The official runtime uses **Python 3.10.13**.
+--reviewed to here
 To submit a pull request for a new package:
 
 1. Fork this repository.
