@@ -11,6 +11,7 @@ platforms = ["linux-64"]
 accelerate = "0.25.0"
 aiofiles = "23.2.1"
 aiohttp = "3.8.5"
+ctransformers = "0.2.27"
 diskcache = "5.6.3"
 einops = "0.7.0"
 gensim = "4.3.2"
