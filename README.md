@@ -139,7 +139,7 @@ The runtime manages dependencies using [Pixi](https://pixi.sh/latest/). Here is 
 
 2. Install pixi. See [here](https://pixi.sh/latest/) for installation options.
 
-3. Edit the `runtime/pixi.toml` file to add your new packages in the [`dependencies`](https://pixi.sh/latest/reference/project_configuration/#the-dependencies-tables) section. You'll need to determine which environment(s) your new package is required for, and whether the package will be installed with conda (preferred) or pip.
+3. Edit the `runtime/pixi.toml` file to add your new packages in the [`dependencies`](https://pixi.sh/latest/reference/project_configuration/#the-dependencies-tables) section. You'll need to determine which environment(s) your new package is required for, and whether the package will be installed with conda (preferred) or pip. We recommend starting without a specific pinned version, and then pinning to the version in the resolved `pixi.lock` file that is generated.
 
     - **CPU, GPU, or base:** The `pixi.toml` file includes different sections for dependencies that apply to both the CPU and GPU environments (`feature.base`), the CPU environment only (`feature.cpu`), and the GPU environment only (`feature.gpu`).
 
