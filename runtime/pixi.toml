@@ -13,7 +13,10 @@ bitsandbytes = "0.43.3"
 einops = "0.8.0"
 gensim = "4.3.2"
 jsonpickle = "3.2.2"
+langchain = "0.2.14"
+llama-cpp-python = "0.2.24"
 loguru = "0.7.*"
+nltk = "3.9.1"
 numba = "0.60.*"
 numpy = "1.26.4"
 pandas = "2.2.2"
@@ -28,8 +31,8 @@ spacy = "3.7.5"
 tqdm = "4.66.*"
 transformers = "4.44.2"
 
-[feature.base.pypi-dependencies]
-vllm = { url = "https://github.com/vllm-project/vllm/releases/download/v0.4.0/vllm-0.4.0+cu118-cp310-cp310-manylinux1_x86_64.whl" }
+# [feature.base.pypi-dependencies]
+# vllm = { url = "https://github.com/vllm-project/vllm/releases/download/v0.4.0/vllm-0.4.0+cu118-cp310-cp310-manylinux1_x86_64.whl" }
 
 # CPU DEPENDENCIES
 [feature.cpu]
