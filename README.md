@@ -37,7 +37,7 @@ Changes to the repository are documented in [CHANGELOG.md](./CHANGELOG.md).
 
 ## Quickstart
 
-This quickstart guide will show you how to get the provided example solution running end-to-end. Once you get there, it's off to the races!
+This quickstart guide will show you how to get started using this repository.
 
 ### Prerequisites
 
