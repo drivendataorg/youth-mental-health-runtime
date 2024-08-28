@@ -60,6 +60,15 @@ In the official code execution platform, `code_execution/data` will contain feat
 
 To test your submission in a local container, save a file under `data/test_features.csv` that matches the format of the actual test features file. For example, you could use a set of training examples. When you run your submission in a Docker container locally, the file you provide will be included in the container.
 
+### Evaluating your annotations
+
+We also provide a script for you to evaluate your generated annotations on the training set. The script takes the path to your predictions and the path to the corresponding labels, and calculates variable-averaged F1 score per the competition [performance metric](https://www.drivendata.org/competitions/295/cdc-automated-abstraction/page/917/#performance-metric).
+
+```
+$ python src/scoring.py submission/submission.csv data/train_labels.csv
+Variable-averaged F1 score: 0.0061
+```
+
 ## Testing your submission
 
 As you develop your own submission, you'll need to know a little bit more about how your submission will be unpacked for running inference. This section contains more complete documentation for developing and testing your own submission.
