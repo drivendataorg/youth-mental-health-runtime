@@ -129,6 +129,19 @@ To run the example submission using `make` commands, make sure that Docker is ru
 
 In order to prevent leakage of the test features, **all logging is prohibited when running inference on the test features** as part of an official submission. When submitting on the platform, you will have the ability to submit "smoke tests". Smoke tests run with logging enabled on a reduced version of the training set notes in order to run more quickly. They will not be considered for prize evaluation and are intended to let you test your code for correctness. In this competition, smoke tests will be the only place you can view logs or output from your code to debug. **You should test your code locally as thorougly as possible before submitting your code for smoke tests or for full evaluation.**
 
+During a smoke test, you will still have access to `data/submission_format.csv` and `data/test_features.csv`. These files will be samples from the training set instead of test data. The data used in smoke tests is available on the [data download page](https://www.drivendata.org/competitions/295/cdc-automated-abstraction/data/). To replicate the smoke test environment locally:
+
+1. Save `smoke_test_features.csv` from the data download page to `data/test_features.csv`.
+2. Save `smoke_test_labels.csv` from the data download page to `data/smoke_test_labels.csv`. If your code references a submission format file, copy the labels to `data/submission_format.csv` as well.
+
+After you generate predictions on the smoke test data using `make test-submission`, you can score them by running:
+
+```
+python src/scoring.py submission/submission.csv data/smoke_test_labels.csv
+```
+
+If you've followed the above instructions, this score should match the one you receive from the smoke test environment on the platform.
+
 ## Updating runtime packages
 
 If you want to use a package that is not in the environment, you are welcome to make a pull request to this repository. Remember, your submission will only have access to packages in this runtime repository. If you're new to the GitHub contribution workflow, check out [this guide by GitHub](https://docs.github.com/en/get-started/quickstart/contributing-to-projects).
