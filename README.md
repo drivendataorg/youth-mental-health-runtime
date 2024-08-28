@@ -77,7 +77,7 @@ As you develop your own submission, you'll need to know a little bit more about 
 
 Your final submission should be a zip archive named with the extension `.zip` (for example, `submission.zip`).
 
-A template for `main.py` is included at [`example_submission/main.py`](./example_submission/main.py). For more detail, see the "what to submit" section of the code submission page.
+A template for `main.py` is included at [`example_submission/main.py`](./example_submission/main.py). For more detail, see the "what to submit" [section](https://www.drivendata.org/competitions/295/cdc-automated-abstraction/page/923/#what-to-submit) of the code submission page.
 
 ### Running your submission locally
 
@@ -195,7 +195,7 @@ The runtime manages dependencies using [Pixi](https://pixi.sh/latest/). Here is 
 
 9.  You may be asked to submit revisions to your pull request if the tests fail or if a DrivenData staff member has feedback. Pull requests won't be merged until all tests pass and the team has reviewed and approved the changes.
 
-## Make commands
+## Makefile commands
 
 A Makefile with several helpful shell recipes is included in the repository. The runtime documentation above uses it extensively. Running `make` by itself in your shell will list relevant Docker images and provide you the following list of available commands:
 
@@ -204,13 +204,15 @@ Available commands:
 
 build               Builds the container locally 
 clean               Delete temporary Python cache and bytecode files 
-interact-container  Open an interactive bash shell within the running container (with network access) 
-pack-example        Creates a submission/submission.zip file from the source code in examples_src 
-pack-submission     Creates a submission/submission.zip file from the source code in submission_src 
+interact-container  Open an interactive bash shell within the running container
+pack-example        Creates a submission/submission.zip file from the source code in 
+                    example_submission 
+pack-submission     Creates a submission/submission.zip file from the source code in 
+                    submission_src 
 pull                Pulls the official container from Azure Container Registry 
-test-container      Ensures that your locally built image can import all the Python packages successfully 
-                    when it runs 
+test-container      Ensures that your locally built image can import all the Python packages 
+                    successfully when it runs 
 test-submission     Runs container using code from `submission/submission.zip` and data from 
                     `/code_execution/data/` 
-update-lockfile     Updates runtime environment lockfile using Docker 
+update-lockfile     Updates runtime environment lockfile using Docker
 ```

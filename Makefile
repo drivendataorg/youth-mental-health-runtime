@@ -152,7 +152,7 @@ test-container: _check_image _echo_image _submission_write_perms
 		pixi run -e ${CPU_OR_GPU} python -m pytest tests
 
 
-## Open an interactive bash shell within the running container (with network access)
+## Open an interactive bash shell within the running container
 interact-container: _check_image _echo_image _submission_write_perms
 	docker run \
 		${GPU_ARGS} \
@@ -169,7 +169,7 @@ interact-container: _check_image _echo_image _submission_write_perms
 pull:
 	docker pull ${OFFICIAL_IMAGE}:${TAG}
 
-## Creates a submission/submission.zip file from the source code in examples_src
+## Creates a submission/submission.zip file from the source code in example_submission
 pack-example:
 # Don't overwrite so no work is lost accidentally
 ifneq (,$(wildcard ./submission/submission.zip))
