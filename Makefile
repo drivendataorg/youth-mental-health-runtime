@@ -52,9 +52,6 @@ ifeq (true, ${BLOCK_INTERNET})
 NETWORK_ARGS = --network none
 endif
 
-# Name of the example submission to pack when running `make pack-example`
-EXAMPLE ?= submission
-
 .PHONY: _check_image _echo_image _submission_write_perms
 
 # Give write access to the submission folder to everyone so Docker user can write when mounted
@@ -179,7 +176,7 @@ ifneq (,$(wildcard ./submission/submission.zip))
 	$(error You already have a submission/submission.zip file. Rename or remove that file (e.g., rm submission/submission.zip).)
 endif
 	mkdir -p submission/
-	cd examples/${EXAMPLE}; zip -r ../../submission/submission.zip ./*
+	cd example_submission/; zip -r ../submission/submission.zip ./*
 
 ## Creates a submission/submission.zip file from the source code in submission_src
 pack-submission:
