@@ -1,5 +1,8 @@
 black
 conda-lock
+numpy
+pandas
 pip-tools
 ruff
+scikit-learn
 typer

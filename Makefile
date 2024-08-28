@@ -52,9 +52,6 @@ ifeq (true, ${BLOCK_INTERNET})
 NETWORK_ARGS = --network none
 endif
 
-# Name of the example submission to pack when running `make pack-example`
-EXAMPLE ?= submission
-
 .PHONY: _check_image _echo_image _submission_write_perms
 
 # Give write access to the submission folder to everyone so Docker user can write when mounted
@@ -155,7 +152,7 @@ test-container: _check_image _echo_image _submission_write_perms
 		pixi run -e ${CPU_OR_GPU} python -m pytest tests
 
 
-## Open an interactive bash shell within the running container (with network access)
+## Open an interactive bash shell within the running container
 interact-container: _check_image _echo_image _submission_write_perms
 	docker run \
 		${GPU_ARGS} \
@@ -172,14 +169,14 @@ interact-container: _check_image _echo_image _submission_write_perms
 pull:
 	docker pull ${OFFICIAL_IMAGE}:${TAG}
 
-## Creates a submission/submission.zip file from the source code in examples_src
+## Creates a submission/submission.zip file from the source code in example_submission
 pack-example:
 # Don't overwrite so no work is lost accidentally
 ifneq (,$(wildcard ./submission/submission.zip))
 	$(error You already have a submission/submission.zip file. Rename or remove that file (e.g., rm submission/submission.zip).)
 endif
 	mkdir -p submission/
-	cd examples/${EXAMPLE}; zip -r ../../submission/submission.zip ./*
+	cd example_submission/; zip -r ../submission/submission.zip ./*
 
 ## Creates a submission/submission.zip file from the source code in submission_src
 pack-submission:

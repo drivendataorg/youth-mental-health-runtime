@@ -4,15 +4,14 @@
 
 Welcome to the runtime repository for the [Youth Mental Health: Automated Abstraction](https://www.drivendata.org/competitions/295/cdc-automated-abstraction/) challenge on DrivenData! This repository contains a few things to help you create your code submission for this code execution competition:
 
-1. **Submission template** ([`examples/template/`](./examples/template/main.py)) — a template with the function signatures that you should implement in your submission.
-1. **Example submission** ([`examples/submission/`](./examples/submission/main.py/)) — a submission with a simple demonstration solution. It will run successfully in the code execution runtime and outputs a valid submission.
-1. **Runtime environment specification** ([`runtime/`](./runtime/)) — the definition of the environment in which your code will run.
+1. **Example submission** ([`example_submission/`](./example_submission/main.py/)) — a simple demonstration solution, which runs successfully in the code execution runtime and outputs a valid submission. This provides the function signatures that you should implement in your solution. 
+2. **Runtime environment specification** ([`runtime/`](./runtime/)) — the definition of the environment in which your code will run.
 
 You can use this repository to:
 
 🔧 **Test your submission**: Test your submission using a locally running version of the competition runtime to discover errors before submitting to the competition website.
 
-📦 **Request new packages in the official runtime**: Since your submission will not have general access to the internet, all dependencies must be pre-installed. If you want to use a package that is not in the runtime environment, make a pull request to this repository. Make sure to test out adding the new package to both official environments (CPU and GPU).
+📦 **Request new packages in the official runtime**: Since your submission will not have general access to the internet, all dependencies must be pre-installed. If you want to use a package that is not already in the [runtime environment](./runtime/pixi.toml), make a pull request to this repository. Make sure to test out adding the new package to both official environments (CPU and GPU).
 
 Changes to the repository are documented in [CHANGELOG.md](./CHANGELOG.md).
 
@@ -22,8 +21,9 @@ Changes to the repository are documented in [CHANGELOG.md](./CHANGELOG.md).
 
 - [Prerequisites](#prerequisites)
 - [Setting up the data directory](#setting-up-the-data-directory)
+- [Evaluating your predictions](#evaluating-your-predictions)
 
-#### [2. Testing your submission locally](#testing-your-submission)
+#### [2. Testing your submission](#testing-your-submission)
 - [Code submission format](#code-submission-format)
 - [Running your submission locally](#running-your-submission-locally)
 - [Running the example submission locally](#running-the-example-submission-locally)
@@ -37,7 +37,7 @@ Changes to the repository are documented in [CHANGELOG.md](./CHANGELOG.md).
 
 ## Quickstart
 
-This quickstart guide will show you how to get the provided example solution running end-to-end. Once you get there, it's off to the races!
+This quickstart guide will show you how to get started using this repository.
 
 ### Prerequisites
 
@@ -60,6 +60,15 @@ In the official code execution platform, `code_execution/data` will contain feat
 
 To test your submission in a local container, save a file under `data/test_features.csv` that matches the format of the actual test features file. For example, you could use a set of training examples. When you run your submission in a Docker container locally, the file you provide will be included in the container.
 
+### Evaluating your predictions
+
+We also provide a script for you to evaluate your generated predictions using known training set labels. `src/scoring.py` takes the path to your predictions and the path to the corresponding labels, and calculates variable-averaged F1 score per the competition [performance metric](https://www.drivendata.org/competitions/295/cdc-automated-abstraction/page/917/#performance-metric).
+
+```
+$ python src/scoring.py submission/submission.csv data/train_labels.csv
+Variable-averaged F1 score: 0.0061
+```
+
 ## Testing your submission
 
 As you develop your own submission, you'll need to know a little bit more about how your submission will be unpacked for running inference. This section contains more complete documentation for developing and testing your own submission.
@@ -68,7 +77,7 @@ As you develop your own submission, you'll need to know a little bit more about 
 
 Your final submission should be a zip archive named with the extension `.zip` (for example, `submission.zip`).
 
-A template for `main.py` is included at [`examples/template/main.py`](./examples/template/main.py). For more detail, see the "what to submit" section of the code submission page.
+A template for `main.py` is included at [`example_submission/main.py`](./example_submission/main.py). For more detail, see the "what to submit" [section](https://www.drivendata.org/competitions/295/cdc-automated-abstraction/page/923/#what-to-submit) of the code submission page.
 
 ### Running your submission locally
 
@@ -111,23 +120,36 @@ Here's the process in a bit more detail:
 > [!NOTE]
 > Remember that `/code_execution/data` is just a mounted version of what you have saved locally in `data` so you will just be using the training files for local testing. In the official code execution platform, `/code_execution/data` will contain the actual test data.
 
-🎉 **Congratulations!** You've just completed your first test run for the Youth Mental Health: Automated Abstraction. If everything worked as expected, you should see that a new file `submission/submission.csv` has been generated.
+🎉 **Congratulations!** You've just completed your first test run for the Youth Mental Health: Automated Abstraction challenge. If everything worked as expected, you should see that a new file `submission/submission.csv` has been generated.
 
-When you run `make test-submission` the logs will be printed to the terminal and written out to `submission/log.txt`. If you run into errors, use the container logs written to `log.txt` to determine what changes you need to make for your code to execute successfully.
+When you run `make test-submission`, the logs will be printed to the terminal and written out to `submission/log.txt`. If you run into errors, use the container logs written to `log.txt` to determine what changes you need to make for your code to execute successfully.
 
 ### Running the example submission locally
 
-Before you test your own submission, you can test the process above with the provided example submission first. This will follow the same process as running your submission, but will use the code in `examples/submission` instead of the code in `submission_src`.
+Before you test your own submission, you can test the process above with the provided example submission first. This will follow the same process as running your submission, but will use the code in `example_submission` instead of the code in `submission_src`.
 
 To run the example submission using `make` commands, make sure that Docker is running and then run the following in the terminal:
 
 1. **`make pull`** pulls the latest official Docker image from the container registry ([Azure](https://azure.microsoft.com/en-us/services/container-registry/)). You'll need an internet connection for this.
-2. **`make pack-example`** packages all files saved in the `examples/submission` directory to `submission/submission.zip`
-3. **`make test-submission`** simulates a code execution submission with `submission/submission.zip`. This will run `examples/submission/main.py` from within a Docker container to generation `submission.csv`.
+2. **`make pack-example`** packages all files saved in the `example_submission` directory to `submission/submission.zip`
+3. **`make test-submission`** simulates a code execution submission with `submission/submission.zip`. This will run `example_submission/main.py` from within a Docker container to generation `submission.csv`.
 
 ### Smoke tests
 
 In order to prevent leakage of the test features, **all logging is prohibited when running inference on the test features** as part of an official submission. When submitting on the platform, you will have the ability to submit "smoke tests". Smoke tests run with logging enabled on a reduced version of the training set notes in order to run more quickly. They will not be considered for prize evaluation and are intended to let you test your code for correctness. In this competition, smoke tests will be the only place you can view logs or output from your code to debug. **You should test your code locally as thorougly as possible before submitting your code for smoke tests or for full evaluation.**
+
+During a smoke test, you will still have access to `data/submission_format.csv` and `data/test_features.csv`. These files will be samples from the training set instead of test data. The data used in smoke tests is available on the [data download page](https://www.drivendata.org/competitions/295/cdc-automated-abstraction/data/). To replicate the smoke test environment locally:
+
+1. Save `smoke_test_features.csv` from the data download page to `data/test_features.csv`.
+2. Save `smoke_test_labels.csv` from the data download page to `data/smoke_test_labels.csv`. If your code references a submission format file, copy the labels to `data/submission_format.csv` as well.
+
+After you generate predictions on the smoke test data using `make test-submission`, you can score them by running:
+
+```
+python src/scoring.py submission/submission.csv data/smoke_test_labels.csv
+```
+
+If you've followed the above instructions, this score should match the one you receive from the smoke test environment on the platform.
 
 ## Updating runtime packages
 
@@ -173,7 +195,7 @@ The runtime manages dependencies using [Pixi](https://pixi.sh/latest/). Here is 
 
 9.  You may be asked to submit revisions to your pull request if the tests fail or if a DrivenData staff member has feedback. Pull requests won't be merged until all tests pass and the team has reviewed and approved the changes.
 
-## Make commands
+## Makefile commands
 
 A Makefile with several helpful shell recipes is included in the repository. The runtime documentation above uses it extensively. Running `make` by itself in your shell will list relevant Docker images and provide you the following list of available commands:
 
@@ -182,13 +204,15 @@ Available commands:
 
 build               Builds the container locally 
 clean               Delete temporary Python cache and bytecode files 
-interact-container  Open an interactive bash shell within the running container (with network access) 
-pack-example        Creates a submission/submission.zip file from the source code in examples_src 
-pack-submission     Creates a submission/submission.zip file from the source code in submission_src 
+interact-container  Open an interactive bash shell within the running container
+pack-example        Creates a submission/submission.zip file from the source code in 
+                    example_submission 
+pack-submission     Creates a submission/submission.zip file from the source code in 
+                    submission_src 
 pull                Pulls the official container from Azure Container Registry 
-test-container      Ensures that your locally built image can import all the Python packages successfully 
-                    when it runs 
+test-container      Ensures that your locally built image can import all the Python packages 
+                    successfully when it runs 
 test-submission     Runs container using code from `submission/submission.zip` and data from 
                     `/code_execution/data/` 
-update-lockfile     Updates runtime environment lockfile using Docker 
+update-lockfile     Updates runtime environment lockfile using Docker
 ```
