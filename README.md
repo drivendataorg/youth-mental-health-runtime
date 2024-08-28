@@ -4,7 +4,7 @@
 
 Welcome to the runtime repository for the [Youth Mental Health: Automated Abstraction](https://www.drivendata.org/competitions/295/cdc-automated-abstraction/) challenge on DrivenData! This repository contains a few things to help you create your code submission for this code execution competition:
 
-1. **Example submission** ([`examples/submission/`](./examples/submission/main.py/)) — a submission with a simple demonstration solution.It will run successfully in the code execution runtime and outputs a valid submission.  This provides the function signatures that you should implement in your solution. 
+1. **Example submission** ([`example_submission/`](./example_submission/main.py/)) — a simple demonstration solution, which runs successfully in the code execution runtime and outputs a valid submission. This provides the function signatures that you should implement in your solution. 
 2. **Runtime environment specification** ([`runtime/`](./runtime/)) — the definition of the environment in which your code will run.
 
 You can use this repository to:
@@ -21,8 +21,9 @@ Changes to the repository are documented in [CHANGELOG.md](./CHANGELOG.md).
 
 - [Prerequisites](#prerequisites)
 - [Setting up the data directory](#setting-up-the-data-directory)
+- [Evaluating your predictions](#evaluating-your-predictions)
 
-#### [2. Testing your submission locally](#testing-your-submission)
+#### [2. Testing your submission](#testing-your-submission)
 - [Code submission format](#code-submission-format)
 - [Running your submission locally](#running-your-submission-locally)
 - [Running the example submission locally](#running-the-example-submission-locally)
@@ -59,9 +60,9 @@ In the official code execution platform, `code_execution/data` will contain feat
 
 To test your submission in a local container, save a file under `data/test_features.csv` that matches the format of the actual test features file. For example, you could use a set of training examples. When you run your submission in a Docker container locally, the file you provide will be included in the container.
 
-### Evaluating your annotations
+### Evaluating your predictions
 
-We also provide a script for you to evaluate your generated annotations on the training set. The script takes the path to your predictions and the path to the corresponding labels, and calculates variable-averaged F1 score per the competition [performance metric](https://www.drivendata.org/competitions/295/cdc-automated-abstraction/page/917/#performance-metric).
+We also provide a script for you to evaluate your generated predictions using known training set labels. `src/scoring.py` takes the path to your predictions and the path to the corresponding labels, and calculates variable-averaged F1 score per the competition [performance metric](https://www.drivendata.org/competitions/295/cdc-automated-abstraction/page/917/#performance-metric).
 
 ```
 $ python src/scoring.py submission/submission.csv data/train_labels.csv
@@ -76,7 +77,7 @@ As you develop your own submission, you'll need to know a little bit more about 
 
 Your final submission should be a zip archive named with the extension `.zip` (for example, `submission.zip`).
 
-A template for `main.py` is included at [`examples/template/main.py`](./examples/template/main.py). For more detail, see the "what to submit" section of the code submission page.
+A template for `main.py` is included at [`example_submission/main.py`](./example_submission/main.py). For more detail, see the "what to submit" section of the code submission page.
 
 ### Running your submission locally
 
