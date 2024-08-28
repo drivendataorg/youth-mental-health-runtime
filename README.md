@@ -4,9 +4,8 @@
 
 Welcome to the runtime repository for the [Youth Mental Health: Automated Abstraction](https://www.drivendata.org/competitions/295/cdc-automated-abstraction/) challenge on DrivenData! This repository contains a few things to help you create your code submission for this code execution competition:
 
-1. **Submission template** ([`examples/template/`](./examples/template/main.py)) — a template with the function signatures that you should implement in your submission.
-1. **Example submission** ([`examples/submission/`](./examples/submission/main.py/)) — a submission with a simple demonstration solution. It will run successfully in the code execution runtime and outputs a valid submission.
-1. **Runtime environment specification** ([`runtime/`](./runtime/)) — the definition of the environment in which your code will run.
+1. **Example submission** ([`examples/submission/`](./examples/submission/main.py/)) — a submission with a simple demonstration solution.It will run successfully in the code execution runtime and outputs a valid submission.  This provides the function signatures that you should implement in your solution. 
+2. **Runtime environment specification** ([`runtime/`](./runtime/)) — the definition of the environment in which your code will run.
 
 You can use this repository to:
 
