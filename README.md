@@ -11,7 +11,7 @@ You can use this repository to:
 
 🔧 **Test your submission**: Test your submission using a locally running version of the competition runtime to discover errors before submitting to the competition website.
 
-📦 **Request new packages in the official runtime**: Since your submission will not have general access to the internet, all dependencies must be pre-installed. If you want to use a package that is not in the runtime environment, make a pull request to this repository. Make sure to test out adding the new package to both official environments (CPU and GPU).
+📦 **Request new packages in the official runtime**: Since your submission will not have general access to the internet, all dependencies must be pre-installed. If you want to use a package that is not already in the [runtime environment](./runtime/pixi.toml), make a pull request to this repository. Make sure to test out adding the new package to both official environments (CPU and GPU).
 
 Changes to the repository are documented in [CHANGELOG.md](./CHANGELOG.md).
 
@@ -120,19 +120,19 @@ Here's the process in a bit more detail:
 > [!NOTE]
 > Remember that `/code_execution/data` is just a mounted version of what you have saved locally in `data` so you will just be using the training files for local testing. In the official code execution platform, `/code_execution/data` will contain the actual test data.
 
-🎉 **Congratulations!** You've just completed your first test run for the Youth Mental Health: Automated Abstraction. If everything worked as expected, you should see that a new file `submission/submission.csv` has been generated.
+🎉 **Congratulations!** You've just completed your first test run for the Youth Mental Health: Automated Abstraction challenge. If everything worked as expected, you should see that a new file `submission/submission.csv` has been generated.
 
-When you run `make test-submission` the logs will be printed to the terminal and written out to `submission/log.txt`. If you run into errors, use the container logs written to `log.txt` to determine what changes you need to make for your code to execute successfully.
+When you run `make test-submission`, the logs will be printed to the terminal and written out to `submission/log.txt`. If you run into errors, use the container logs written to `log.txt` to determine what changes you need to make for your code to execute successfully.
 
 ### Running the example submission locally
 
-Before you test your own submission, you can test the process above with the provided example submission first. This will follow the same process as running your submission, but will use the code in `examples/submission` instead of the code in `submission_src`.
+Before you test your own submission, you can test the process above with the provided example submission first. This will follow the same process as running your submission, but will use the code in `example_submission` instead of the code in `submission_src`.
 
 To run the example submission using `make` commands, make sure that Docker is running and then run the following in the terminal:
 
 1. **`make pull`** pulls the latest official Docker image from the container registry ([Azure](https://azure.microsoft.com/en-us/services/container-registry/)). You'll need an internet connection for this.
-2. **`make pack-example`** packages all files saved in the `examples/submission` directory to `submission/submission.zip`
-3. **`make test-submission`** simulates a code execution submission with `submission/submission.zip`. This will run `examples/submission/main.py` from within a Docker container to generation `submission.csv`.
+2. **`make pack-example`** packages all files saved in the `example_submission` directory to `submission/submission.zip`
+3. **`make test-submission`** simulates a code execution submission with `submission/submission.zip`. This will run `example_submission/main.py` from within a Docker container to generation `submission.csv`.
 
 ### Smoke tests
 
