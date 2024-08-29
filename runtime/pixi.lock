@@ -296,7 +296,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/azure-storage-blobs-cpp-12.12.0-hd2e3451_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/azure-storage-common-cpp-12.7.0-h10ac4d7_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/azure-storage-files-datalake-cpp-12.11.0-h325d260_1.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-64/bitsandbytes-0.43.3-cpu_py310hc435be1_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/bitsandbytes-0.43.3-cuda118_py310h43b5766_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/blas-1.0-mkl.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/linux-64/brotli-python-1.1.0-py310hc6cd4ac_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/bzip2-1.0.8-h4bc722e_7.conda
@@ -1105,10 +1105,30 @@ packages:
   - scipy
   license: MIT
   license_family: MIT
-  purls:
-  - pkg:pypi/bitsandbytes?source=conda-forge-mapping
   size: 203864
   timestamp: 1723705001660
+- kind: conda
+  name: bitsandbytes
+  version: 0.43.3
+  build: cuda118_py310h43b5766_0
+  subdir: linux-64
+  url: https://conda.anaconda.org/conda-forge/linux-64/bitsandbytes-0.43.3-cuda118_py310h43b5766_0.conda
+  sha256: a99c150f495184e23898107ca7bf42b94fc1005032e43f16035856a5d726ada3
+  md5: e593404b3dbd14190225661855805e9c
+  depends:
+  - __glibc >=2.17
+  - __glibc >=2.17,<3.0.a0
+  - cudatoolkit >=11.8,<12
+  - libgcc-ng >=12
+  - libstdcxx-ng >=12
+  - python >=3.10,<3.11.0a0
+  - python_abi 3.10.* *_cp310
+  - pytorch
+  - scipy
+  license: MIT
+  license_family: MIT
+  size: 204413
+  timestamp: 1723704989777
 - kind: conda
   name: blas
   version: '1.0'
