@@ -36,6 +36,7 @@ cpuonly = {channel = "pytorch"} # PyTorch metapackage for CPU-only
 pytorch = {version = "2.1.2", channel = "pytorch"}
 bitsandbytes = {version = "0.43.3"}
 
+
 # GPU DEPENDENCIES
 [feature.gpu]
 system-requirements = {cuda = "11.8"}
