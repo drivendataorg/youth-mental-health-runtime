@@ -4,14 +4,11 @@ import subprocess
 import pytest
 
 packages = [
-    "gensim",
-    "keras",
     "numpy",
     "pandas",
     "scipy",
     "spacy",
     "sklearn",
-    "tensorflow",
     "torch",
     "transformers",
 ]
@@ -44,22 +41,17 @@ def test_allocate_torch():
 
 
 @pytest.mark.skipif(not GPU_AVAILABLE, reason="No GPU available")
-def test_allocate_tf():
-    import tensorflow as tf
-
-    assert tf.test.is_built_with_cuda()
-    assert (devices := tf.config.list_logical_devices("GPU"))
-
-    for device in devices:
-        with tf.device(device.name):
-            tf.constant([[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]])
-
-
-@pytest.mark.skipif(not GPU_AVAILABLE, reason="No GPU available")
 def test_allocate_cupy():
     import cupy as cp
 
     cp.array([1, 2, 3, 4, 5, 6])
+
+
+@pytest.mark.skipif(not GPU_AVAILABLE, reason="No GPU available")
+def test_bitsandbytes_available():
+    from transformers.utils import is_bitsandbytes_available
+
+    assert is_bitsandbytes_available()
 
 
 def test_spacy():
