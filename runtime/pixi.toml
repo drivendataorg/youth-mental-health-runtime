@@ -9,7 +9,6 @@ platforms = ["linux-64"]
 [feature.base]
 [feature.base.dependencies]
 accelerate = "0.33.0"
-bitsandbytes = "0.43.3"
 einops = "0.8.0"
 jsonpickle = "3.2.2"
 langchain = "0.2.14"
@@ -48,6 +47,7 @@ cupy = {version = "12.*"}
 pytorch = {version = "2.1.2", channel = "pytorch"}
 pytorch-cuda = {version = "11.8", channel = "pytorch"} # PyTorch metapackage for cuda version
 xformers = {version = "0.0.23.post1", channel = "xformers"}
+bitsandbytes = { version = "0.43.3", build="cuda118_py310hda4ad70_1" }
 
 [environments]
 cpu = { features = ["base", "cpu"]}
