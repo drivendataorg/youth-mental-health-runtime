@@ -39,6 +39,7 @@ pytorch = {version = "2.1.2", channel = "pytorch"}
 [feature.gpu]
 system-requirements = {cuda = "11.8"}
 [feature.gpu.dependencies]
+bitsandbytes = { version = "0.43.3", build="cuda118_py310hda4ad70_1" }
 cudatoolkit = {version = "11.8", channel = "conda-forge"}
 cuda-cudart = {version = "11.8.*", channel = "nvidia"}
 cuda-version = {version = "11.8", channel = "conda-forge"}
@@ -47,7 +48,6 @@ cupy = {version = "12.*"}
 pytorch = {version = "2.1.2", channel = "pytorch"}
 pytorch-cuda = {version = "11.8", channel = "pytorch"} # PyTorch metapackage for cuda version
 xformers = {version = "0.0.23.post1", channel = "xformers"}
-bitsandbytes = { version = "0.43.3", build="cuda118_py310hda4ad70_1" }
 
 [environments]
 cpu = { features = ["base", "cpu"]}
