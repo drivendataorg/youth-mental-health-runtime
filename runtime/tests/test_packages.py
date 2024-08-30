@@ -47,6 +47,13 @@ def test_allocate_cupy():
     cp.array([1, 2, 3, 4, 5, 6])
 
 
+@pytest.mark.skipif(not GPU_AVAILABLE, reason="No GPU available")
+def test_bitsandbytes_available():
+    from transformers.utils import is_bitsandbytes_available
+
+    assert is_bitsandbytes_available()
+
+
 def test_spacy():
     import spacy
     from spacy.tokens import DocBin
