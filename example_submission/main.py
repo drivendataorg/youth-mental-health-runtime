@@ -16,8 +16,8 @@ def generate_predictions(features: pd.DataFrame, submission_format: pd.DataFrame
     for col in predictions.columns:
         predictions[col] = 1
     # Predict the same value across rows for each categorical variable
-    predictions["InjuryLocationType"] = 11
-    predictions["WeaponType1"] = 6
+    predictions["InjuryLocationType"] = 6
+    predictions["WeaponType1"] = 11
 
     return predictions
 
