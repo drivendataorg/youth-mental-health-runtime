@@ -204,6 +204,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/safetensors-0.4.4-py310h42e942d_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/scikit-learn-1.5.1-py310h146d792_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/scipy-1.14.1-py310ha3fb0e1_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/sentence-transformers-2.0.0-pyhd8ed1ab_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/linux-64/sentencepiece-0.2.0-hff52083_3.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/sentencepiece-python-0.2.0-py310hcf7cfdd_3.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/sentencepiece-spm-0.2.0-hc656cff_3.conda
@@ -482,6 +483,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/safetensors-0.4.4-py310h42e942d_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/scikit-learn-1.5.1-py310h146d792_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/scipy-1.14.1-py310ha3fb0e1_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/sentence-transformers-2.0.0-pyhd8ed1ab_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/linux-64/sentencepiece-0.2.0-hff52083_3.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/sentencepiece-python-0.2.0-py310hcf7cfdd_3.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/sentencepiece-spm-0.2.0-hc656cff_3.conda
@@ -4842,6 +4844,28 @@ packages:
   - pkg:pypi/scipy?source=conda-forge-mapping
   size: 16907009
   timestamp: 1724328294898
+- kind: conda
+  name: sentence-transformers
+  version: 2.0.0
+  build: pyhd8ed1ab_0
+  subdir: noarch
+  noarch: python
+  url: https://conda.anaconda.org/conda-forge/noarch/sentence-transformers-2.0.0-pyhd8ed1ab_0.tar.bz2
+  sha256: 986e04a885b02fb1567defdf549ee10bb4a1f20bceef813a52549ed82f874201
+  md5: 882aa54b798fbfdf17febfff4309be10
+  depends:
+  - nltk
+  - numpy
+  - python >=3.6
+  - pytorch >=1.0.1
+  - scikit-learn
+  - scipy
+  - tqdm
+  - transformers >=3.1
+  license: Apache-2.0
+  license_family: APACHE
+  size: 83596
+  timestamp: 1626294595130
 - kind: conda
   name: sentencepiece
   version: 0.2.0
