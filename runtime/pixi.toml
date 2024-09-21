@@ -35,7 +35,7 @@ transformers = "4.44.2"
 sentence-transformers = "2.0.0"
 
 [feature.base.pypi-dependencies]
-lmdeploy = { url = "https://github.com/InternLM/lmdeploy/releases/download/v0.6.0/lmdeploy-0.6.0+cu118-cp310-cp310-manylinux2014_x86_64.whl" }
+lmdeploy = {version = "*"}
 
 # CPU DEPENDENCIES
 [feature.cpu]
