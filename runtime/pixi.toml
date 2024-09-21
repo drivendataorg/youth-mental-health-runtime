@@ -30,6 +30,9 @@ tqdm = "4.66.*"
 transformers = "4.44.2"
 sentence-transformers = "2.0.0"
 
+[feature.base.pypi-dependencies]
+lmdeploy = {version = "*"}
+
 # CPU DEPENDENCIES
 [feature.cpu]
 [feature.cpu.dependencies]
