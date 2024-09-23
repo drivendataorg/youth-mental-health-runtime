@@ -8,6 +8,7 @@ environments:
     - url: https://conda.anaconda.org/xformers/
     indexes:
     - https://pypi.org/simple
+    - https://download.pytorch.org/whl/cu118
     packages:
       linux-64:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/_libgcc_mutex-0.1-conda_forge.tar.bz2
@@ -172,7 +173,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/orjson-3.10.7-py310h42e942d_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/packaging-24.1-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/pandas-2.2.2-py310hf9f9076_1.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/peft-0.12.0-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/peft-0.11.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pip-24.2-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pluggy-1.5.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/preshed-3.0.9-py310hc6cd4ac_1.conda
@@ -265,17 +266,16 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/69/4a/4f9dbeb84e8850557c02365a0eee0649abe5eb1d84af92a25731c6c0f922/jsonschema-4.23.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/ee/07/44bd408781594c4d0a027666ef27fab1e441b109dc3b76b4f836f8fd04fe/jsonschema_specifications-2023.12.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/2d/00/d90b10b962b4277f5e64a78b6609968859ff86889f5b898c1a778c06ec00/lark-1.2.2-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/6c/fb/72e65d052ca28e073d34d5d3b53d89991161b3ccaf284231fb82eaab0c33/lmdeploy-0.6.0-cp310-cp310-manylinux2014_x86_64.whl
+      - pypi: direct+https://github.com/InternLM/lmdeploy/releases/download/v0.6.0/lmdeploy-0.6.0+cu118-cp310-cp310-manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/75/84/3b1730bb21d67487c7cfcd175e44920f34b031bb313ad183398ea182535e/mmengine_lite-0.10.5-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a0/c4/c2971a3ba4c6103a3d10c4b0f24f461ddc027f0f09763220cf35ca1401b3/nest_asyncio-1.6.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/6e/f2/56616332442d65ea32ccbae4b5656bccf5587293633774404df63dffc7fe/nvidia_cublas_cu12-12.6.1.4-py3-none-manylinux2014_x86_64.whl
-      - pypi: https://files.pythonhosted.org/packages/14/73/372663ed23fd7aa66bebab25efb8ab6b63d1d16a336c8ffd3e10df16a699/nvidia_cuda_runtime_cu12-12.6.68-py3-none-manylinux2014_x86_64.whl
-      - pypi: https://files.pythonhosted.org/packages/71/56/c26ce119c5fb152bee97059912569acd6ac3d09912590928ac21751dcadb/nvidia_curand_cu12-10.3.7.68-py3-none-manylinux2014_x86_64.whl
-      - pypi: https://files.pythonhosted.org/packages/ed/1f/6482380ec8dcec4894e7503490fc536d846b0d59694acad9cf99f27d0e7d/nvidia_nccl_cu12-2.23.4-py3-none-manylinux2014_x86_64.whl
-      - pypi: https://files.pythonhosted.org/packages/a2/3c/28d7cf1a3292c93e5def8acd89535ba380cb8dd888c26cdbfe420249e143/openai-1.47.0-py3-none-any.whl
+      - pypi: https://download.pytorch.org/whl/cu118/nvidia_cublas_cu11-11.11.3.6-py3-none-manylinux1_x86_64.whl#sha256=39fb40e8f486dd8a2ddb8fdeefe1d5b28f5b99df01c87ab3676f057a74a5a6f3
+      - pypi: https://download.pytorch.org/whl/cu118/nvidia_cuda_runtime_cu11-11.8.89-py3-none-manylinux1_x86_64.whl#sha256=f587bd726eb2f7612cf77ce38a2c1e65cf23251ff49437f6161ce0d647f64f7c
+      - pypi: https://download.pytorch.org/whl/cu118/nvidia_curand_cu11-10.3.0.86-py3-none-manylinux1_x86_64.whl#sha256=ac439548c88580269a1eb6aeb602a5aed32f0dbb20809a31d9ed7d01d77f6bf5
+      - pypi: https://download.pytorch.org/whl/cu118/nvidia_nccl_cu11-2.20.5-py3-none-manylinux2014_x86_64.whl#sha256=3619e25dfb0c8f4c554561c3459ee7dfe1250eed05e9aa4d147a75c45cc6ae0d
+      - pypi: https://files.pythonhosted.org/packages/13/a1/601773020ad98d6d55f45c4482ea0c30af1351827eaab98cbc7d27b4716d/openai-1.47.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/fd/2c/1ce85b81b2f6835720db1fda9f2d4439a69458b119d2ad5fcf7cae573923/outlines-0.0.46-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/19/99/c5e0292a6d2a62e95c3dfe674ce9e8f8a9fe5d4835d3c9bb9b3e016f02ae/peft-0.11.1-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/b5/5b/6651c288b08df3b8c1e2f8c1152201e0b25d240e22ddade0f1e242fc9fa0/pillow-10.4.0-cp310-cp310-manylinux_2_28_x86_64.whl
+      - pypi: https://download.pytorch.org/whl/pillow-10.2.0-cp310-cp310-manylinux_2_28_x86_64.whl#sha256=322bdf3c9b556e9ffb18f93462e5f749d3444ce081290352c6070d014c93feb2
       - pypi: https://files.pythonhosted.org/packages/3c/a6/bc1012356d8ece4d66dd75c4b9fc6c1f6650ddd5991e421177d9f8f671be/platformdirs-4.3.6-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/23/08/a1ce0415a115c2b703bfa798f06f0e43ca91dbe29d6180bf86a9287b15e2/protobuf-5.28.2-cp38-abi3-manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/6e/75/b424aebc9f2fc5db319d5df5fff62fa19254c8ef974c254588d48c480df2/pyairports-2.1.1-py3-none-any.whl
@@ -286,8 +286,8 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/c0/44/21d6bf170bf40b41396480d8d49ad640bca3f2b02139cd52aa1e272830a5/shortuuid-1.0.13-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/d9/5f/8c716e47b3a50cbd7c146f45881e11d9414def768b7cd9c5e6650ec2a80a/termcolor-2.4.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/e7/8c/7d1007557b343d5cf18349802e94d3a14397121e9105b4661f8cd753f9bf/tiktoken-0.7.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-      - pypi: https://files.pythonhosted.org/packages/da/ae/76bd3682465730dea7be21f36a8160a911a470de6f26228904f222e7fefe/torchvision-0.16.2-cp310-cp310-manylinux1_x86_64.whl
-      - pypi: https://files.pythonhosted.org/packages/d7/69/8a9fde07d2d27a90e16488cdfe9878e985a247b2496a4b5b1a2126042528/triton-2.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+      - pypi: https://download.pytorch.org/whl/cu118/torchvision-0.16.2%2Bcu118-cp310-cp310-linux_x86_64.whl#sha256=18470aef0bbde73f5a6a96135cd457f4d8be31f60be7ceae4ef5174f02f73add
+      - pypi: https://download.pytorch.org/whl/triton-2.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl#sha256=3c84595cbe5e546b1b290d2a58b1494df5a2ef066dd890655e5b8a8a92205c33
       - pypi: https://files.pythonhosted.org/packages/66/c9/d4b03b2490107f13ebd68fe9496d41ae41a7de6275ead56d0d4621b11ffd/yapf-0.40.2-py3-none-any.whl
   default:
     channels:
@@ -304,6 +304,7 @@ environments:
     - url: https://conda.anaconda.org/xformers/
     indexes:
     - https://pypi.org/simple
+    - https://download.pytorch.org/whl/cu118
     packages:
       linux-64:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/_libgcc_mutex-0.1-conda_forge.tar.bz2
@@ -486,7 +487,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/orjson-3.10.7-py310h42e942d_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/packaging-24.1-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/pandas-2.2.2-py310hf9f9076_1.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/peft-0.12.0-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/peft-0.11.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pip-24.2-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pluggy-1.5.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/preshed-3.0.9-py310hc6cd4ac_1.conda
@@ -583,17 +584,16 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/69/4a/4f9dbeb84e8850557c02365a0eee0649abe5eb1d84af92a25731c6c0f922/jsonschema-4.23.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/ee/07/44bd408781594c4d0a027666ef27fab1e441b109dc3b76b4f836f8fd04fe/jsonschema_specifications-2023.12.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/2d/00/d90b10b962b4277f5e64a78b6609968859ff86889f5b898c1a778c06ec00/lark-1.2.2-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/6c/fb/72e65d052ca28e073d34d5d3b53d89991161b3ccaf284231fb82eaab0c33/lmdeploy-0.6.0-cp310-cp310-manylinux2014_x86_64.whl
+      - pypi: direct+https://github.com/InternLM/lmdeploy/releases/download/v0.6.0/lmdeploy-0.6.0+cu118-cp310-cp310-manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/75/84/3b1730bb21d67487c7cfcd175e44920f34b031bb313ad183398ea182535e/mmengine_lite-0.10.5-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a0/c4/c2971a3ba4c6103a3d10c4b0f24f461ddc027f0f09763220cf35ca1401b3/nest_asyncio-1.6.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/6e/f2/56616332442d65ea32ccbae4b5656bccf5587293633774404df63dffc7fe/nvidia_cublas_cu12-12.6.1.4-py3-none-manylinux2014_x86_64.whl
-      - pypi: https://files.pythonhosted.org/packages/14/73/372663ed23fd7aa66bebab25efb8ab6b63d1d16a336c8ffd3e10df16a699/nvidia_cuda_runtime_cu12-12.6.68-py3-none-manylinux2014_x86_64.whl
-      - pypi: https://files.pythonhosted.org/packages/71/56/c26ce119c5fb152bee97059912569acd6ac3d09912590928ac21751dcadb/nvidia_curand_cu12-10.3.7.68-py3-none-manylinux2014_x86_64.whl
-      - pypi: https://files.pythonhosted.org/packages/ed/1f/6482380ec8dcec4894e7503490fc536d846b0d59694acad9cf99f27d0e7d/nvidia_nccl_cu12-2.23.4-py3-none-manylinux2014_x86_64.whl
-      - pypi: https://files.pythonhosted.org/packages/a2/3c/28d7cf1a3292c93e5def8acd89535ba380cb8dd888c26cdbfe420249e143/openai-1.47.0-py3-none-any.whl
+      - pypi: https://download.pytorch.org/whl/cu118/nvidia_cublas_cu11-11.11.3.6-py3-none-manylinux1_x86_64.whl#sha256=39fb40e8f486dd8a2ddb8fdeefe1d5b28f5b99df01c87ab3676f057a74a5a6f3
+      - pypi: https://download.pytorch.org/whl/cu118/nvidia_cuda_runtime_cu11-11.8.89-py3-none-manylinux1_x86_64.whl#sha256=f587bd726eb2f7612cf77ce38a2c1e65cf23251ff49437f6161ce0d647f64f7c
+      - pypi: https://download.pytorch.org/whl/cu118/nvidia_curand_cu11-10.3.0.86-py3-none-manylinux1_x86_64.whl#sha256=ac439548c88580269a1eb6aeb602a5aed32f0dbb20809a31d9ed7d01d77f6bf5
+      - pypi: https://download.pytorch.org/whl/cu118/nvidia_nccl_cu11-2.20.5-py3-none-manylinux2014_x86_64.whl#sha256=3619e25dfb0c8f4c554561c3459ee7dfe1250eed05e9aa4d147a75c45cc6ae0d
+      - pypi: https://files.pythonhosted.org/packages/13/a1/601773020ad98d6d55f45c4482ea0c30af1351827eaab98cbc7d27b4716d/openai-1.47.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/fd/2c/1ce85b81b2f6835720db1fda9f2d4439a69458b119d2ad5fcf7cae573923/outlines-0.0.46-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/19/99/c5e0292a6d2a62e95c3dfe674ce9e8f8a9fe5d4835d3c9bb9b3e016f02ae/peft-0.11.1-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/b5/5b/6651c288b08df3b8c1e2f8c1152201e0b25d240e22ddade0f1e242fc9fa0/pillow-10.4.0-cp310-cp310-manylinux_2_28_x86_64.whl
+      - pypi: https://download.pytorch.org/whl/pillow-10.2.0-cp310-cp310-manylinux_2_28_x86_64.whl#sha256=322bdf3c9b556e9ffb18f93462e5f749d3444ce081290352c6070d014c93feb2
       - pypi: https://files.pythonhosted.org/packages/3c/a6/bc1012356d8ece4d66dd75c4b9fc6c1f6650ddd5991e421177d9f8f671be/platformdirs-4.3.6-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/23/08/a1ce0415a115c2b703bfa798f06f0e43ca91dbe29d6180bf86a9287b15e2/protobuf-5.28.2-cp38-abi3-manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/6e/75/b424aebc9f2fc5db319d5df5fff62fa19254c8ef974c254588d48c480df2/pyairports-2.1.1-py3-none-any.whl
@@ -604,7 +604,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/c0/44/21d6bf170bf40b41396480d8d49ad640bca3f2b02139cd52aa1e272830a5/shortuuid-1.0.13-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/d9/5f/8c716e47b3a50cbd7c146f45881e11d9414def768b7cd9c5e6650ec2a80a/termcolor-2.4.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/e7/8c/7d1007557b343d5cf18349802e94d3a14397121e9105b4661f8cd753f9bf/tiktoken-0.7.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-      - pypi: https://files.pythonhosted.org/packages/da/ae/76bd3682465730dea7be21f36a8160a911a470de6f26228904f222e7fefe/torchvision-0.16.2-cp310-cp310-manylinux1_x86_64.whl
+      - pypi: https://download.pytorch.org/whl/cu118/torchvision-0.16.2%2Bcu118-cp310-cp310-linux_x86_64.whl#sha256=18470aef0bbde73f5a6a96135cd457f4d8be31f60be7ceae4ef5174f02f73add
       - pypi: https://files.pythonhosted.org/packages/66/c9/d4b03b2490107f13ebd68fe9496d41ae41a7de6275ead56d0d4621b11ffd/yapf-0.40.2-py3-none-any.whl
 packages:
 - kind: conda
@@ -3797,8 +3797,7 @@ packages:
 - kind: pypi
   name: lmdeploy
   version: 0.6.0
-  url: https://files.pythonhosted.org/packages/6c/fb/72e65d052ca28e073d34d5d3b53d89991161b3ccaf284231fb82eaab0c33/lmdeploy-0.6.0-cp310-cp310-manylinux2014_x86_64.whl
-  sha256: 4503d1ed1a04914f89cbdd3d8995ad54b6d14f0ef2c681e6e52000993fb8da14
+  url: direct+https://github.com/InternLM/lmdeploy/releases/download/v0.6.0/lmdeploy-0.6.0+cu118-cp310-cp310-manylinux2014_x86_64.whl
   requires_dist:
   - accelerate>=0.29.3
   - einops
@@ -3821,10 +3820,10 @@ packages:
   - torchvision<=0.18.1,>=0.15.0
   - transformers
   - uvicorn
-  - nvidia-nccl-cu12
-  - nvidia-cuda-runtime-cu12
-  - nvidia-cublas-cu12
-  - nvidia-curand-cu12
+  - nvidia-nccl-cu11
+  - nvidia-cuda-runtime-cu11
+  - nvidia-cublas-cu11
+  - nvidia-curand-cu11
   - triton<=2.3.1,>=2.1.0 ; sys_platform == 'linux'
   - pybind11<=2.13.1 ; extra == 'all'
   - setuptools ; extra == 'all'
@@ -3854,25 +3853,25 @@ packages:
   - transformers-stream-generator ; extra == 'all'
   - gradio ; extra == 'all'
   - tritonclient[grpc] ; extra == 'all'
-  - nvidia-nccl-cu12 ; extra == 'all'
-  - nvidia-cuda-runtime-cu12 ; extra == 'all'
-  - nvidia-cublas-cu12 ; extra == 'all'
-  - nvidia-curand-cu12 ; extra == 'all'
+  - nvidia-nccl-cu11 ; extra == 'all'
+  - nvidia-cuda-runtime-cu11 ; extra == 'all'
+  - nvidia-cublas-cu11 ; extra == 'all'
+  - nvidia-curand-cu11 ; extra == 'all'
   - triton<=2.3.1,>=2.1.0 ; sys_platform == 'linux' and extra == 'all'
   - accelerate ; extra == 'lite'
   - datasets ; extra == 'lite'
   - transformers-stream-generator ; extra == 'lite'
-  - nvidia-nccl-cu12 ; extra == 'lite'
-  - nvidia-cuda-runtime-cu12 ; extra == 'lite'
-  - nvidia-cublas-cu12 ; extra == 'lite'
-  - nvidia-curand-cu12 ; extra == 'lite'
+  - nvidia-nccl-cu11 ; extra == 'lite'
+  - nvidia-cuda-runtime-cu11 ; extra == 'lite'
+  - nvidia-cublas-cu11 ; extra == 'lite'
+  - nvidia-curand-cu11 ; extra == 'lite'
   - gradio ; extra == 'serve'
   - protobuf ; extra == 'serve'
   - tritonclient[grpc] ; extra == 'serve'
-  - nvidia-nccl-cu12 ; extra == 'serve'
-  - nvidia-cuda-runtime-cu12 ; extra == 'serve'
-  - nvidia-cublas-cu12 ; extra == 'serve'
-  - nvidia-curand-cu12 ; extra == 'serve'
+  - nvidia-nccl-cu11 ; extra == 'serve'
+  - nvidia-cuda-runtime-cu11 ; extra == 'serve'
+  - nvidia-cublas-cu11 ; extra == 'serve'
+  - nvidia-curand-cu11 ; extra == 'serve'
 - kind: conda
   name: loguru
   version: 0.7.0
@@ -4279,34 +4278,34 @@ packages:
   size: 7009070
   timestamp: 1707225917496
 - kind: pypi
-  name: nvidia-cublas-cu12
-  version: 12.6.1.4
-  url: https://files.pythonhosted.org/packages/6e/f2/56616332442d65ea32ccbae4b5656bccf5587293633774404df63dffc7fe/nvidia_cublas_cu12-12.6.1.4-py3-none-manylinux2014_x86_64.whl
-  sha256: 5dd125ece5469dbdceebe2e9536ad8fc4abd38aa394a7ace42fc8a930a1e81e3
+  name: nvidia-cublas-cu11
+  version: 11.11.3.6
+  url: https://download.pytorch.org/whl/cu118/nvidia_cublas_cu11-11.11.3.6-py3-none-manylinux1_x86_64.whl#sha256=39fb40e8f486dd8a2ddb8fdeefe1d5b28f5b99df01c87ab3676f057a74a5a6f3
+  sha256: 39fb40e8f486dd8a2ddb8fdeefe1d5b28f5b99df01c87ab3676f057a74a5a6f3
   requires_python: '>=3'
 - kind: pypi
-  name: nvidia-cuda-runtime-cu12
-  version: 12.6.68
-  url: https://files.pythonhosted.org/packages/14/73/372663ed23fd7aa66bebab25efb8ab6b63d1d16a336c8ffd3e10df16a699/nvidia_cuda_runtime_cu12-12.6.68-py3-none-manylinux2014_x86_64.whl
-  sha256: 846987485889786d257f6d7bdcf7544a36452936514e20dd710527b896c0fe12
+  name: nvidia-cuda-runtime-cu11
+  version: 11.8.89
+  url: https://download.pytorch.org/whl/cu118/nvidia_cuda_runtime_cu11-11.8.89-py3-none-manylinux1_x86_64.whl#sha256=f587bd726eb2f7612cf77ce38a2c1e65cf23251ff49437f6161ce0d647f64f7c
+  sha256: f587bd726eb2f7612cf77ce38a2c1e65cf23251ff49437f6161ce0d647f64f7c
   requires_python: '>=3'
 - kind: pypi
-  name: nvidia-curand-cu12
-  version: 10.3.7.68
-  url: https://files.pythonhosted.org/packages/71/56/c26ce119c5fb152bee97059912569acd6ac3d09912590928ac21751dcadb/nvidia_curand_cu12-10.3.7.68-py3-none-manylinux2014_x86_64.whl
-  sha256: 2974ab00d054c4d4809d5deb248ec99c01d87f8dda57701b118990ddf7eb36f2
+  name: nvidia-curand-cu11
+  version: 10.3.0.86
+  url: https://download.pytorch.org/whl/cu118/nvidia_curand_cu11-10.3.0.86-py3-none-manylinux1_x86_64.whl#sha256=ac439548c88580269a1eb6aeb602a5aed32f0dbb20809a31d9ed7d01d77f6bf5
+  sha256: ac439548c88580269a1eb6aeb602a5aed32f0dbb20809a31d9ed7d01d77f6bf5
   requires_python: '>=3'
 - kind: pypi
-  name: nvidia-nccl-cu12
-  version: 2.23.4
-  url: https://files.pythonhosted.org/packages/ed/1f/6482380ec8dcec4894e7503490fc536d846b0d59694acad9cf99f27d0e7d/nvidia_nccl_cu12-2.23.4-py3-none-manylinux2014_x86_64.whl
-  sha256: b097258d9aab2fa9f686e33c6fe40ae57b27df60cedbd15d139701bb5509e0c1
+  name: nvidia-nccl-cu11
+  version: 2.20.5
+  url: https://download.pytorch.org/whl/cu118/nvidia_nccl_cu11-2.20.5-py3-none-manylinux2014_x86_64.whl#sha256=3619e25dfb0c8f4c554561c3459ee7dfe1250eed05e9aa4d147a75c45cc6ae0d
+  sha256: 3619e25dfb0c8f4c554561c3459ee7dfe1250eed05e9aa4d147a75c45cc6ae0d
   requires_python: '>=3'
 - kind: pypi
   name: openai
-  version: 1.47.0
-  url: https://files.pythonhosted.org/packages/a2/3c/28d7cf1a3292c93e5def8acd89535ba380cb8dd888c26cdbfe420249e143/openai-1.47.0-py3-none-any.whl
-  sha256: 9ccc8737dfa791f7bd903db4758c176b8544a8cd89d3a3d2add3cea02a34c3a0
+  version: 1.47.1
+  url: https://files.pythonhosted.org/packages/13/a1/601773020ad98d6d55f45c4482ea0c30af1351827eaab98cbc7d27b4716d/openai-1.47.1-py3-none-any.whl
+  sha256: 34277583bf268bb2494bc03f48ac123788c5e2a914db1d5a23d5edc29d35c825
   requires_dist:
   - anyio<5,>=3.5.0
   - cached-property ; python_version < '3.8'
@@ -4469,52 +4468,45 @@ packages:
   - pkg:pypi/pandas?source=conda-forge-mapping
   size: 13024685
   timestamp: 1715898109537
-- kind: pypi
+- kind: conda
   name: peft
-  version: 0.11.1
-  url: https://files.pythonhosted.org/packages/19/99/c5e0292a6d2a62e95c3dfe674ce9e8f8a9fe5d4835d3c9bb9b3e016f02ae/peft-0.11.1-py3-none-any.whl
-  sha256: 76f2d2a4c9e0644e2741465663b8a02097775e9725d26d7b41551e6f1e72e7dd
-  requires_dist:
-  - numpy>=1.17
-  - packaging>=20.0
+  version: 0.11.0
+  build: pyhd8ed1ab_0
+  subdir: noarch
+  noarch: python
+  url: https://conda.anaconda.org/conda-forge/noarch/peft-0.11.0-pyhd8ed1ab_0.conda
+  sha256: 367dc1e51ca253971b41c0e7aa2e20fb11523f2b4b162a7f23e14254c367ae18
+  md5: c860a3d2019bb8a7a3e54f8fe4ee8478
+  depends:
+  - accelerate >=0.21.0
+  - huggingface_hub >=0.17.0
+  - numpy >=1.17
+  - packaging >=20.0
   - psutil
+  - python >=3.8
+  - pytorch >=1.13.0
   - pyyaml
-  - torch>=1.13.0
-  - transformers
-  - tqdm
-  - accelerate>=0.21.0
   - safetensors
-  - huggingface-hub>=0.17.0
-  - black ; extra == 'dev'
-  - hf-doc-builder ; extra == 'dev'
-  - ruff~=0.2.1 ; extra == 'dev'
-  - black ; extra == 'docs-specific'
-  - hf-doc-builder ; extra == 'docs-specific'
-  - black ; extra == 'quality'
-  - hf-doc-builder ; extra == 'quality'
-  - ruff~=0.2.1 ; extra == 'quality'
-  - black ; extra == 'test'
-  - hf-doc-builder ; extra == 'test'
-  - ruff~=0.2.1 ; extra == 'test'
-  - pytest ; extra == 'test'
-  - pytest-cov ; extra == 'test'
-  - pytest-xdist ; extra == 'test'
-  - parameterized ; extra == 'test'
-  - datasets ; extra == 'test'
-  - diffusers<0.21.0 ; extra == 'test'
-  - scipy ; extra == 'test'
-  requires_python: '>=3.8.0'
+  - tqdm
+  - transformers >=4.18.0
+  license: Apache-2.0
+  license_family: APACHE
+  purls:
+  - pkg:pypi/peft?source=conda-forge-mapping
+  size: 129242
+  timestamp: 1715886909578
 - kind: pypi
   name: pillow
-  version: 10.4.0
-  url: https://files.pythonhosted.org/packages/b5/5b/6651c288b08df3b8c1e2f8c1152201e0b25d240e22ddade0f1e242fc9fa0/pillow-10.4.0-cp310-cp310-manylinux_2_28_x86_64.whl
-  sha256: a985e028fc183bf12a77a8bbf36318db4238a3ded7fa9df1b9a133f1cb79f8fc
+  version: 10.2.0
+  url: https://download.pytorch.org/whl/pillow-10.2.0-cp310-cp310-manylinux_2_28_x86_64.whl#sha256=322bdf3c9b556e9ffb18f93462e5f749d3444ce081290352c6070d014c93feb2
+  sha256: 322bdf3c9b556e9ffb18f93462e5f749d3444ce081290352c6070d014c93feb2
   requires_dist:
   - furo ; extra == 'docs'
   - olefile ; extra == 'docs'
-  - sphinx>=7.3 ; extra == 'docs'
+  - sphinx>=2.4 ; extra == 'docs'
   - sphinx-copybutton ; extra == 'docs'
   - sphinx-inline-tabs ; extra == 'docs'
+  - sphinx-removed-in ; extra == 'docs'
   - sphinxext-opengraph ; extra == 'docs'
   - olefile ; extra == 'fpx'
   - olefile ; extra == 'mic'
@@ -4531,31 +4523,6 @@ packages:
   - typing-extensions ; python_version < '3.10' and extra == 'typing'
   - defusedxml ; extra == 'xmp'
   requires_python: '>=3.8'
-- kind: conda
-  name: peft
-  version: 0.12.0
-  build: pyhd8ed1ab_0
-  subdir: noarch
-  noarch: python
-  url: https://conda.anaconda.org/conda-forge/noarch/peft-0.12.0-pyhd8ed1ab_0.conda
-  sha256: e5d8778140c66533f254b29278ae07abbbf5cb0f864d8e4511937aa85d06fd8b
-  md5: ef6127954107c23f07eda89101308a7c
-  depends:
-  - accelerate >=0.21.0
-  - huggingface_hub >=0.17.0
-  - numpy >=1.17
-  - packaging >=20.0
-  - psutil
-  - python >=3.8
-  - pytorch >=1.13.0
-  - pyyaml
-  - safetensors
-  - tqdm
-  - transformers >=4.18.0
-  license: Apache-2.0
-  license_family: APACHE
-  size: 145025
-  timestamp: 1721857578938
 - kind: conda
   name: pip
   version: '24.2'
@@ -6003,9 +5970,9 @@ packages:
   timestamp: 1695392036786
 - kind: pypi
   name: torchvision
-  version: 0.16.2
-  url: https://files.pythonhosted.org/packages/da/ae/76bd3682465730dea7be21f36a8160a911a470de6f26228904f222e7fefe/torchvision-0.16.2-cp310-cp310-manylinux1_x86_64.whl
-  sha256: e89f10f3c8351972b6e3fda95bc3e479ea8dbfc9dfcfd2c32902dbad4ba5cfc5
+  version: 0.16.2+cu118
+  url: https://download.pytorch.org/whl/cu118/torchvision-0.16.2%2Bcu118-cp310-cp310-linux_x86_64.whl#sha256=18470aef0bbde73f5a6a96135cd457f4d8be31f60be7ceae4ef5174f02f73add
+  sha256: 18470aef0bbde73f5a6a96135cd457f4d8be31f60be7ceae4ef5174f02f73add
   requires_dist:
   - numpy
   - requests
@@ -6061,7 +6028,7 @@ packages:
 - kind: pypi
   name: triton
   version: 2.3.1
-  url: https://files.pythonhosted.org/packages/d7/69/8a9fde07d2d27a90e16488cdfe9878e985a247b2496a4b5b1a2126042528/triton-2.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+  url: https://download.pytorch.org/whl/triton-2.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl#sha256=3c84595cbe5e546b1b290d2a58b1494df5a2ef066dd890655e5b8a8a92205c33
   sha256: 3c84595cbe5e546b1b290d2a58b1494df5a2ef066dd890655e5b8a8a92205c33
   requires_dist:
   - filelock
