@@ -38,6 +38,7 @@ transformers = "4.44.2"
 [feature.cpu.dependencies]
 cpuonly = {channel = "pytorch"} # PyTorch metapackage for CPU-only
 pytorch = {version = "2.1.2", channel = "pytorch"}
+peft = {version = "0.12.0"}
 
 # GPU DEPENDENCIES
 [feature.gpu]
