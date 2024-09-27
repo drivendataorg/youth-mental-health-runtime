@@ -52,13 +52,14 @@ cudnn = {version = "*", channel = "conda-forge"}
 cupy = {version = "12.*"}
 pytorch = {version = "2.1.2", channel = "pytorch"}
 pytorch-cuda = {version = "11.8", channel = "pytorch"} # PyTorch metapackage for cuda version
-xformers = {version = "0.0.23.post1", channel = "xformers"}
 peft = {version = "0.11.0"}
 
 [feature.gpu.pypi-options]
 extra-index-urls = ["https://download.pytorch.org/whl/cu118"]
 [feature.gpu.pypi-dependencies]
 lmdeploy = {url = "https://github.com/InternLM/lmdeploy/releases/download/v0.6.0/lmdeploy-0.6.0+cu118-cp310-cp310-manylinux2014_x86_64.whl"}
+xformers = {url = "https://files.pythonhosted.org/packages/f4/89/ce8e936d3e64b3b565c16312dd6446d54f6e485f864130702c6b3b3cbe7c/xformers-0.0.23.post1-cp310-cp310-manylinux2014_x86_64.whl"}
+vllm = {url = "https://github.com/vllm-project/vllm/releases/download/v0.4.0/vllm-0.4.0+cu118-cp310-cp310-manylinux1_x86_64.whl"}
 
 [environments]
 cpu = { features = ["base", "cpu"]}
