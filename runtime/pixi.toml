@@ -18,7 +18,9 @@ nltk = "3.9.1"
 numba = "0.60.*"
 numpy = "1.26.4"
 pandas = "2.2.2"
+peft = "0.11.0"
 pip = "24.2"
+protobuf = "5.27.5"
 pytest = "8.3.*"
 python = "3.10.14"
 pytorch-lightning = "2.4.0"
@@ -30,15 +32,11 @@ spacy = "3.7.5"
 tqdm = "4.66.*"
 transformers = "4.44.2"
 
-[feature.base.pypi-dependencies]
-protobuf = {url = "https://files.pythonhosted.org/packages/23/08/a1ce0415a115c2b703bfa798f06f0e43ca91dbe29d6180bf86a9287b15e2/protobuf-5.28.2-cp38-abi3-manylinux2014_x86_64.whl"}
-
 # CPU DEPENDENCIES
 [feature.cpu]
 [feature.cpu.dependencies]
 cpuonly = {channel = "pytorch"} # PyTorch metapackage for CPU-only
 pytorch = {version = "2.1.2", channel = "pytorch"}
-peft = {version = "0.12.0"}
 
 # GPU DEPENDENCIES
 [feature.gpu]
@@ -52,7 +50,6 @@ cudnn = {version = "*", channel = "conda-forge"}
 cupy = {version = "12.*"}
 pytorch = {version = "2.1.2", channel = "pytorch"}
 pytorch-cuda = {version = "11.8", channel = "pytorch"} # PyTorch metapackage for cuda version
-peft = {version = "0.11.0"}
 
 [feature.gpu.pypi-options]
 extra-index-urls = ["https://download.pytorch.org/whl/cu118"]
