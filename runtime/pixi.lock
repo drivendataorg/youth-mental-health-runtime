@@ -536,6 +536,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/weasel-0.4.1-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/wheel-0.44.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/wrapt-1.16.0-py310h2372a71_0.conda
+      - conda: https://conda.anaconda.org/xformers/linux-64/xformers-0.0.23.post1-py310_cu11.8.0_pyt2.1.2.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/linux-64/xxhash-0.8.2-hd590300_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/xz-5.2.6-h166bdaf_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/linux-64/yaml-0.2.5-h7f98852_2.tar.bz2
@@ -545,7 +546,6 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.6-ha6fb4c9_0.conda
       - pypi: https://files.pythonhosted.org/packages/6a/00/b08f23b7d7e1e14ce01419a467b583edbb93c6cdb8654e54a9cc579cd61f/addict-2.4.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/96/43/dae06432d0c4b1dc9e9149ad37b4ca8384cf6eb7700cd9215b177b914f0a/cloudpickle-3.0.0-py3-none-any.whl
-      - pypi: https://download.pytorch.org/whl/cmake-3.25.0-py2.py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl#sha256=9b7fd744a90e4d804ff77ac50d3570009911fbfdad29c59fc93d2a82faaeb371
       - pypi: https://files.pythonhosted.org/packages/12/b3/231ffd4ab1fc9d679809f356cebee130ac7daa00d6d6f3206dd4fd137e9e/distro-1.9.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/6b/b6/82c7e601d6d3c3278c40b7bd35e17e82aa227f050aa9f66cb7b7fce29471/fire-0.7.0.tar.gz
       - pypi: https://files.pythonhosted.org/packages/c4/01/72d6472f80651673716d1deda2a5bbb633e563ecf94f4479da5519d69d25/interegular-0.3.3-py37-none-any.whl
@@ -555,9 +555,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/2d/00/d90b10b962b4277f5e64a78b6609968859ff86889f5b898c1a778c06ec00/lark-1.2.2-py3-none-any.whl
       - pypi: direct+https://github.com/InternLM/lmdeploy/releases/download/v0.6.0/lmdeploy-0.6.0+cu118-cp310-cp310-manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/75/84/3b1730bb21d67487c7cfcd175e44920f34b031bb313ad183398ea182535e/mmengine_lite-0.10.5-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/ff/75/09081792db60470bef19d9c2be89f024d366b1e1973c197bb59e6aabc647/msgpack-1.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/a0/c4/c2971a3ba4c6103a3d10c4b0f24f461ddc027f0f09763220cf35ca1401b3/nest_asyncio-1.6.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/6d/92/8d7aebd4430ab5ff65df2bfee6d5745f95c004284db2d8ca76dcbfd9de47/ninja-1.11.1.1-py2.py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl
       - pypi: https://download.pytorch.org/whl/cu118/nvidia_cublas_cu11-11.11.3.6-py3-none-manylinux1_x86_64.whl#sha256=39fb40e8f486dd8a2ddb8fdeefe1d5b28f5b99df01c87ab3676f057a74a5a6f3
       - pypi: https://download.pytorch.org/whl/cu118/nvidia_cuda_runtime_cu11-11.8.89-py3-none-manylinux1_x86_64.whl#sha256=f587bd726eb2f7612cf77ce38a2c1e65cf23251ff49437f6161ce0d647f64f7c
       - pypi: https://download.pytorch.org/whl/cu118/nvidia_curand_cu11-10.3.0.86-py3-none-manylinux1_x86_64.whl#sha256=ac439548c88580269a1eb6aeb602a5aed32f0dbb20809a31d9ed7d01d77f6bf5
@@ -566,18 +564,13 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/58/fb/639f67a1a0288736dcdbc5a4fb1c822fcbc02c9fa79d1bca02056c653e76/outlines-0.0.34-py3-none-any.whl
       - pypi: https://download.pytorch.org/whl/pillow-10.2.0-cp310-cp310-manylinux_2_28_x86_64.whl#sha256=322bdf3c9b556e9ffb18f93462e5f749d3444ce081290352c6070d014c93feb2
       - pypi: https://files.pythonhosted.org/packages/3c/a6/bc1012356d8ece4d66dd75c4b9fc6c1f6650ddd5991e421177d9f8f671be/platformdirs-4.3.6-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/84/2d/46ed6436849c2c88228c3111865f44311cff784b4aabcdef4ea2545dbc3d/prometheus_client-0.21.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/e0/a9/023730ba63db1e494a271cb018dcd361bd2c917ba7004c3e49d5daf795a2/py_cpuinfo-9.0.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/5b/9c/adb8070059caaa15d5a572b66bccd95900d8c1b9fa54d6ecea6ae97448d1/pynvml-11.5.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/f4/d7/8099bb53c842709ae698cd87a6e727c95e935f7d9b0ca32ab57b4d318dfd/ray-2.37.0-cp310-cp310-manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/b7/59/2056f61236782a2c86b33906c025d4f4a0b17be0161b63b70fd9e8775d36/referencing-0.35.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/4a/6d/1166a157b227f2333f8e8ae320b6b7ea2a6a38fbe7a3563ad76dffc8608d/rpds_py-0.20.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/c0/44/21d6bf170bf40b41396480d8d49ad640bca3f2b02139cd52aa1e272830a5/shortuuid-1.0.13-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/d9/5f/8c716e47b3a50cbd7c146f45881e11d9414def768b7cd9c5e6650ec2a80a/termcolor-2.4.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/16/05/5efbd91252ffb1301ea393d88ef736b33d41e75d4bcf0bd31d660050e400/tiktoken-0.6.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
       - pypi: https://download.pytorch.org/whl/cu118/torchvision-0.16.2%2Bcu118-cp310-cp310-linux_x86_64.whl#sha256=18470aef0bbde73f5a6a96135cd457f4d8be31f60be7ceae4ef5174f02f73add
-      - pypi: direct+https://github.com/vllm-project/vllm/releases/download/v0.4.0/vllm-0.4.0+cu118-cp310-cp310-manylinux1_x86_64.whl
-      - pypi: direct+https://files.pythonhosted.org/packages/f4/89/ce8e936d3e64b3b565c16312dd6446d54f6e485f864130702c6b3b3cbe7c/xformers-0.0.23.post1-cp310-cp310-manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/66/c9/d4b03b2490107f13ebd68fe9496d41ae41a7de6275ead56d0d4621b11ffd/yapf-0.40.2-py3-none-any.whl
 packages:
 - kind: conda
@@ -1373,24 +1366,6 @@ packages:
   url: https://files.pythonhosted.org/packages/96/43/dae06432d0c4b1dc9e9149ad37b4ca8384cf6eb7700cd9215b177b914f0a/cloudpickle-3.0.0-py3-none-any.whl
   sha256: 246ee7d0c295602a036e86369c77fecda4ab17b506496730f2f576d9016fd9c7
   requires_python: '>=3.8'
-- kind: pypi
-  name: cmake
-  version: 3.25.0
-  url: https://download.pytorch.org/whl/cmake-3.25.0-py2.py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl#sha256=9b7fd744a90e4d804ff77ac50d3570009911fbfdad29c59fc93d2a82faaeb371
-  sha256: 9b7fd744a90e4d804ff77ac50d3570009911fbfdad29c59fc93d2a82faaeb371
-  requires_dist:
-  - codecov>=2.0.5 ; extra == 'test'
-  - coverage>=4.2 ; extra == 'test'
-  - flake8>=3.0.4 ; extra == 'test'
-  - path-py>=11.5.0 ; extra == 'test'
-  - pytest>=3.0.3 ; extra == 'test'
-  - pytest-cov>=2.4.0 ; extra == 'test'
-  - pytest-runner>=2.9 ; extra == 'test'
-  - pytest-virtualenv>=1.7.0 ; extra == 'test'
-  - scikit-build>=0.10.0 ; extra == 'test'
-  - setuptools>=28.0.0 ; extra == 'test'
-  - virtualenv>=15.0.3 ; extra == 'test'
-  - wheel ; extra == 'test'
 - kind: conda
   name: colorama
   version: 0.4.6
@@ -4060,12 +4035,6 @@ packages:
   - pkg:pypi/mpmath?source=conda-forge-mapping
   size: 438339
   timestamp: 1678228210181
-- kind: pypi
-  name: msgpack
-  version: 1.1.0
-  url: https://files.pythonhosted.org/packages/ff/75/09081792db60470bef19d9c2be89f024d366b1e1973c197bb59e6aabc647/msgpack-1.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-  sha256: d8ce0b22b890be5d252de90d0e0d119f363012027cf256185fc3d474c44b1b9e
-  requires_python: '>=3.8'
 - kind: conda
   name: multidict
   version: 6.0.5
@@ -4169,20 +4138,6 @@ packages:
   - pkg:pypi/networkx?source=conda-forge-mapping
   size: 1185670
   timestamp: 1712540499262
-- kind: pypi
-  name: ninja
-  version: 1.11.1.1
-  url: https://files.pythonhosted.org/packages/6d/92/8d7aebd4430ab5ff65df2bfee6d5745f95c004284db2d8ca76dcbfd9de47/ninja-1.11.1.1-py2.py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl
-  sha256: 84502ec98f02a037a169c4b0d5d86075eaf6afc55e1879003d6cab51ced2ea4b
-  requires_dist:
-  - codecov>=2.0.5 ; extra == 'test'
-  - coverage>=4.2 ; extra == 'test'
-  - flake8>=3.0.4 ; extra == 'test'
-  - pytest>=4.5.0 ; extra == 'test'
-  - pytest-cov>=2.7.1 ; extra == 'test'
-  - pytest-runner>=5.1 ; extra == 'test'
-  - pytest-virtualenv>=1.7.0 ; extra == 'test'
-  - virtualenv>=15.0.3 ; extra == 'test'
 - kind: conda
   name: nltk
   version: 3.9.1
@@ -4576,14 +4531,6 @@ packages:
   - pkg:pypi/preshed?source=conda-forge-mapping
   size: 131952
   timestamp: 1695644970569
-- kind: pypi
-  name: prometheus-client
-  version: 0.21.0
-  url: https://files.pythonhosted.org/packages/84/2d/46ed6436849c2c88228c3111865f44311cff784b4aabcdef4ea2545dbc3d/prometheus_client-0.21.0-py3-none-any.whl
-  sha256: 4fa6b4dd0ac16d58bb587c04b1caae65b8c5043e85f778f42f5f632f6af2e166
-  requires_dist:
-  - twisted ; extra == 'twisted'
-  requires_python: '>=3.8'
 - kind: conda
   name: protobuf
   version: 5.27.5
@@ -4624,11 +4571,6 @@ packages:
   - pkg:pypi/psutil?source=conda-forge-mapping
   size: 371633
   timestamp: 1719274668659
-- kind: pypi
-  name: py-cpuinfo
-  version: 9.0.0
-  url: https://files.pythonhosted.org/packages/e0/a9/023730ba63db1e494a271cb018dcd361bd2c917ba7004c3e49d5daf795a2/py_cpuinfo-9.0.0-py3-none-any.whl
-  sha256: 859625bc251f64e21f077d099d4162689c762b5d6a4c3c97553d56241c9674d5
 - kind: conda
   name: pyarrow
   version: 17.0.0
@@ -5135,199 +5077,6 @@ packages:
   - pkg:pypi/pyyaml?source=conda-forge-mapping
   size: 181235
   timestamp: 1723018382019
-- kind: pypi
-  name: ray
-  version: 2.37.0
-  url: https://files.pythonhosted.org/packages/f4/d7/8099bb53c842709ae698cd87a6e727c95e935f7d9b0ca32ab57b4d318dfd/ray-2.37.0-cp310-cp310-manylinux2014_x86_64.whl
-  sha256: 29932441e68ab7dad35b276c763670bf42ebf721cddc4f4de8200bd92ac05c58
-  requires_dist:
-  - click>=7.0
-  - filelock
-  - jsonschema
-  - msgpack<2.0.0,>=1.0.0
-  - packaging
-  - protobuf!=3.19.5,>=3.15.3
-  - pyyaml
-  - aiosignal
-  - frozenlist
-  - requests
-  - cupy-cuda12x ; sys_platform != 'darwin' and extra == 'adag'
-  - aiohttp>=3.7 ; extra == 'air'
-  - prometheus-client>=0.7.1 ; extra == 'air'
-  - fsspec ; extra == 'air'
-  - opencensus ; extra == 'air'
-  - pydantic!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.*,!=2.4.*,<3 ; extra == 'air'
-  - tensorboardx>=1.9 ; extra == 'air'
-  - aiohttp-cors ; extra == 'air'
-  - watchfiles ; extra == 'air'
-  - smart-open ; extra == 'air'
-  - uvicorn[standard] ; extra == 'air'
-  - py-spy>=0.2.0 ; extra == 'air'
-  - requests ; extra == 'air'
-  - pandas ; extra == 'air'
-  - pandas>=1.3 ; extra == 'air'
-  - virtualenv!=20.21.1,>=20.0.24 ; extra == 'air'
-  - fastapi ; extra == 'air'
-  - starlette ; extra == 'air'
-  - pyarrow>=6.0.1 ; extra == 'air'
-  - numpy>=1.20 ; extra == 'air'
-  - colorful ; extra == 'air'
-  - grpcio>=1.32.0 ; python_version < '3.10' and extra == 'air'
-  - grpcio>=1.42.0 ; python_version >= '3.10' and extra == 'air'
-  - memray ; sys_platform != 'win32' and extra == 'air'
-  - opentelemetry-sdk ; extra == 'all'
-  - aiohttp>=3.7 ; extra == 'all'
-  - prometheus-client>=0.7.1 ; extra == 'all'
-  - opentelemetry-api ; extra == 'all'
-  - pyyaml ; extra == 'all'
-  - fsspec ; extra == 'all'
-  - opentelemetry-exporter-otlp ; extra == 'all'
-  - grpcio ; extra == 'all'
-  - opencensus ; extra == 'all'
-  - pydantic!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.*,!=2.4.*,<3 ; extra == 'all'
-  - typer ; extra == 'all'
-  - tensorboardx>=1.9 ; extra == 'all'
-  - aiohttp-cors ; extra == 'all'
-  - lz4 ; extra == 'all'
-  - watchfiles ; extra == 'all'
-  - smart-open ; extra == 'all'
-  - uvicorn[standard] ; extra == 'all'
-  - py-spy>=0.2.0 ; extra == 'all'
-  - requests ; extra == 'all'
-  - rich ; extra == 'all'
-  - pandas ; extra == 'all'
-  - scipy ; extra == 'all'
-  - pandas>=1.3 ; extra == 'all'
-  - virtualenv!=20.21.1,>=20.0.24 ; extra == 'all'
-  - fastapi ; extra == 'all'
-  - starlette ; extra == 'all'
-  - gymnasium==0.28.1 ; extra == 'all'
-  - pyarrow>=6.0.1 ; extra == 'all'
-  - scikit-image ; extra == 'all'
-  - numpy>=1.20 ; extra == 'all'
-  - colorful ; extra == 'all'
-  - dm-tree ; extra == 'all'
-  - opentelemetry-sdk ; extra == 'all-cpp'
-  - aiohttp>=3.7 ; extra == 'all-cpp'
-  - opentelemetry-api ; extra == 'all-cpp'
-  - prometheus-client>=0.7.1 ; extra == 'all-cpp'
-  - pyyaml ; extra == 'all-cpp'
-  - fsspec ; extra == 'all-cpp'
-  - opentelemetry-exporter-otlp ; extra == 'all-cpp'
-  - grpcio ; extra == 'all-cpp'
-  - opencensus ; extra == 'all-cpp'
-  - pydantic!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.*,!=2.4.*,<3 ; extra == 'all-cpp'
-  - typer ; extra == 'all-cpp'
-  - tensorboardx>=1.9 ; extra == 'all-cpp'
-  - aiohttp-cors ; extra == 'all-cpp'
-  - lz4 ; extra == 'all-cpp'
-  - watchfiles ; extra == 'all-cpp'
-  - smart-open ; extra == 'all-cpp'
-  - uvicorn[standard] ; extra == 'all-cpp'
-  - py-spy>=0.2.0 ; extra == 'all-cpp'
-  - requests ; extra == 'all-cpp'
-  - ray-cpp==2.37.0 ; extra == 'all-cpp'
-  - rich ; extra == 'all-cpp'
-  - pandas ; extra == 'all-cpp'
-  - scipy ; extra == 'all-cpp'
-  - pandas>=1.3 ; extra == 'all-cpp'
-  - virtualenv!=20.21.1,>=20.0.24 ; extra == 'all-cpp'
-  - fastapi ; extra == 'all-cpp'
-  - starlette ; extra == 'all-cpp'
-  - gymnasium==0.28.1 ; extra == 'all-cpp'
-  - pyarrow>=6.0.1 ; extra == 'all-cpp'
-  - scikit-image ; extra == 'all-cpp'
-  - numpy>=1.20 ; extra == 'all-cpp'
-  - colorful ; extra == 'all-cpp'
-  - dm-tree ; extra == 'all-cpp'
-  - grpcio>=1.32.0 ; python_version < '3.10' and extra == 'all-cpp'
-  - grpcio>=1.42.0 ; python_version >= '3.10' and extra == 'all-cpp'
-  - cupy-cuda12x ; sys_platform != 'darwin' and extra == 'all-cpp'
-  - memray ; sys_platform != 'win32' and extra == 'all-cpp'
-  - grpcio>=1.32.0 ; python_version < '3.10' and extra == 'all'
-  - grpcio>=1.42.0 ; python_version >= '3.10' and extra == 'all'
-  - cupy-cuda12x ; sys_platform != 'darwin' and extra == 'all'
-  - memray ; sys_platform != 'win32' and extra == 'all'
-  - grpcio ; extra == 'client'
-  - ray-cpp==2.37.0 ; extra == 'cpp'
-  - numpy>=1.20 ; extra == 'data'
-  - pandas>=1.3 ; extra == 'data'
-  - pyarrow>=6.0.1 ; extra == 'data'
-  - fsspec ; extra == 'data'
-  - aiohttp>=3.7 ; extra == 'default'
-  - aiohttp-cors ; extra == 'default'
-  - colorful ; extra == 'default'
-  - py-spy>=0.2.0 ; extra == 'default'
-  - requests ; extra == 'default'
-  - opencensus ; extra == 'default'
-  - pydantic!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.*,!=2.4.*,<3 ; extra == 'default'
-  - prometheus-client>=0.7.1 ; extra == 'default'
-  - smart-open ; extra == 'default'
-  - virtualenv!=20.21.1,>=20.0.24 ; extra == 'default'
-  - grpcio>=1.32.0 ; python_version < '3.10' and extra == 'default'
-  - grpcio>=1.42.0 ; python_version >= '3.10' and extra == 'default'
-  - memray ; sys_platform != 'win32' and extra == 'default'
-  - opentelemetry-api ; extra == 'observability'
-  - opentelemetry-sdk ; extra == 'observability'
-  - opentelemetry-exporter-otlp ; extra == 'observability'
-  - pandas ; extra == 'rllib'
-  - tensorboardx>=1.9 ; extra == 'rllib'
-  - requests ; extra == 'rllib'
-  - pyarrow>=6.0.1 ; extra == 'rllib'
-  - fsspec ; extra == 'rllib'
-  - dm-tree ; extra == 'rllib'
-  - gymnasium==0.28.1 ; extra == 'rllib'
-  - lz4 ; extra == 'rllib'
-  - scikit-image ; extra == 'rllib'
-  - pyyaml ; extra == 'rllib'
-  - scipy ; extra == 'rllib'
-  - typer ; extra == 'rllib'
-  - rich ; extra == 'rllib'
-  - colorful ; extra == 'serve'
-  - aiohttp>=3.7 ; extra == 'serve'
-  - aiohttp-cors ; extra == 'serve'
-  - prometheus-client>=0.7.1 ; extra == 'serve'
-  - watchfiles ; extra == 'serve'
-  - starlette ; extra == 'serve'
-  - smart-open ; extra == 'serve'
-  - uvicorn[standard] ; extra == 'serve'
-  - virtualenv!=20.21.1,>=20.0.24 ; extra == 'serve'
-  - py-spy>=0.2.0 ; extra == 'serve'
-  - requests ; extra == 'serve'
-  - opencensus ; extra == 'serve'
-  - pydantic!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.*,!=2.4.*,<3 ; extra == 'serve'
-  - fastapi ; extra == 'serve'
-  - aiohttp>=3.7 ; extra == 'serve-grpc'
-  - aiohttp-cors ; extra == 'serve-grpc'
-  - prometheus-client>=0.7.1 ; extra == 'serve-grpc'
-  - watchfiles ; extra == 'serve-grpc'
-  - starlette ; extra == 'serve-grpc'
-  - requests ; extra == 'serve-grpc'
-  - smart-open ; extra == 'serve-grpc'
-  - uvicorn[standard] ; extra == 'serve-grpc'
-  - virtualenv!=20.21.1,>=20.0.24 ; extra == 'serve-grpc'
-  - py-spy>=0.2.0 ; extra == 'serve-grpc'
-  - colorful ; extra == 'serve-grpc'
-  - opencensus ; extra == 'serve-grpc'
-  - pydantic!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.*,!=2.4.*,<3 ; extra == 'serve-grpc'
-  - fastapi ; extra == 'serve-grpc'
-  - grpcio>=1.32.0 ; python_version < '3.10' and extra == 'serve-grpc'
-  - grpcio>=1.42.0 ; python_version >= '3.10' and extra == 'serve-grpc'
-  - memray ; sys_platform != 'win32' and extra == 'serve-grpc'
-  - grpcio>=1.32.0 ; python_version < '3.10' and extra == 'serve'
-  - grpcio>=1.42.0 ; python_version >= '3.10' and extra == 'serve'
-  - memray ; sys_platform != 'win32' and extra == 'serve'
-  - pandas ; extra == 'train'
-  - tensorboardx>=1.9 ; extra == 'train'
-  - requests ; extra == 'train'
-  - pyarrow>=6.0.1 ; extra == 'train'
-  - fsspec ; extra == 'train'
-  - pandas ; extra == 'tune'
-  - tensorboardx>=1.9 ; extra == 'tune'
-  - requests ; extra == 'tune'
-  - pyarrow>=6.0.1 ; extra == 'tune'
-  - fsspec ; extra == 'tune'
-  requires_python: '>=3.9'
 - kind: conda
   name: re2
   version: 2023.09.01
@@ -6360,31 +6109,6 @@ packages:
   - pkg:pypi/uvicorn?source=conda-forge-mapping
   size: 102257
   timestamp: 1723660090917
-- kind: pypi
-  name: vllm
-  version: 0.4.0+cu118
-  url: direct+https://github.com/vllm-project/vllm/releases/download/v0.4.0/vllm-0.4.0+cu118-cp310-cp310-manylinux1_x86_64.whl
-  requires_dist:
-  - cmake>=3.21
-  - ninja
-  - psutil
-  - ray>=2.9
-  - sentencepiece
-  - numpy
-  - torch==2.1.2
-  - requests
-  - py-cpuinfo
-  - transformers>=4.39.1
-  - xformers==0.0.23.post1
-  - fastapi
-  - uvicorn[standard]
-  - pydantic>=2.0
-  - prometheus-client>=0.18.0
-  - pynvml==11.5.0
-  - triton>=2.1.0
-  - outlines==0.0.34
-  - tiktoken==0.6.0
-  requires_python: '>=3.8'
 - kind: conda
   name: wasabi
   version: 1.1.2
@@ -6465,14 +6189,24 @@ packages:
   - pkg:pypi/wrapt?source=conda-forge-mapping
   size: 55415
   timestamp: 1699533000763
-- kind: pypi
+- kind: conda
   name: xformers
   version: 0.0.23.post1
-  url: direct+https://files.pythonhosted.org/packages/f4/89/ce8e936d3e64b3b565c16312dd6446d54f6e485f864130702c6b3b3cbe7c/xformers-0.0.23.post1-cp310-cp310-manylinux2014_x86_64.whl
-  requires_dist:
-  - numpy
-  - torch==2.1.2
-  requires_python: '>=3.7'
+  build: py310_cu11.8.0_pyt2.1.2
+  subdir: linux-64
+  url: https://conda.anaconda.org/xformers/linux-64/xformers-0.0.23.post1-py310_cu11.8.0_pyt2.1.2.tar.bz2
+  sha256: a6b8731d4c029d7f88dbe74b1e7aefe07ff8eda2e953cb0193e39bbc52cb0a05
+  md5: 4c4b518b132e2e32e9b45e8630ed7587
+  depends:
+  - python >=3.10,<3.11.0a0
+  - pytorch 2.1.2.*
+  - pytorch-cuda >=11.7,<11.9
+  arch: x86_64
+  platform: linux
+  license: BSD
+  purls: []
+  size: 166747860
+  timestamp: 1702648807719
 - kind: conda
   name: xxhash
   version: 0.8.2
