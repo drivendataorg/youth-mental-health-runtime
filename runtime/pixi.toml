@@ -18,18 +18,19 @@ nltk = "3.9.1"
 numba = "0.60.*"
 numpy = "1.26.4"
 pandas = "2.2.2"
-peft = "0.12.0"
+peft = "0.11.0"
 pip = "24.2"
+protobuf = "5.27.5"
 pytest = "8.3.*"
 python = "3.10.14"
 pytorch-lightning = "2.4.0"
 scikit-learn = "1.5.1"
 scipy = "1.14.1"
 sentencepiece = "0.2.0"
+sentence-transformers = "2.0.0"
 spacy = "3.7.5"
 tqdm = "4.66.*"
 transformers = "4.44.2"
-sentence-transformers = "2.0.0"
 
 # CPU DEPENDENCIES
 [feature.cpu]
@@ -50,6 +51,11 @@ cupy = {version = "12.*"}
 pytorch = {version = "2.1.2", channel = "pytorch"}
 pytorch-cuda = {version = "11.8", channel = "pytorch"} # PyTorch metapackage for cuda version
 xformers = {version = "0.0.23.post1", channel = "xformers"}
+
+[feature.gpu.pypi-options]
+extra-index-urls = ["https://download.pytorch.org/whl/cu118"]
+[feature.gpu.pypi-dependencies]
+lmdeploy = {url = "https://github.com/InternLM/lmdeploy/releases/download/v0.6.0/lmdeploy-0.6.0+cu118-cp310-cp310-manylinux2014_x86_64.whl"}
 
 [environments]
 cpu = { features = ["base", "cpu"]}
