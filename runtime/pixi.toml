@@ -3,6 +3,8 @@ name = "youth-mental-health-runtime"
 channels = ["nvidia", "conda-forge", "pytorch", "xformers"]
 platforms = ["linux-64"]
 
+[dependencies]
+
 # BASE DEPENDENCIES
 [feature.base]
 [feature.base.dependencies]
