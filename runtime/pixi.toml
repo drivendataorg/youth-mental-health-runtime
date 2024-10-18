@@ -3,6 +3,9 @@ name = "youth-mental-health-runtime"
 channels = ["nvidia", "conda-forge", "pytorch", "xformers"]
 platforms = ["linux-64"]
 
+[tasks]
+postinstall = "pip install --no-deps"
+
 [dependencies]
 
 # BASE DEPENDENCIES
@@ -10,13 +13,17 @@ platforms = ["linux-64"]
 [feature.base.dependencies]
 accelerate = "0.33.0"
 einops = "0.8.0"
+fire = "0.7.0"
 jsonpickle = "3.2.2"
-langchain = "0.2.14"
+langchain = "0.3.3"
+langchain-community = "0.3.2"
 llama-cpp-python = "0.2.24"
 loguru = "0.7.*"
 nltk = "3.9.1"
 numba = "0.60.*"
 numpy = "1.26.4"
+openai = "1.51.2"
+outlines = "0.0.46"
 pandas = "2.2.2"
 peft = "0.11.0"
 pip = "24.2"
@@ -24,13 +31,17 @@ protobuf = "5.27.5"
 pytest = "8.3.*"
 python = "3.10.14"
 pytorch-lightning = "2.4.0"
+pynvml = "11.5.3"
 scikit-learn = "1.5.1"
 scipy = "1.14.1"
 sentencepiece = "0.2.0"
 sentence-transformers = "2.0.0"
+shortuuid = "1.0.13"
 spacy = "3.7.5"
+tiktoken = "0.8.0"
 tqdm = "4.66.*"
 transformers = "4.44.2"
+xgboost = "2.1.1"
 
 # CPU DEPENDENCIES
 [feature.cpu]
@@ -50,11 +61,16 @@ cudnn = {version = "*", channel = "conda-forge"}
 cupy = {version = "12.*"}
 pytorch = {version = "2.1.2", channel = "pytorch"}
 pytorch-cuda = {version = "11.8", channel = "pytorch"} # PyTorch metapackage for cuda version
+torchvision = {version = "0.16.2", channel = "pytorch"}
 xformers = {version = "0.0.23.post1", channel = "xformers"}
 
 [feature.gpu.pypi-options]
 extra-index-urls = ["https://download.pytorch.org/whl/cu118"]
 [feature.gpu.pypi-dependencies]
+nvidia-nccl-cu11 = {version = "==2.21.5"}
+nvidia-cuda-runtime-cu11 = {version = "==11.8.89"}
+nvidia-cublas-cu11 = {version = "==11.11.3.6"}
+nvidia-curand-cu11 = {version = "==10.3.0.86"}
 lmdeploy = {url = "https://github.com/InternLM/lmdeploy/releases/download/v0.6.0/lmdeploy-0.6.0+cu118-cp310-cp310-manylinux2014_x86_64.whl"}
 
 [environments]
