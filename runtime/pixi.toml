@@ -13,7 +13,6 @@ einops = "0.8.0"
 jsonpickle = "3.2.2"
 langchain = "0.3.3"
 langchain-community = "0.3.2"
-llama-cpp-python = "0.2.24"
 loguru = "0.7.*"
 nltk = "3.9.1"
 numba = "0.60.*"
@@ -32,6 +31,9 @@ tqdm = "4.66.*"
 transformers = "4.44.2"
 sentence-transformers = "2.0.0"
 xgboost = "2.1.1"
+
+[feature.base.pypi-dependencies]
+llama-cpp-python = { version = "==0.3.1" }
 
 # CPU DEPENDENCIES
 [feature.cpu]
