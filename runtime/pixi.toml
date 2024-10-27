@@ -38,6 +38,9 @@ xgboost = "2.1.1"
 [feature.cpu.dependencies]
 cpuonly = {channel = "pytorch"} # PyTorch metapackage for CPU-only
 pytorch = {version = "2.1.2", channel = "pytorch"}
+textblob = {version = "0.15.3", channel = "conda-forge"}
+[feature.cpu.pypi-dependencies]
+spacytextblob = "==4.0.0"
 
 # GPU DEPENDENCIES
 [feature.gpu]
