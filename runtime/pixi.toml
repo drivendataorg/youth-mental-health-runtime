@@ -26,7 +26,7 @@ python = "3.10.14"
 pytorch-lightning = "2.4.0"
 scikit-learn = "1.5.1"
 scipy = "1.14.1"
-sentencepiece = "0.2.0"
+sentencepiece = "0.1.99"
 spacy = "3.7.5"
 tqdm = "4.66.*"
 transformers = "4.44.2"
@@ -38,6 +38,8 @@ xgboost = "2.1.1"
 [feature.cpu.dependencies]
 cpuonly = {channel = "pytorch"} # PyTorch metapackage for CPU-only
 pytorch = {version = "2.1.2", channel = "pytorch"}
+tensorflow = {version = "2.14.0", build="cpu_py310hd1aba9c_0" }
+tensorflow-hub = {version = "0.16.1"}
 textblob = {version = "0.15.3", channel = "conda-forge"}
 
 # GPU DEPENDENCIES
@@ -52,6 +54,8 @@ cudnn = {version = "*", channel = "conda-forge"}
 cupy = {version = "12.*"}
 pytorch = {version = "2.1.2", channel = "pytorch"}
 pytorch-cuda = {version = "11.8", channel = "pytorch"} # PyTorch metapackage for cuda version
+tensorflow = {version = "2.14.0", build = "cuda118py310h148f8e3_0"}
+tensorflow-hub = {version = "0.16.1"}
 xformers = {version = "0.0.23.post1", channel = "xformers"}
 
 [environments]
