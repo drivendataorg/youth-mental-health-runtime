@@ -6,8 +6,6 @@ environments:
     - url: https://conda.anaconda.org/conda-forge/
     - url: https://conda.anaconda.org/pytorch/
     - url: https://conda.anaconda.org/xformers/
-    indexes:
-    - https://pypi.org/simple
     packages:
       linux-64:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/_libgcc_mutex-0.1-conda_forge.tar.bz2
@@ -303,7 +301,6 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zlib-1.3.1-h4ab18f5_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstandard-0.23.0-py310h64cae3c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.6-ha6fb4c9_0.conda
-      - pypi: https://files.pythonhosted.org/packages/ce/09/4cfa042283a1e9b96c0994b9a3b8f67a59954b0ef0dae50353726acde2ea/spacytextblob-4.0.0-py3-none-any.whl
   default:
     channels:
     - url: https://conda.anaconda.org/nvidia/
@@ -1776,25 +1773,6 @@ packages:
   - typing_inspect >=0.4.0,<1
   license: MIT
   license_family: MIT
-  purls:
-  - pkg:pypi/dataclasses-json?source=conda-forge-mapping
-  size: 30290
-  timestamp: 1717969432285
-- kind: conda
-  name: dataclasses-json
-  version: 0.6.7
-  build: pyhd8ed1ab_0
-  subdir: noarch
-  noarch: python
-  url: https://conda.anaconda.org/conda-forge/noarch/dataclasses-json-0.6.7-pyhd8ed1ab_0.conda
-  sha256: 284837364bb8a413723718a3ad57a71e7be36a469fb2f03bd7611c3afded71d9
-  md5: c4bbd4cb04570e17833a4280617d6cd8
-  depends:
-  - marshmallow >=3.18.0,<4.0.0
-  - python >=3.7.0,<4.0.0
-  - typing_inspect >=0.4.0,<1
-  license: MIT
-  license_family: MIT
   size: 30290
   timestamp: 1717969432285
 - kind: conda
@@ -2753,81 +2731,8 @@ packages:
   - jsonschema >=4.22.0,<5
   license: MIT
   license_family: MIT
-  purls:
-  - pkg:pypi/langchain?source=conda-forge-mapping
   size: 430992
   timestamp: 1728449542974
-- kind: conda
-  name: langchain
-  version: 0.3.3
-  build: pyhd8ed1ab_0
-  subdir: noarch
-  noarch: python
-  url: https://conda.anaconda.org/conda-forge/noarch/langchain-0.3.3-pyhd8ed1ab_0.conda
-  sha256: 066cb51d15b7cb2d3ab636a5a33a3bd1404c7d8591514598723cbaf834f47ad2
-  md5: 66d6f427385d0c508a1b94d727e1e73e
-  depends:
-  - aiohttp >=3.8.3,<4.0.0
-  - async-timeout >=4.0.0,<5.0.0
-  - langchain-core <0.4.0,>=0.3.10
-  - langchain-text-splitters <0.4.0,>=0.3.0
-  - langsmith >=0.1.17,<0.2.0
-  - numpy >=1.0.0,<2.0.0
-  - pydantic >=1,<3
-  - python >=3.8,<4.0
-  - pyyaml >=5.3
-  - requests >=2.0.0,<3.0.0
-  - sqlalchemy >=1.4,<3
-  - tenacity >=8.1.0,<9.0.0
-  constrains:
-  - numexpr >=2.8.6,<3
-  - rapidfuzz >=3.1.1,<4
-  - httpx >=0.25.2,<1
-  - httpx-sse >=0.3.1,<1
-  - tiktoken >=0.7,<1
-  - openai >=1.26.0,<2.0.0
-  - aiosqlite >=0.19.0,<0.20
-  - aiohttp >=3.9.1,<4.0.0
-  - requests >=2.0.0,<3.0.0
-  - openai >=1.10.0,<2.0.0
-  - defusedxml <0.8.0,>=0.7.1
-  - fireworks-ai >=0.13.0
-  - tokenizers >=0.15.1,<1
-  - groq >=0.4.1,<1
-  - anthropic >=0.28.0,<1
-  - jsonschema >=4.22.0,<5
-  license: MIT
-  license_family: MIT
-  size: 430992
-  timestamp: 1728449542974
-- kind: conda
-  name: langchain-community
-  version: 0.3.2
-  build: pyhd8ed1ab_0
-  subdir: noarch
-  noarch: python
-  url: https://conda.anaconda.org/conda-forge/noarch/langchain-community-0.3.2-pyhd8ed1ab_0.conda
-  sha256: 27cdc6caf36fb3c01fb785c321439fd8b28cd5827e4aa90e6fea954b017409c3
-  md5: e71a0823b1a3fc79e4b9afdb49e28a1f
-  depends:
-  - aiohttp >=3.8.3,<4.0.0
-  - dataclasses-json >=0.5.7,<0.7
-  - langchain <0.4.0,>=0.3.1
-  - langchain-core <0.4.0,>=0.3.1
-  - langsmith >=0.1.112,<0.2.0
-  - numpy >=1.0.0,<2.0.0
-  - pydantic-settings >=2.4.0,<3.0.0
-  - python >=3.8.1,<4.0
-  - pyyaml >=5.3
-  - requests >=2.0.0,<3.0.0
-  - sqlalchemy >=1.4,<3
-  - tenacity >=8.1.0,<9.0.0
-  license: MIT
-  license_family: MIT
-  purls:
-  - pkg:pypi/langchain-community?source=conda-forge-mapping
-  size: 1158538
-  timestamp: 1728470033519
 - kind: conda
   name: langchain-community
   version: 0.3.2
@@ -2875,54 +2780,8 @@ packages:
   - jinja2 >=3.0.0,<4.0.0
   license: MIT
   license_family: MIT
-  purls:
-  - pkg:pypi/langchain-core?source=conda-forge-mapping
   size: 264520
   timestamp: 1728444986484
-- kind: conda
-  name: langchain-core
-  version: 0.3.10
-  build: pyhd8ed1ab_0
-  subdir: noarch
-  noarch: python
-  url: https://conda.anaconda.org/conda-forge/noarch/langchain-core-0.3.10-pyhd8ed1ab_0.conda
-  sha256: 0cea5443212cca7d14e56ce37e9dc3fae2c7fa5e732b9251640dc35ac47f1c11
-  md5: c2c1da0ad58b0c471c88027da88d941b
-  depends:
-  - jsonpatch >=1.33.0,<2.0.0
-  - langsmith >=0.1.75,<0.2.0
-  - packaging >=23.2.0,<25.0.0
-  - pydantic >=1,<3
-  - python >=3.8.1,<4.0
-  - pyyaml >=5.3
-  - tenacity >=8.1.0,!=8.4.0,<9.0.0
-  constrains:
-  - jinja2 >=3.0.0,<4.0.0
-  license: MIT
-  license_family: MIT
-  size: 264520
-  timestamp: 1728444986484
-- kind: conda
-  name: langchain-text-splitters
-  version: 0.3.0
-  build: pyhd8ed1ab_0
-  subdir: noarch
-  noarch: python
-  url: https://conda.anaconda.org/conda-forge/noarch/langchain-text-splitters-0.3.0-pyhd8ed1ab_0.conda
-  sha256: 6d136dbcd1c4e2187a33cf73d40fe137183e0817e2cb749d3c41f4edaed3a79e
-  md5: 3e95475782aaa7c6fb3189888a9bcee7
-  depends:
-  - langchain-core <0.4.0,>=0.3.0
-  - python >=3.8.1,<4.0
-  constrains:
-  - lxml >=4.9.3,<6.0.0
-  - beautifulsoup4 >=4.12.3,<5.0.0
-  license: MIT
-  license_family: MIT
-  purls:
-  - pkg:pypi/langchain-text-splitters?source=conda-forge-mapping
-  size: 26692
-  timestamp: 1726389705883
 - kind: conda
   name: langchain-text-splitters
   version: 0.3.0
@@ -2960,27 +2819,6 @@ packages:
   - pkg:pypi/langcodes?source=conda-forge-mapping
   size: 155548
   timestamp: 1714235652331
-- kind: conda
-  name: langsmith
-  version: 0.1.129
-  build: pyhd8ed1ab_0
-  subdir: noarch
-  noarch: python
-  url: https://conda.anaconda.org/conda-forge/noarch/langsmith-0.1.129-pyhd8ed1ab_0.conda
-  sha256: c6d4a48e6f0c913f30cfff0bd1e9acd3853e171a619d57675007a444296c51c5
-  md5: 45557ab0c5c13de1b7cfbd7f1902c0b3
-  depends:
-  - httpx >=0.23.0,<1
-  - orjson >=3.9.14,<4.0.0
-  - pydantic >=1,<3
-  - python >=3.8.1,<4.0
-  - requests >=2.0.0,<3.0.0
-  license: MIT
-  license_family: MIT
-  purls:
-  - pkg:pypi/langsmith?source=conda-forge-mapping
-  size: 255763
-  timestamp: 1727415343522
 - kind: conda
   name: langsmith
   version: 0.1.129
@@ -3400,44 +3238,8 @@ packages:
   - libgcc-ng ==14.1.0=*_1
   license: GPL-3.0-only WITH GCC-exception-3.1
   license_family: GPL
-  purls: []
   size: 846380
   timestamp: 1724801836552
-- kind: conda
-  name: libgcc
-  version: 14.1.0
-  build: h77fa898_1
-  build_number: 1
-  subdir: linux-64
-  url: https://conda.anaconda.org/conda-forge/linux-64/libgcc-14.1.0-h77fa898_1.conda
-  sha256: 10fa74b69266a2be7b96db881e18fa62cfa03082b65231e8d652e897c4b335a3
-  md5: 002ef4463dd1e2b44a94a4ace468f5d2
-  depends:
-  - _libgcc_mutex 0.1 conda_forge
-  - _openmp_mutex >=4.5
-  constrains:
-  - libgomp 14.1.0 h77fa898_1
-  - libgcc-ng ==14.1.0=*_1
-  license: GPL-3.0-only WITH GCC-exception-3.1
-  license_family: GPL
-  size: 846380
-  timestamp: 1724801836552
-- kind: conda
-  name: libgcc-ng
-  version: 14.1.0
-  build: h69a702a_1
-  build_number: 1
-  subdir: linux-64
-  url: https://conda.anaconda.org/conda-forge/linux-64/libgcc-ng-14.1.0-h69a702a_1.conda
-  sha256: b91f7021e14c3d5c840fbf0dc75370d6e1f7c7ff4482220940eaafb9c64613b7
-  md5: 1efc0ad219877a73ef977af7dbb51f17
-  depends:
-  - libgcc 14.1.0 h77fa898_1
-  license: GPL-3.0-only WITH GCC-exception-3.1
-  license_family: GPL
-  purls: []
-  size: 52170
-  timestamp: 1724801842101
 - kind: conda
   name: libgcc-ng
   version: 14.1.0
@@ -3792,40 +3594,8 @@ packages:
   - libgcc 14.1.0 h77fa898_1
   license: GPL-3.0-only WITH GCC-exception-3.1
   license_family: GPL
-  purls: []
   size: 3892781
   timestamp: 1724801863728
-- kind: conda
-  name: libstdcxx
-  version: 14.1.0
-  build: hc0a3c3a_1
-  build_number: 1
-  subdir: linux-64
-  url: https://conda.anaconda.org/conda-forge/linux-64/libstdcxx-14.1.0-hc0a3c3a_1.conda
-  sha256: 44decb3d23abacf1c6dd59f3c152a7101b7ca565b4ef8872804ceaedcc53a9cd
-  md5: 9dbb9699ea467983ba8a4ba89b08b066
-  depends:
-  - libgcc 14.1.0 h77fa898_1
-  license: GPL-3.0-only WITH GCC-exception-3.1
-  license_family: GPL
-  size: 3892781
-  timestamp: 1724801863728
-- kind: conda
-  name: libstdcxx-ng
-  version: 14.1.0
-  build: h4852527_1
-  build_number: 1
-  subdir: linux-64
-  url: https://conda.anaconda.org/conda-forge/linux-64/libstdcxx-ng-14.1.0-h4852527_1.conda
-  sha256: a2dc44f97290740cc187bfe94ce543e6eb3c2ea8964d99f189a1d8c97b419b8c
-  md5: bd2598399a70bb86d8218e95548d735e
-  depends:
-  - libstdcxx 14.1.0 hc0a3c3a_1
-  license: GPL-3.0-only WITH GCC-exception-3.1
-  license_family: GPL
-  purls: []
-  size: 52219
-  timestamp: 1724801897766
 - kind: conda
   name: libstdcxx-ng
   version: 14.1.0
@@ -4246,23 +4016,6 @@ packages:
   - packaging >=17.0
   - python >=3.8
   license: MIT AND BSD-3-Clause
-  purls:
-  - pkg:pypi/marshmallow?source=conda-forge-mapping
-  size: 92188
-  timestamp: 1724261086984
-- kind: conda
-  name: marshmallow
-  version: 3.22.0
-  build: pyhd8ed1ab_0
-  subdir: noarch
-  noarch: python
-  url: https://conda.anaconda.org/conda-forge/noarch/marshmallow-3.22.0-pyhd8ed1ab_0.conda
-  sha256: 7f29d717fd7a356a22ed1cd1b2c8c2324b4c442367001a4ab1d9bf467656e4fe
-  md5: 8fa11f6581dccf45bc0c6e664bd34268
-  depends:
-  - packaging >=17.0
-  - python >=3.8
-  license: MIT AND BSD-3-Clause
   size: 92188
   timestamp: 1724261086984
 - kind: conda
@@ -4429,23 +4182,6 @@ packages:
   - pkg:pypi/murmurhash?source=conda-forge-mapping
   size: 34923
   timestamp: 1695449960305
-- kind: conda
-  name: mypy_extensions
-  version: 1.0.0
-  build: pyha770c72_0
-  subdir: noarch
-  noarch: python
-  url: https://conda.anaconda.org/conda-forge/noarch/mypy_extensions-1.0.0-pyha770c72_0.conda
-  sha256: f240217476e148e825420c6bc3a0c0efb08c0718b7042fae960400c02af858a3
-  md5: 4eccaeba205f0aed9ac3a9ea58568ca3
-  depends:
-  - python >=3.5
-  license: MIT
-  license_family: MIT
-  purls:
-  - pkg:pypi/mypy-extensions?source=conda-forge-mapping
-  size: 10492
-  timestamp: 1675543414256
 - kind: conda
   name: mypy_extensions
   version: 1.0.0
@@ -4726,33 +4462,6 @@ packages:
   - pkg:pypi/pandas?source=conda-forge-mapping
   size: 13024685
   timestamp: 1715898109537
-- kind: conda
-  name: peft
-  version: 0.12.0
-  build: pyhd8ed1ab_0
-  subdir: noarch
-  noarch: python
-  url: https://conda.anaconda.org/conda-forge/noarch/peft-0.12.0-pyhd8ed1ab_0.conda
-  sha256: e5d8778140c66533f254b29278ae07abbbf5cb0f864d8e4511937aa85d06fd8b
-  md5: ef6127954107c23f07eda89101308a7c
-  depends:
-  - accelerate >=0.21.0
-  - huggingface_hub >=0.17.0
-  - numpy >=1.17
-  - packaging >=20.0
-  - psutil
-  - python >=3.8
-  - pytorch >=1.13.0
-  - pyyaml
-  - safetensors
-  - tqdm
-  - transformers >=4.18.0
-  license: Apache-2.0
-  license_family: APACHE
-  purls:
-  - pkg:pypi/peft?source=conda-forge-mapping
-  size: 145025
-  timestamp: 1721857578938
 - kind: conda
   name: peft
   version: 0.12.0
@@ -5743,30 +5452,6 @@ packages:
   - transformers >=3.1
   license: Apache-2.0
   license_family: APACHE
-  purls:
-  - pkg:pypi/sentence-transformers?source=conda-forge-mapping
-  size: 83596
-  timestamp: 1626294595130
-- kind: conda
-  name: sentence-transformers
-  version: 2.0.0
-  build: pyhd8ed1ab_0
-  subdir: noarch
-  noarch: python
-  url: https://conda.anaconda.org/conda-forge/noarch/sentence-transformers-2.0.0-pyhd8ed1ab_0.tar.bz2
-  sha256: 986e04a885b02fb1567defdf549ee10bb4a1f20bceef813a52549ed82f874201
-  md5: 882aa54b798fbfdf17febfff4309be10
-  depends:
-  - nltk
-  - numpy
-  - python >=3.6
-  - pytorch >=1.0.1
-  - scikit-learn
-  - scipy
-  - tqdm
-  - transformers >=3.1
-  license: Apache-2.0
-  license_family: APACHE
   size: 83596
   timestamp: 1626294595130
 - kind: conda
@@ -6016,15 +5701,6 @@ packages:
   - pkg:pypi/spacy-loggers?source=conda-forge-mapping
   size: 21760
   timestamp: 1694527261289
-- kind: pypi
-  name: spacytextblob
-  version: 4.0.0
-  url: https://files.pythonhosted.org/packages/ce/09/4cfa042283a1e9b96c0994b9a3b8f67a59954b0ef0dae50353726acde2ea/spacytextblob-4.0.0-py3-none-any.whl
-  sha256: d81927fddd42f56821e20464c1c732a5bfc426854a12fa14300520f7bb13e3c3
-  requires_dist:
-  - spacy>=3.0,<4.0
-  - textblob>=0.15.3,<0.16.0
-  requires_python: '>=3.7,<4.0'
 - kind: conda
   name: sqlalchemy
   version: 2.0.32
@@ -6799,25 +6475,6 @@ packages:
   - pkg:pypi/typing-extensions?source=conda-forge-mapping
   size: 39888
   timestamp: 1717802653893
-- kind: conda
-  name: typing_inspect
-  version: 0.9.0
-  build: pyhd8ed1ab_0
-  subdir: noarch
-  noarch: python
-  url: https://conda.anaconda.org/conda-forge/noarch/typing_inspect-0.9.0-pyhd8ed1ab_0.conda
-  sha256: 16e0b825c138e14ebc84623248d91d93a8cff29bb93595cc4aa46ca32f24f1de
-  md5: 9e924b76b91908a17e28a19a0ab88687
-  depends:
-  - mypy_extensions >=0.3.0
-  - python >=3.5
-  - typing_extensions >=3.7.4
-  license: MIT
-  license_family: MIT
-  purls:
-  - pkg:pypi/typing-inspect?source=conda-forge-mapping
-  size: 14906
-  timestamp: 1685820229594
 - kind: conda
   name: typing_inspect
   version: 0.9.0
