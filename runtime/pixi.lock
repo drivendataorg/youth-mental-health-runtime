@@ -669,7 +669,6 @@ packages:
   md5: 23b8f98a355030331f40d0245492f715
   license: Apache-2.0
   license_family: APACHE
-  purls: []
   size: 7938
   timestamp: 1538887428262
 - kind: conda
@@ -3609,7 +3608,6 @@ packages:
   - libstdcxx 14.1.0 hc0a3c3a_1
   license: GPL-3.0-only WITH GCC-exception-3.1
   license_family: GPL
-  purls: []
   size: 52219
   timestamp: 1724801897766
 - kind: conda
@@ -3692,7 +3690,6 @@ packages:
   - libstdcxx >=13
   license: Apache-2.0
   license_family: APACHE
-  purls: []
   size: 3197061
   timestamp: 1727635479085
 - kind: conda
@@ -4586,8 +4583,6 @@ packages:
   - scipy
   license: Apache-2.0
   license_family: APACHE
-  purls:
-  - pkg:pypi/xgboost?source=conda-forge-mapping
   size: 134436
   timestamp: 1727635360689
 - kind: conda
@@ -6140,24 +6135,6 @@ packages:
   - python
   license: MIT
   license_family: MIT
-  purls:
-  - pkg:pypi/textblob?source=conda-forge-mapping
-  size: 608967
-  timestamp: 1551050986310
-- kind: conda
-  name: textblob
-  version: 0.15.3
-  build: py_0
-  subdir: noarch
-  noarch: python
-  url: https://conda.anaconda.org/conda-forge/noarch/textblob-0.15.3-py_0.tar.bz2
-  sha256: 0b720e342bf49e50e670c24258f09054d3a2aeecc0d46f49a67b7a79f0741502
-  md5: 3c0f5398f4d7815a0fa39277101c2550
-  depends:
-  - nltk >=3.1
-  - python
-  license: MIT
-  license_family: MIT
   size: 608967
   timestamp: 1551050986310
 - kind: conda
@@ -6700,8 +6677,6 @@ packages:
   - python >=3.9
   license: Apache-2.0
   license_family: APACHE
-  purls:
-  - pkg:pypi/xgboost?source=conda-forge-mapping
   size: 15228
   timestamp: 1727635880733
 - kind: conda
