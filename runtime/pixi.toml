@@ -28,6 +28,7 @@ scikit-learn = "1.5.1"
 scipy = "1.14.1"
 sentencepiece = "0.1.99"
 spacy = "3.7.5"
+textblob = "0.15.3"
 tqdm = "4.66.*"
 transformers = "4.44.2"
 sentence-transformers = "2.0.0"
@@ -40,7 +41,6 @@ cpuonly = {channel = "pytorch"} # PyTorch metapackage for CPU-only
 pytorch = {version = "2.1.2", channel = "pytorch"}
 tensorflow = {version = "2.14.0", build="cpu_py310hd1aba9c_0" }
 tensorflow-hub = {version = "0.16.1"}
-textblob = {version = "0.15.3", channel = "conda-forge"}
 
 # GPU DEPENDENCIES
 [feature.gpu]

@@ -592,6 +592,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/tensorflow-estimator-2.14.0-cuda118py310ha99e61b_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tensorflow-hub-0.16.1-pyhe222e06_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/termcolor-2.5.0-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/textblob-0.15.3-py_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/tf-keras-2.15.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/thinc-8.2.5-py310h9fd543b_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/threadpoolctl-3.5.0-pyhc1e730c_0.conda
