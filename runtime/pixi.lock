@@ -268,7 +268,6 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/termcolor-2.5.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/textblob-0.15.3-py_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/tf-keras-2.15.0-pyhd8ed1ab_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/textblob-0.15.3-py_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/linux-64/thinc-8.2.5-py310h9fd543b_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/threadpoolctl-3.5.0-pyhc1e730c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/tk-8.6.13-noxft_h4845f30_101.conda
@@ -593,6 +592,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/tensorflow-estimator-2.14.0-cuda118py310ha99e61b_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tensorflow-hub-0.16.1-pyhe222e06_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/termcolor-2.5.0-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/textblob-0.15.3-py_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/tf-keras-2.15.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/thinc-8.2.5-py310h9fd543b_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/threadpoolctl-3.5.0-pyhc1e730c_0.conda
@@ -3610,23 +3610,6 @@ packages:
   license: GPL-3.0-only WITH GCC-exception-3.1
   license_family: GPL
   purls: []
-  purls: []
-  size: 52219
-  timestamp: 1724801897766
-- kind: conda
-  name: libstdcxx-ng
-  version: 14.1.0
-  build: h4852527_1
-  build_number: 1
-  subdir: linux-64
-  url: https://conda.anaconda.org/conda-forge/linux-64/libstdcxx-ng-14.1.0-h4852527_1.conda
-  sha256: a2dc44f97290740cc187bfe94ce543e6eb3c2ea8964d99f189a1d8c97b419b8c
-  md5: bd2598399a70bb86d8218e95548d735e
-  depends:
-  - libstdcxx 14.1.0 hc0a3c3a_1
-  license: GPL-3.0-only WITH GCC-exception-3.1
-  license_family: GPL
-  purls: []
   size: 52219
   timestamp: 1724801897766
 - kind: conda
@@ -6157,6 +6140,24 @@ packages:
   - python
   license: MIT
   license_family: MIT
+  purls:
+  - pkg:pypi/textblob?source=conda-forge-mapping
+  size: 608967
+  timestamp: 1551050986310
+- kind: conda
+  name: textblob
+  version: 0.15.3
+  build: py_0
+  subdir: noarch
+  noarch: python
+  url: https://conda.anaconda.org/conda-forge/noarch/textblob-0.15.3-py_0.tar.bz2
+  sha256: 0b720e342bf49e50e670c24258f09054d3a2aeecc0d46f49a67b7a79f0741502
+  md5: 3c0f5398f4d7815a0fa39277101c2550
+  depends:
+  - nltk >=3.1
+  - python
+  license: MIT
+  license_family: MIT
   size: 608967
   timestamp: 1551050986310
 - kind: conda
@@ -6176,24 +6177,6 @@ packages:
   license_family: APACHE
   size: 901159
   timestamp: 1708248358254
-- kind: conda
-  name: textblob
-  version: 0.15.3
-  build: py_0
-  subdir: noarch
-  noarch: python
-  url: https://conda.anaconda.org/conda-forge/noarch/textblob-0.15.3-py_0.tar.bz2
-  sha256: 0b720e342bf49e50e670c24258f09054d3a2aeecc0d46f49a67b7a79f0741502
-  md5: 3c0f5398f4d7815a0fa39277101c2550
-  depends:
-  - nltk >=3.1
-  - python
-  license: MIT
-  license_family: MIT
-  purls:
-  - pkg:pypi/textblob?source=conda-forge-mapping
-  size: 608967
-  timestamp: 1551050986310
 - kind: conda
   name: thinc
   version: 8.2.5
