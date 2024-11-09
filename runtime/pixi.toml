@@ -34,6 +34,9 @@ transformers = "4.44.2"
 sentence-transformers = "2.0.0"
 xgboost = "2.1.1"
 
+[feature.base.pypi-dependencies]
+en-core-web-lg = { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.7.1/en_core_web_lg-3.7.1-py3-none-any.whl" }
+
 # CPU DEPENDENCIES
 [feature.cpu]
 [feature.cpu.dependencies]

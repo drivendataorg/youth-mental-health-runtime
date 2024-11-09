@@ -300,6 +300,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zlib-1.3.1-h4ab18f5_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstandard-0.23.0-py310h64cae3c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.6-ha6fb4c9_0.conda
+      - pypi: direct+https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.7.1/en_core_web_lg-3.7.1-py3-none-any.whl
   default:
     channels:
     - url: https://conda.anaconda.org/nvidia/
@@ -628,6 +629,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zlib-1.3.1-h4ab18f5_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstandard-0.23.0-py310h64cae3c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.6-ha6fb4c9_0.conda
+      - pypi: direct+https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.7.1/en_core_web_lg-3.7.1-py3-none-any.whl
 packages:
 - kind: conda
   name: _libgcc_mutex
@@ -1918,6 +1920,12 @@ packages:
   - pkg:pypi/email-validator?source=conda-forge-mapping
   size: 6690
   timestamp: 1718984720419
+- kind: pypi
+  name: en-core-web-lg
+  version: 3.7.1
+  url: direct+https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.7.1/en_core_web_lg-3.7.1-py3-none-any.whl
+  requires_dist:
+  - spacy<3.8.0,>=3.7.2
 - kind: conda
   name: exceptiongroup
   version: 1.2.2
