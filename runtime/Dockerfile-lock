@@ -1,4 +1,4 @@
-FROM ghcr.io/prefix-dev/pixi:0.26.1-jammy
+FROM ghcr.io/prefix-dev/pixi:0.36.0-jammy
 
 USER root
 

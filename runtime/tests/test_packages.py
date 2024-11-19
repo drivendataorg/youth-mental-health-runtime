@@ -10,6 +10,7 @@ packages = [
     "spacy",
     "sklearn",
     "tensorflow",
+    "tensorflow_text",
     "torch",
     "transformers",
 ]
@@ -89,3 +90,7 @@ def test_spacy():
             ents.append(span)
         doc.ents = ents
         db.add(doc)
+
+def test_tensorflow_text():
+    import tensorflow_text as tf_text
+    tf_text.normalize_utf8(['example text'])
