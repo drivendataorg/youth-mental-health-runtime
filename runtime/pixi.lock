@@ -6,6 +6,8 @@ environments:
     - url: https://conda.anaconda.org/conda-forge/
     - url: https://conda.anaconda.org/pytorch/
     - url: https://conda.anaconda.org/xformers/
+    indexes:
+    - https://pypi.org/simple
     packages:
       linux-64:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/_libgcc_mutex-0.1-conda_forge.tar.bz2
@@ -301,6 +303,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zlib-1.3.1-h4ab18f5_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstandard-0.23.0-py310h64cae3c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.6-ha6fb4c9_0.conda
+      - pypi: https://files.pythonhosted.org/packages/0b/5f/8b301d2d0cea8334c22aaeb8880ce115ec34d7eba20f7b08c64202011a85/tensorflow_text-2.14.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
   default:
     channels:
     - url: https://conda.anaconda.org/nvidia/
@@ -314,6 +317,8 @@ environments:
     - url: https://conda.anaconda.org/conda-forge/
     - url: https://conda.anaconda.org/pytorch/
     - url: https://conda.anaconda.org/xformers/
+    indexes:
+    - https://pypi.org/simple
     packages:
       linux-64:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/_libgcc_mutex-0.1-conda_forge.tar.bz2
@@ -630,6 +635,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zlib-1.3.1-h4ab18f5_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstandard-0.23.0-py310h64cae3c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.6-ha6fb4c9_0.conda
+      - pypi: https://files.pythonhosted.org/packages/0b/5f/8b301d2d0cea8334c22aaeb8880ce115ec34d7eba20f7b08c64202011a85/tensorflow_text-2.14.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
 packages:
 - kind: conda
   name: _libgcc_mutex
@@ -671,6 +677,7 @@ packages:
   md5: 23b8f98a355030331f40d0245492f715
   license: Apache-2.0
   license_family: APACHE
+  purls: []
   size: 7938
   timestamp: 1538887428262
 - kind: conda
@@ -3713,6 +3720,7 @@ packages:
   - libstdcxx >=13
   license: Apache-2.0
   license_family: APACHE
+  purls: []
   size: 3197061
   timestamp: 1727635479085
 - kind: conda
@@ -4606,6 +4614,8 @@ packages:
   - scipy
   license: Apache-2.0
   license_family: APACHE
+  purls:
+  - pkg:pypi/xgboost?source=conda-forge-mapping
   size: 134436
   timestamp: 1727635360689
 - kind: conda
@@ -5942,6 +5952,8 @@ packages:
   - tensorflow-cpu
   license: Apache-2.0
   license_family: Apache
+  purls:
+  - pkg:pypi/tensorflow?source=conda-forge-mapping
   size: 36306
   timestamp: 1699606742977
 - kind: conda
@@ -6012,6 +6024,8 @@ packages:
   - tensorflow-cpu
   license: Apache-2.0
   license_family: Apache
+  purls:
+  - pkg:pypi/tensorflow?source=conda-forge-mapping
   size: 137499958
   timestamp: 1699606365170
 - kind: conda
@@ -6086,6 +6100,8 @@ packages:
   - tensorflow-base 2.14.0 cpu_py310h3c6a6a6_0
   license: Apache-2.0
   license_family: Apache
+  purls:
+  - pkg:pypi/tensorflow-estimator?source=conda-forge-mapping
   size: 547087
   timestamp: 1699606728094
 - kind: conda
@@ -6129,6 +6145,19 @@ packages:
   license_family: APACHE
   size: 36980
   timestamp: 1715060264838
+- kind: pypi
+  name: tensorflow-text
+  version: 2.14.0
+  url: https://files.pythonhosted.org/packages/0b/5f/8b301d2d0cea8334c22aaeb8880ce115ec34d7eba20f7b08c64202011a85/tensorflow_text-2.14.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+  sha256: 2c68c74bacff493c38be2b2e45f0f1530049a900162670c96443b5ca6a839e8a
+  requires_dist:
+  - tensorflow-hub>=0.13.0
+  - tensorflow>=2.14.0,<2.15 ; platform_machine != 'arm64' or platform_system != 'Darwin'
+  - tensorflow-macos>=2.14.0,<2.15 ; platform_machine == 'arm64' and platform_system == 'Darwin'
+  - tensorflow-cpu>=2.12.0,<2.13 ; extra == 'tensorflow-cpu'
+  - absl-py ; extra == 'tests'
+  - pytest ; extra == 'tests'
+  - tensorflow-datasets>=3.2.0 ; extra == 'tests'
 - kind: conda
   name: termcolor
   version: 2.5.0
@@ -6508,6 +6537,7 @@ packages:
   - cuda-version >=12,<13
   license: BSD-3-Clause
   license_family: BSD
+  purls: []
   size: 15140212
   timestamp: 1695214149805
 - kind: conda
@@ -6700,6 +6730,8 @@ packages:
   - python >=3.9
   license: Apache-2.0
   license_family: APACHE
+  purls:
+  - pkg:pypi/xgboost?source=conda-forge-mapping
   size: 15228
   timestamp: 1727635880733
 - kind: conda
